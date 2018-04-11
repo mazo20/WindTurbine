@@ -31,6 +31,7 @@ class WindTurbineView: UIView {
         let turbinePoleHeight = frame.size.height/2
         turbinePole.frame.size = CGSize(width: turbinePoleWidth, height: turbinePoleHeight)
         turbinePole.center = CGPoint(x: frame.midX, y: frame.maxY*2/3)
+        turbinePole.tintColor = .white
         self.addSubview(turbinePole)
         
         let turbineBlades = UIImageView(image: #imageLiteral(resourceName: "TurbineBlades"))

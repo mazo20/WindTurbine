@@ -16,7 +16,7 @@ class GameViewController: UIViewController {
     @IBOutlet var closeUpgradeViewButton: UIButton!
     
     @IBAction func upgradeViewButton(_ sender: Any) {
-        showUpgradeView()
+        if upgradeView.isHidden { showUpgradeView() }
     }
     @IBAction func closeUpgradeView(_ sender: Any) {
         hideUpgradeView()
@@ -35,6 +35,10 @@ class GameViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 }
 

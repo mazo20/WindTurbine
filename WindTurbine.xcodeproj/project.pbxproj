@@ -16,6 +16,8 @@
 		546A20AB207509A5009A3EC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 546A20AA207509A5009A3EC0 /* Assets.xcassets */; };
 		546A20AE207509A5009A3EC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 546A20AC207509A5009A3EC0 /* LaunchScreen.storyboard */; };
 		54FA5283207E002500D2E78E /* UpgradeView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FA5282207E002500D2E78E /* UpgradeView+Animations.swift */; };
+		54FA5285207E520300D2E78E /* CloudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FA5284207E520300D2E78E /* CloudView.swift */; };
+		54FA5288207E558D00D2E78E /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FA5287207E558D00D2E78E /* BackgroundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		546A20AD207509A5009A3EC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		546A20AF207509A5009A3EC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54FA5282207E002500D2E78E /* UpgradeView+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UpgradeView+Animations.swift"; sourceTree = "<group>"; };
+		54FA5284207E520300D2E78E /* CloudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudView.swift; sourceTree = "<group>"; };
+		54FA5287207E558D00D2E78E /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,17 +75,27 @@
 			isa = PBXGroup;
 			children = (
 				5452C92F207D3FC2002DB75E /* Extensions */,
+				54FA5286207E541700D2E78E /* Animations */,
 				546A20A3207509A5009A3EC0 /* AppDelegate.swift */,
 				546A20A5207509A5009A3EC0 /* GameViewController.swift */,
-				54FA5282207E002500D2E78E /* UpgradeView+Animations.swift */,
 				5452C929207B7ABF002DB75E /* UpgradeViewController.swift */,
 				5452C92B207CD037002DB75E /* WindTurbineView.swift */,
+				54FA5287207E558D00D2E78E /* BackgroundView.swift */,
+				54FA5284207E520300D2E78E /* CloudView.swift */,
 				546A20A7207509A5009A3EC0 /* Main.storyboard */,
 				546A20AA207509A5009A3EC0 /* Assets.xcassets */,
 				546A20AC207509A5009A3EC0 /* LaunchScreen.storyboard */,
 				546A20AF207509A5009A3EC0 /* Info.plist */,
 			);
 			path = WindTurbine;
+			sourceTree = "<group>";
+		};
+		54FA5286207E541700D2E78E /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				54FA5282207E002500D2E78E /* UpgradeView+Animations.swift */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,10 +172,12 @@
 			files = (
 				54FA5283207E002500D2E78E /* UpgradeView+Animations.swift in Sources */,
 				546A20A6207509A5009A3EC0 /* GameViewController.swift in Sources */,
+				54FA5288207E558D00D2E78E /* BackgroundView.swift in Sources */,
 				5452C92A207B7ABF002DB75E /* UpgradeViewController.swift in Sources */,
 				5452C92C207CD037002DB75E /* WindTurbineView.swift in Sources */,
 				5452C92E207D3FA5002DB75E /* UIView+Extension.swift in Sources */,
 				546A20A4207509A5009A3EC0 /* AppDelegate.swift in Sources */,
+				54FA5285207E520300D2E78E /* CloudView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

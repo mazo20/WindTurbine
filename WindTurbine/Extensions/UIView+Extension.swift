@@ -9,12 +9,12 @@
 import UIKit
 
 extension UIView {
-    func rotateInfinitely(withInterval interval: CFTimeInterval) {
-        let rotation = CABasicAnimation(keyPath: "transform.rotation")
-        rotation.fromValue = 0.0
-        rotation.toValue = 2 * Double.pi
-        rotation.repeatCount = .infinity
-        rotation.duration = interval
-        self.layer.add(rotation, forKey: nil)
+    
+    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
     }
+    
 }

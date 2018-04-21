@@ -1,0 +1,48 @@
+{
+  "upgrades" : [
+  	{
+                "emoji" : "🤧",
+                "name" : "Encourage sneezing",
+                "initialCost" : 1,
+                "initialValue" : 0.1,
+                "costMultiplier" : 3.1,
+                "valueMultiplier" : 1.9
+                },{
+                "emoji" : "🌲",
+                "name" : "Cut down trees",
+                "initialCost" : 10,
+                "initialValue" : 0.3,
+                "costMultiplier" : 3.2,
+                "valueMultiplier" : 1.8
+                },{
+                "emoji" : "🏡",
+                "name" : "Demolish nearby houses",
+                "initialCost" : 50,
+                "initialValue" : 0.8,
+                "costMultiplier" : 3.3,
+                "valueMultiplier" : 1.7
+                },{
+                "emoji" : "✈️",
+                "name" : "Use jet engines",
+                "initialCost" : 200,
+                "initialValue" : 1.5,
+                "costMultiplier" : 3.4,
+                "valueMultiplier" : 1.6
+                },{
+                "emoji" : "🏝️",
+                "name" : "Flatten terrain",
+                "initialCost" : 1000,
+                "initialValue" : 4,
+                "costMultiplier" : 3.5,
+                "valueMultiplier" : 1.5
+                },{
+                "emoji" : "🌪️",
+                "name" : "Change climate",
+                "initialCost" : 10000,
+                "initialValue" : 10,
+                "costMultiplier" : 3.6,
+                "valueMultiplier" : 1.4
+                }
+    
+  ]
+}

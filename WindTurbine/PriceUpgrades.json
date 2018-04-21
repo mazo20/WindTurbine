@@ -1,0 +1,47 @@
+{
+  "upgrades" : [
+                {
+                "emoji" : "💡",
+                "name" : "Turn on lights",
+                "initialCost" : 10,
+                "initialValue" : 0.1,
+                "costMultiplier" : 3,
+                "valueMultiplier" : 2
+                },{
+                "emoji" : "📱",
+                "name" : "More smartphones",
+                "initialCost" : 40,
+                "initialValue" : 0.3,
+                "costMultiplier" : 3,
+                "valueMultiplier" : 2
+                },{
+                "emoji" : "🚗",
+                "name" : "Electric cars",
+                "initialCost" : 100,
+                "initialValue" : 0.5,
+                "costMultiplier" : 3,
+                "valueMultiplier" : 2
+                },{
+                "emoji" : "🔥",
+                "name" : "Fight competition",
+                "initialCost" : 500,
+                "initialValue" : 1,
+                "costMultiplier" : 3,
+                "valueMultiplier" : 2
+                },{
+                "emoji" : "☢️",
+                "name" : "Ban nuclear power",
+                "initialCost" : 4000,
+                "initialValue" : 3,
+                "costMultiplier" : 3,
+                "valueMultiplier" : 2
+                },{
+                "emoji" : "🌘",
+                "name" : "Hide sun",
+                "initialCost" : 10000,
+                "initialValue" : 5,
+                "costMultiplier" : 3,
+                "valueMultiplier" : 2
+                }
+  ]
+}

@@ -7,9 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5452C92A207B7ABF002DB75E /* UpgradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5452C929207B7ABF002DB75E /* UpgradeViewController.swift */; };
+		541C7562207FABB600D268C4 /* UpgradeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C7561207FABB600D268C4 /* UpgradeViewCell.swift */; };
+		541C7564207FAC0000D268C4 /* UpgradeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 541C7563207FAC0000D268C4 /* UpgradeViewCell.xib */; };
+		541C756620876CE600D268C4 /* Wind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C756520876CE600D268C4 /* Wind.swift */; };
+		541C756820876D7300D268C4 /* WindTurbine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C756720876D7300D268C4 /* WindTurbine.swift */; };
+		541C756A20876E4800D268C4 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C756920876E4800D268C4 /* Money.swift */; };
+		541C756D20876ECD00D268C4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C756C20876ECD00D268C4 /* Model.swift */; };
+		541C756F2087729200D268C4 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C756E2087729200D268C4 /* Double+Extension.swift */; };
+		541C75712087B6D200D268C4 /* TextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C75702087B6D200D268C4 /* TextLabel.swift */; };
 		5452C92C207CD037002DB75E /* WindTurbineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5452C92B207CD037002DB75E /* WindTurbineView.swift */; };
 		5452C92E207D3FA5002DB75E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5452C92D207D3FA5002DB75E /* UIView+Extension.swift */; };
+		545317B820889FCD005EA09C /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545317B720889FCD005EA09C /* Dictionary+Extension.swift */; };
+		545317BA2088E8D3005EA09C /* WindUpgrades.json in Resources */ = {isa = PBXBuildFile; fileRef = 545317B92088E8D3005EA09C /* WindUpgrades.json */; };
+		545317BC2088EA39005EA09C /* Upgrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545317BB2088EA39005EA09C /* Upgrade.swift */; };
+		545317BE2088EF14005EA09C /* PowerUpgrades.json in Resources */ = {isa = PBXBuildFile; fileRef = 545317BD2088EF13005EA09C /* PowerUpgrades.json */; };
+		545317C02088EF27005EA09C /* PriceUpgrades.json in Resources */ = {isa = PBXBuildFile; fileRef = 545317BF2088EF27005EA09C /* PriceUpgrades.json */; };
 		546A20A4207509A5009A3EC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A20A3207509A5009A3EC0 /* AppDelegate.swift */; };
 		546A20A6207509A5009A3EC0 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A20A5207509A5009A3EC0 /* GameViewController.swift */; };
 		546A20A9207509A5009A3EC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 546A20A7207509A5009A3EC0 /* Main.storyboard */; };
@@ -21,9 +33,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5452C929207B7ABF002DB75E /* UpgradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeViewController.swift; sourceTree = "<group>"; };
+		541C7561207FABB600D268C4 /* UpgradeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeViewCell.swift; sourceTree = "<group>"; };
+		541C7563207FAC0000D268C4 /* UpgradeViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpgradeViewCell.xib; sourceTree = "<group>"; };
+		541C756520876CE600D268C4 /* Wind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wind.swift; sourceTree = "<group>"; };
+		541C756720876D7300D268C4 /* WindTurbine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindTurbine.swift; sourceTree = "<group>"; };
+		541C756920876E4800D268C4 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
+		541C756C20876ECD00D268C4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		541C756E2087729200D268C4 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		541C75702087B6D200D268C4 /* TextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLabel.swift; sourceTree = "<group>"; };
 		5452C92B207CD037002DB75E /* WindTurbineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindTurbineView.swift; sourceTree = "<group>"; };
 		5452C92D207D3FA5002DB75E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		545317B720889FCD005EA09C /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
+		545317B92088E8D3005EA09C /* WindUpgrades.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WindUpgrades.json; sourceTree = "<group>"; };
+		545317BB2088EA39005EA09C /* Upgrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upgrade.swift; sourceTree = "<group>"; };
+		545317BD2088EF13005EA09C /* PowerUpgrades.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PowerUpgrades.json; sourceTree = "<group>"; };
+		545317BF2088EF27005EA09C /* PriceUpgrades.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PriceUpgrades.json; sourceTree = "<group>"; };
 		546A20A0207509A5009A3EC0 /* WindTurbine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WindTurbine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		546A20A3207509A5009A3EC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		546A20A5207509A5009A3EC0 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -47,10 +71,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		541C756B20876E7C00D268C4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				541C756520876CE600D268C4 /* Wind.swift */,
+				541C756720876D7300D268C4 /* WindTurbine.swift */,
+				541C756920876E4800D268C4 /* Money.swift */,
+				541C756C20876ECD00D268C4 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		5452C92F207D3FC2002DB75E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				5452C92D207D3FA5002DB75E /* UIView+Extension.swift */,
+				541C756E2087729200D268C4 /* Double+Extension.swift */,
+				545317B720889FCD005EA09C /* Dictionary+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -78,10 +115,17 @@
 				54FA5286207E541700D2E78E /* Animations */,
 				546A20A3207509A5009A3EC0 /* AppDelegate.swift */,
 				546A20A5207509A5009A3EC0 /* GameViewController.swift */,
-				5452C929207B7ABF002DB75E /* UpgradeViewController.swift */,
+				545317BB2088EA39005EA09C /* Upgrade.swift */,
+				541C75702087B6D200D268C4 /* TextLabel.swift */,
+				541C7561207FABB600D268C4 /* UpgradeViewCell.swift */,
+				541C7563207FAC0000D268C4 /* UpgradeViewCell.xib */,
 				5452C92B207CD037002DB75E /* WindTurbineView.swift */,
+				541C756B20876E7C00D268C4 /* Model */,
 				54FA5287207E558D00D2E78E /* BackgroundView.swift */,
 				54FA5284207E520300D2E78E /* CloudView.swift */,
+				545317B92088E8D3005EA09C /* WindUpgrades.json */,
+				545317BD2088EF13005EA09C /* PowerUpgrades.json */,
+				545317BF2088EF27005EA09C /* PriceUpgrades.json */,
 				546A20A7207509A5009A3EC0 /* Main.storyboard */,
 				546A20AA207509A5009A3EC0 /* Assets.xcassets */,
 				546A20AC207509A5009A3EC0 /* LaunchScreen.storyboard */,
@@ -157,9 +201,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				545317BE2088EF14005EA09C /* PowerUpgrades.json in Resources */,
+				545317BA2088E8D3005EA09C /* WindUpgrades.json in Resources */,
 				546A20AE207509A5009A3EC0 /* LaunchScreen.storyboard in Resources */,
 				546A20AB207509A5009A3EC0 /* Assets.xcassets in Resources */,
+				545317C02088EF27005EA09C /* PriceUpgrades.json in Resources */,
 				546A20A9207509A5009A3EC0 /* Main.storyboard in Resources */,
+				541C7564207FAC0000D268C4 /* UpgradeViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,14 +218,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				545317BC2088EA39005EA09C /* Upgrade.swift in Sources */,
 				54FA5283207E002500D2E78E /* UpgradeView+Animations.swift in Sources */,
+				541C756620876CE600D268C4 /* Wind.swift in Sources */,
+				541C756F2087729200D268C4 /* Double+Extension.swift in Sources */,
 				546A20A6207509A5009A3EC0 /* GameViewController.swift in Sources */,
 				54FA5288207E558D00D2E78E /* BackgroundView.swift in Sources */,
-				5452C92A207B7ABF002DB75E /* UpgradeViewController.swift in Sources */,
 				5452C92C207CD037002DB75E /* WindTurbineView.swift in Sources */,
+				541C756D20876ECD00D268C4 /* Model.swift in Sources */,
+				541C75712087B6D200D268C4 /* TextLabel.swift in Sources */,
+				541C756A20876E4800D268C4 /* Money.swift in Sources */,
 				5452C92E207D3FA5002DB75E /* UIView+Extension.swift in Sources */,
+				541C756820876D7300D268C4 /* WindTurbine.swift in Sources */,
 				546A20A4207509A5009A3EC0 /* AppDelegate.swift in Sources */,
 				54FA5285207E520300D2E78E /* CloudView.swift in Sources */,
+				541C7562207FABB600D268C4 /* UpgradeViewCell.swift in Sources */,
+				545317B820889FCD005EA09C /* Dictionary+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +377,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.maciejkowalski.WindTurbine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -336,7 +392,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.maciejkowalski.WindTurbine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

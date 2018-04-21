@@ -29,7 +29,7 @@ class BackgroundView: UIView {
     }
     
     func addClouds() {
-        let timer = Timer.scheduledTimer(withTimeInterval: 8.0, repeats: true, block: { (Timer) in
+        let timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true, block: { (Timer) in
             let cloud = Cloud()
             cloud.alpha = 0.9
             let y = cloud.frame.height/2 + CGFloat(arc4random_uniform(UInt32(self.frame.midY/2 - cloud.frame.height)))
@@ -37,7 +37,7 @@ class BackgroundView: UIView {
             self.addSubview(cloud)
             self.sendSubview(toBack: cloud)
             
-            let duration = Double(arc4random_uniform(20)) + 20
+            let duration = Double(arc4random_uniform(30)) + 20
             UIView.animate(withDuration: duration, animations: {
                 UIView.setAnimationCurve(.linear)
                 cloud.center.x += self.frame.size.width + cloud.frame.width

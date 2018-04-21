@@ -1,0 +1,47 @@
+{
+  "upgrades" : [
+                {
+                "emoji" : "⏫",
+                "name" : "Increase hight",
+                "initialCost" : 0.01,
+                "initialValue" : 1,
+                "costMultiplier" : 3,
+                "valueMultiplier" : 2
+                },{
+                "emoji" : "⚖️",
+                "name" : "Change blades material",
+                "initialCost" : 0.02,
+                "initialValue" : 2,
+                "costMultiplier" : 3,
+                "valueMultiplier" : 2
+                },{
+                "emoji" : "⚙️",
+                "name" : "Oil the gears",
+                "initialCost" : 0.05,
+                "initialValue" : 2,
+                "costMultiplier" : 3,
+                "valueMultiplier" : 2
+                },{
+                "emoji" : "🔎",
+                "name" : "Modify the blades",
+                "initialCost" : 0.1,
+                "initialValue" : 2,
+                "costMultiplier" : 3,
+                "valueMultiplier" : 2
+                },{
+                "emoji" : "🌡️",
+                "name" : "Increase cooling",
+                "initialCost" : 0.25,
+                "initialValue" : 2,
+                "costMultiplier" : 3,
+                "valueMultiplier" : 2
+                },{
+                "emoji" : "🔌",
+                "name" : "Upgrade power lines",
+                "initialCost" : 0.5,
+                "initialValue" : 2,
+                "costMultiplier" : 3,
+                "valueMultiplier" : 2
+                }
+  ]
+}

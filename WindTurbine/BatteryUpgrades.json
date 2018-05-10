@@ -1,0 +1,20 @@
+{
+  "upgrades" : [
+  	{
+  		"imageName" : "Battery75",
+  		"name" : "Charging power",
+  		"baseCost" : 10,
+  		"baseValue" : 0.05,
+  		"costMult" : 1.8,
+  		"valueMult" : 5
+  	},
+  	{
+  		"imageName" : "Battery25",
+  		"name" : "Capacity",
+  		"baseCost" : 10,
+  		"baseValue" : 0.01,
+  		"costMult" : 1.8,
+  		"valueMult" : 5
+  	}
+  ]
+}

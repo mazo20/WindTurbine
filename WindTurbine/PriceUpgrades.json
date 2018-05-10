@@ -3,45 +3,45 @@
                 {
                 "emoji" : "💡",
                 "name" : "Turn on lights",
-                "initialCost" : 10,
-                "initialValue" : 0.1,
-                "costMultiplier" : 3,
-                "valueMultiplier" : 2
+                "baseCost" : 1,
+                "baseValue" : 0.01,
+                "costMult" : 1.3,
+                "valueMult" : 1.5
                 },{
                 "emoji" : "📱",
                 "name" : "More smartphones",
-                "initialCost" : 40,
-                "initialValue" : 0.3,
-                "costMultiplier" : 3,
-                "valueMultiplier" : 2
+                "baseCost" : 10,
+                "baseValue" : 0.04,
+                "costMult" : 1.31,
+                "valueMult" : 1.49
                 },{
                 "emoji" : "🚗",
                 "name" : "Electric cars",
-                "initialCost" : 100,
-                "initialValue" : 0.5,
-                "costMultiplier" : 3,
-                "valueMultiplier" : 2
+                "baseCost" : 75,
+                "baseValue" : 0.12,
+                "costMult" : 1.32,
+                "valueMult" : 1.48
                 },{
                 "emoji" : "🔥",
                 "name" : "Fight competition",
-                "initialCost" : 500,
-                "initialValue" : 1,
-                "costMultiplier" : 3,
-                "valueMultiplier" : 2
+                "baseCost" : 800,
+                "baseValue" : 0.5,
+                "costMult" : 1.33,
+                "valueMult" : 1.47
                 },{
                 "emoji" : "☢️",
                 "name" : "Ban nuclear power",
-                "initialCost" : 4000,
-                "initialValue" : 3,
-                "costMultiplier" : 3,
-                "valueMultiplier" : 2
+                "baseCost" : 9000,
+                "baseValue" : 2.5,
+                "costMult" : 1.34,
+                "valueMult" : 1.46
                 },{
                 "emoji" : "🌘",
                 "name" : "Hide sun",
-                "initialCost" : 10000,
-                "initialValue" : 5,
-                "costMultiplier" : 3,
-                "valueMultiplier" : 2
+                "baseCost" : 100000,
+                "baseValue" : 4,
+                "costMult" : 1.35,
+                "valueMult" : 1.45
                 }
   ]
 }

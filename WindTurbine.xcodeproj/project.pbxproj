@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54069D2B209B4F3A00CF3922 /* ScratchCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54069D2A209B4F3A00CF3922 /* ScratchCardCell.xib */; };
+		54069D2D209C736E00CF3922 /* ScratchCardsMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54069D2C209C736E00CF3922 /* ScratchCardsMenuCell.xib */; };
+		54069D30209C766C00CF3922 /* BatteryLevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54069D2F209C766C00CF3922 /* BatteryLevelCell.swift */; };
+		54069D32209C768100CF3922 /* ScratchCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54069D31209C768100CF3922 /* ScratchCardCell.swift */; };
+		54069D34209C768E00CF3922 /* ScratchCardsMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54069D33209C768D00CF3922 /* ScratchCardsMenuCell.swift */; };
+		54069D36209C89D100CF3922 /* Battery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54069D35209C89D100CF3922 /* Battery.swift */; };
+		54069D38209DBE8600CF3922 /* ScratchCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54069D37209DBE8600CF3922 /* ScratchCard.swift */; };
+		5410BA4A20A05B0B00A7570D /* BatteryUpgrades.json in Resources */ = {isa = PBXBuildFile; fileRef = 5410BA4920A05B0B00A7570D /* BatteryUpgrades.json */; };
+		5410BA4C20A0645C00A7570D /* UpgradeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5410BA4B20A0645C00A7570D /* UpgradeStore.swift */; };
 		541C7562207FABB600D268C4 /* UpgradeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C7561207FABB600D268C4 /* UpgradeViewCell.swift */; };
 		541C7564207FAC0000D268C4 /* UpgradeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 541C7563207FAC0000D268C4 /* UpgradeViewCell.xib */; };
-		541C756620876CE600D268C4 /* Wind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C756520876CE600D268C4 /* Wind.swift */; };
-		541C756820876D7300D268C4 /* WindTurbine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C756720876D7300D268C4 /* WindTurbine.swift */; };
-		541C756A20876E4800D268C4 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C756920876E4800D268C4 /* Money.swift */; };
 		541C756D20876ECD00D268C4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C756C20876ECD00D268C4 /* Model.swift */; };
 		541C756F2087729200D268C4 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C756E2087729200D268C4 /* Double+Extension.swift */; };
 		541C75712087B6D200D268C4 /* TextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C75702087B6D200D268C4 /* TextLabel.swift */; };
@@ -27,17 +33,29 @@
 		546A20A9207509A5009A3EC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 546A20A7207509A5009A3EC0 /* Main.storyboard */; };
 		546A20AB207509A5009A3EC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 546A20AA207509A5009A3EC0 /* Assets.xcassets */; };
 		546A20AE207509A5009A3EC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 546A20AC207509A5009A3EC0 /* LaunchScreen.storyboard */; };
+		54ABFD58209F359300E7F582 /* ScratchCardBuyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54ABFD57209F359300E7F582 /* ScratchCardBuyCell.xib */; };
+		54ABFD5A209F4B5000E7F582 /* ScratchCardBuyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ABFD59209F4B5000E7F582 /* ScratchCardBuyCell.swift */; };
+		54D9210720A4555800B45402 /* ScratchCardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D9210620A4555700B45402 /* ScratchCardStore.swift */; };
+		54DB2B98209A4640003B8B0B /* BatteryLevelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54DB2B97209A463F003B8B0B /* BatteryLevelCell.xib */; };
+		54DB2B9A209A5D32003B8B0B /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54DB2B99209A5D31003B8B0B /* ButtonCell.xib */; };
+		54DB2B9C209AFBA8003B8B0B /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DB2B9B209AFBA8003B8B0B /* ButtonCell.swift */; };
 		54FA5283207E002500D2E78E /* UpgradeView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FA5282207E002500D2E78E /* UpgradeView+Animations.swift */; };
 		54FA5285207E520300D2E78E /* CloudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FA5284207E520300D2E78E /* CloudView.swift */; };
 		54FA5288207E558D00D2E78E /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FA5287207E558D00D2E78E /* BackgroundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		54069D2A209B4F3A00CF3922 /* ScratchCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScratchCardCell.xib; sourceTree = "<group>"; };
+		54069D2C209C736E00CF3922 /* ScratchCardsMenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScratchCardsMenuCell.xib; sourceTree = "<group>"; };
+		54069D2F209C766C00CF3922 /* BatteryLevelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryLevelCell.swift; sourceTree = "<group>"; };
+		54069D31209C768100CF3922 /* ScratchCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScratchCardCell.swift; sourceTree = "<group>"; };
+		54069D33209C768D00CF3922 /* ScratchCardsMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScratchCardsMenuCell.swift; sourceTree = "<group>"; };
+		54069D35209C89D100CF3922 /* Battery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Battery.swift; sourceTree = "<group>"; };
+		54069D37209DBE8600CF3922 /* ScratchCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScratchCard.swift; sourceTree = "<group>"; };
+		5410BA4920A05B0B00A7570D /* BatteryUpgrades.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BatteryUpgrades.json; sourceTree = "<group>"; };
+		5410BA4B20A0645C00A7570D /* UpgradeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeStore.swift; sourceTree = "<group>"; };
 		541C7561207FABB600D268C4 /* UpgradeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeViewCell.swift; sourceTree = "<group>"; };
 		541C7563207FAC0000D268C4 /* UpgradeViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpgradeViewCell.xib; sourceTree = "<group>"; };
-		541C756520876CE600D268C4 /* Wind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wind.swift; sourceTree = "<group>"; };
-		541C756720876D7300D268C4 /* WindTurbine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindTurbine.swift; sourceTree = "<group>"; };
-		541C756920876E4800D268C4 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		541C756C20876ECD00D268C4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		541C756E2087729200D268C4 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		541C75702087B6D200D268C4 /* TextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLabel.swift; sourceTree = "<group>"; };
@@ -55,6 +73,12 @@
 		546A20AA207509A5009A3EC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		546A20AD207509A5009A3EC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		546A20AF207509A5009A3EC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54ABFD57209F359300E7F582 /* ScratchCardBuyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScratchCardBuyCell.xib; sourceTree = "<group>"; };
+		54ABFD59209F4B5000E7F582 /* ScratchCardBuyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScratchCardBuyCell.swift; sourceTree = "<group>"; };
+		54D9210620A4555700B45402 /* ScratchCardStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScratchCardStore.swift; sourceTree = "<group>"; };
+		54DB2B97209A463F003B8B0B /* BatteryLevelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BatteryLevelCell.xib; sourceTree = "<group>"; };
+		54DB2B99209A5D31003B8B0B /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
+		54DB2B9B209AFBA8003B8B0B /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		54FA5282207E002500D2E78E /* UpgradeView+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UpgradeView+Animations.swift"; sourceTree = "<group>"; };
 		54FA5284207E520300D2E78E /* CloudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudView.swift; sourceTree = "<group>"; };
 		54FA5287207E558D00D2E78E /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
@@ -71,12 +95,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		54069D2E209C763B00CF3922 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				541C7563207FAC0000D268C4 /* UpgradeViewCell.xib */,
+				541C7561207FABB600D268C4 /* UpgradeViewCell.swift */,
+				54DB2B99209A5D31003B8B0B /* ButtonCell.xib */,
+				54DB2B9B209AFBA8003B8B0B /* ButtonCell.swift */,
+				54DB2B97209A463F003B8B0B /* BatteryLevelCell.xib */,
+				54069D2F209C766C00CF3922 /* BatteryLevelCell.swift */,
+				54069D2A209B4F3A00CF3922 /* ScratchCardCell.xib */,
+				54069D31209C768100CF3922 /* ScratchCardCell.swift */,
+				54069D2C209C736E00CF3922 /* ScratchCardsMenuCell.xib */,
+				54069D33209C768D00CF3922 /* ScratchCardsMenuCell.swift */,
+				54ABFD57209F359300E7F582 /* ScratchCardBuyCell.xib */,
+				54ABFD59209F4B5000E7F582 /* ScratchCardBuyCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		541C756B20876E7C00D268C4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				541C756520876CE600D268C4 /* Wind.swift */,
-				541C756720876D7300D268C4 /* WindTurbine.swift */,
-				541C756920876E4800D268C4 /* Money.swift */,
+				54069D35209C89D100CF3922 /* Battery.swift */,
+				54069D37209DBE8600CF3922 /* ScratchCard.swift */,
+				54D9210620A4555700B45402 /* ScratchCardStore.swift */,
+				545317BB2088EA39005EA09C /* Upgrade.swift */,
+				5410BA4B20A0645C00A7570D /* UpgradeStore.swift */,
+				5452C92B207CD037002DB75E /* WindTurbineView.swift */,
 				541C756C20876ECD00D268C4 /* Model.swift */,
 			);
 			path = Model;
@@ -115,17 +161,15 @@
 				54FA5286207E541700D2E78E /* Animations */,
 				546A20A3207509A5009A3EC0 /* AppDelegate.swift */,
 				546A20A5207509A5009A3EC0 /* GameViewController.swift */,
-				545317BB2088EA39005EA09C /* Upgrade.swift */,
-				541C75702087B6D200D268C4 /* TextLabel.swift */,
-				541C7561207FABB600D268C4 /* UpgradeViewCell.swift */,
-				541C7563207FAC0000D268C4 /* UpgradeViewCell.xib */,
-				5452C92B207CD037002DB75E /* WindTurbineView.swift */,
+				54069D2E209C763B00CF3922 /* Cells */,
 				541C756B20876E7C00D268C4 /* Model */,
 				54FA5287207E558D00D2E78E /* BackgroundView.swift */,
+				541C75702087B6D200D268C4 /* TextLabel.swift */,
 				54FA5284207E520300D2E78E /* CloudView.swift */,
 				545317B92088E8D3005EA09C /* WindUpgrades.json */,
 				545317BD2088EF13005EA09C /* PowerUpgrades.json */,
 				545317BF2088EF27005EA09C /* PriceUpgrades.json */,
+				5410BA4920A05B0B00A7570D /* BatteryUpgrades.json */,
 				546A20A7207509A5009A3EC0 /* Main.storyboard */,
 				546A20AA207509A5009A3EC0 /* Assets.xcassets */,
 				546A20AC207509A5009A3EC0 /* LaunchScreen.storyboard */,
@@ -201,10 +245,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54069D2D209C736E00CF3922 /* ScratchCardsMenuCell.xib in Resources */,
+				5410BA4A20A05B0B00A7570D /* BatteryUpgrades.json in Resources */,
+				54069D2B209B4F3A00CF3922 /* ScratchCardCell.xib in Resources */,
+				54DB2B98209A4640003B8B0B /* BatteryLevelCell.xib in Resources */,
 				545317BE2088EF14005EA09C /* PowerUpgrades.json in Resources */,
 				545317BA2088E8D3005EA09C /* WindUpgrades.json in Resources */,
+				54ABFD58209F359300E7F582 /* ScratchCardBuyCell.xib in Resources */,
 				546A20AE207509A5009A3EC0 /* LaunchScreen.storyboard in Resources */,
 				546A20AB207509A5009A3EC0 /* Assets.xcassets in Resources */,
+				54DB2B9A209A5D32003B8B0B /* ButtonCell.xib in Resources */,
 				545317C02088EF27005EA09C /* PriceUpgrades.json in Resources */,
 				546A20A9207509A5009A3EC0 /* Main.storyboard in Resources */,
 				541C7564207FAC0000D268C4 /* UpgradeViewCell.xib in Resources */,
@@ -218,19 +268,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54069D36209C89D100CF3922 /* Battery.swift in Sources */,
 				545317BC2088EA39005EA09C /* Upgrade.swift in Sources */,
 				54FA5283207E002500D2E78E /* UpgradeView+Animations.swift in Sources */,
-				541C756620876CE600D268C4 /* Wind.swift in Sources */,
+				54D9210720A4555800B45402 /* ScratchCardStore.swift in Sources */,
 				541C756F2087729200D268C4 /* Double+Extension.swift in Sources */,
 				546A20A6207509A5009A3EC0 /* GameViewController.swift in Sources */,
+				54069D38209DBE8600CF3922 /* ScratchCard.swift in Sources */,
 				54FA5288207E558D00D2E78E /* BackgroundView.swift in Sources */,
 				5452C92C207CD037002DB75E /* WindTurbineView.swift in Sources */,
+				54069D34209C768E00CF3922 /* ScratchCardsMenuCell.swift in Sources */,
 				541C756D20876ECD00D268C4 /* Model.swift in Sources */,
+				54069D30209C766C00CF3922 /* BatteryLevelCell.swift in Sources */,
+				54ABFD5A209F4B5000E7F582 /* ScratchCardBuyCell.swift in Sources */,
 				541C75712087B6D200D268C4 /* TextLabel.swift in Sources */,
-				541C756A20876E4800D268C4 /* Money.swift in Sources */,
+				54069D32209C768100CF3922 /* ScratchCardCell.swift in Sources */,
 				5452C92E207D3FA5002DB75E /* UIView+Extension.swift in Sources */,
-				541C756820876D7300D268C4 /* WindTurbine.swift in Sources */,
+				5410BA4C20A0645C00A7570D /* UpgradeStore.swift in Sources */,
 				546A20A4207509A5009A3EC0 /* AppDelegate.swift in Sources */,
+				54DB2B9C209AFBA8003B8B0B /* ButtonCell.swift in Sources */,
 				54FA5285207E520300D2E78E /* CloudView.swift in Sources */,
 				541C7562207FABB600D268C4 /* UpgradeViewCell.swift in Sources */,
 				545317B820889FCD005EA09C /* Dictionary+Extension.swift in Sources */,

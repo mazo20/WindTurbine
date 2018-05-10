@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ScratchCardCell" rowHeight="195" id="Z79-2k-oTR" customClass="ScratchCardCell" customModule="WindTurbine" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="402" height="195"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z79-2k-oTR" id="ua6-1f-cQi">
+                <rect key="frame" x="0.0" y="0.0" width="402" height="194.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAx-iB-LZT">
+                        <rect key="frame" x="28.5" y="11" width="345" height="172.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="GAx-iB-LZT" secondAttribute="height" multiplier="2:1" id="XZh-NH-VVt"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="CardBackground1"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123km/h (60s)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yb3-40-umM">
+                        <rect key="frame" x="28.5" y="77" width="345" height="41"/>
+                        <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="35"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SrS-R2-Afe">
+                        <rect key="frame" x="28.5" y="11" width="345" height="172.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="SrS-R2-Afe" secondAttribute="height" multiplier="2:1" id="ktM-nt-jh5"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="ScratchCard1"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="GAx-iB-LZT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ua6-1f-cQi" secondAttribute="leadingMargin" id="0h1-ZR-oOa"/>
+                    <constraint firstItem="SrS-R2-Afe" firstAttribute="centerY" secondItem="ua6-1f-cQi" secondAttribute="centerY" id="3pP-5M-MIq"/>
+                    <constraint firstItem="GAx-iB-LZT" firstAttribute="centerX" secondItem="ua6-1f-cQi" secondAttribute="centerX" id="45j-SZ-ASF"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="GAx-iB-LZT" secondAttribute="trailing" id="6oh-tg-Ubr"/>
+                    <constraint firstItem="yb3-40-umM" firstAttribute="centerX" secondItem="ua6-1f-cQi" secondAttribute="centerX" id="Ihw-HJ-Fkm"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="GAx-iB-LZT" secondAttribute="bottom" id="NA1-mK-8rx"/>
+                    <constraint firstItem="SrS-R2-Afe" firstAttribute="centerX" secondItem="ua6-1f-cQi" secondAttribute="centerX" id="NdS-Oq-65o"/>
+                    <constraint firstItem="SrS-R2-Afe" firstAttribute="width" secondItem="ua6-1f-cQi" secondAttribute="width" priority="999" id="Ocd-6a-sqG"/>
+                    <constraint firstItem="yb3-40-umM" firstAttribute="centerY" secondItem="ua6-1f-cQi" secondAttribute="centerY" id="UNw-Hj-irS"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="SrS-R2-Afe" secondAttribute="bottom" id="Uxe-gm-N6p"/>
+                    <constraint firstItem="GAx-iB-LZT" firstAttribute="width" secondItem="ua6-1f-cQi" secondAttribute="width" priority="999" id="WB9-6F-1lV"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="SrS-R2-Afe" secondAttribute="trailing" id="XoV-uk-QFM"/>
+                    <constraint firstItem="SrS-R2-Afe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ua6-1f-cQi" secondAttribute="topMargin" id="b0G-vZ-CcW"/>
+                    <constraint firstItem="GAx-iB-LZT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ua6-1f-cQi" secondAttribute="topMargin" id="btu-ES-XaE"/>
+                    <constraint firstItem="GAx-iB-LZT" firstAttribute="centerY" secondItem="ua6-1f-cQi" secondAttribute="centerY" id="lWK-gF-6dQ"/>
+                    <constraint firstItem="SrS-R2-Afe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ua6-1f-cQi" secondAttribute="leadingMargin" id="trP-k0-Duc"/>
+                    <constraint firstItem="yb3-40-umM" firstAttribute="width" secondItem="GAx-iB-LZT" secondAttribute="width" id="uDN-9i-mio"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="backgroundButton" destination="GAx-iB-LZT" id="Zwy-1Z-kgq"/>
+                <outlet property="detailLabel" destination="yb3-40-umM" id="ueT-aN-9mi"/>
+                <outlet property="scratchCardButton" destination="SrS-R2-Afe" id="gps-qH-oPG"/>
+            </connections>
+            <point key="canvasLocation" x="24" y="24.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="CardBackground1" width="1200" height="600"/>
+        <image name="ScratchCard1" width="1200" height="600"/>
+    </resources>
+</document>

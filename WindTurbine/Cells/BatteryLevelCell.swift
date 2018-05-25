@@ -15,6 +15,38 @@ class BatteryLevelCell: UITableViewCell {
     @IBOutlet var chargingPowerLabel: UILabel!
     @IBOutlet var capacityLabel: UILabel!
     
+    var battery: Battery? {
+        didSet {
+            updateValues()
+        }
+    }
+    
+    var powerPrice: Double? {
+        didSet {
+            updateValues()
+        }
+    }
+    
+    func updateValues() {
+        guard let battery = battery, let price = powerPrice else { return }
+        let maxAmount = battery.capacity * price
+        let currentAmount = Double(battery.chargePercentage)/100 * maxAmount
+        chargeLabel.text = "\(battery.chargePercentage)% ($\(currentAmount.numberFormatter(ofType: .balance)))"
+        chargingPowerLabel.text = battery.chargingPower.valueFormatter(ofType: .power)
+        capacityLabel.text = (battery.capacity/3600).valueFormatter(ofType: .capacity) + " (\(maxAmount.valueFormatter(ofType: .balance)))"
+        if battery.chargePercentage < 20 {
+            batteryImageView.image = #imageLiteral(resourceName: "Battery0")
+        } else if battery.chargePercentage < 40 {
+            batteryImageView.image = #imageLiteral(resourceName: "Battery25")
+        } else if battery.chargePercentage < 60 {
+            batteryImageView.image = #imageLiteral(resourceName: "Battery50")
+        } else if battery.chargePercentage < 80 {
+            batteryImageView.image = #imageLiteral(resourceName: "Battery75")
+        } else {
+            batteryImageView.image = #imageLiteral(resourceName: "Battery100")
+        }
+    }
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         

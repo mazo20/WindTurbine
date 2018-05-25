@@ -8,13 +8,16 @@
 
 import UIKit
 
-class Cloud: UIImageView {
+class CloudView: UIImageView {
     
     let imageNames = ["Cloud1", "Cloud2"]
+    var randomSpeed: CGFloat!
     
     override init(image: UIImage?) {
         super.init(image: image)
         setSize()
+        alpha = 0.9
+        randomSpeed = CGFloat.random(min: 0.85, max: 1.15)
     }
     
     convenience init() {

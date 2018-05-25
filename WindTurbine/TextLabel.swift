@@ -30,7 +30,6 @@ class TextLabel: UILabel {
         self.layer.cornerRadius = 10
         self.clipsToBounds = true
         self.backgroundColor = #colorLiteral(red: 0.9450980392, green: 0.8588235294, blue: 0.2941176471, alpha: 1)
-        self.font = UIFont.monospacedDigitSystemFont(ofSize: 20, weight: .regular)
     }
     
 }

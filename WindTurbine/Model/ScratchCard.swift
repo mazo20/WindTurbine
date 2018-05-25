@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ScratchCard {
+class ScratchCard {
     
     enum Prize {
         case money
@@ -33,15 +33,24 @@ struct ScratchCard {
         self.isScratched = false
         
         prizeType = .money
+        
+        let base = 2.5
+        if UserDefaults.standard.value(forKey: "firstTimeBonus") == nil && level == 3 {
+            print("First time")
+            prizeValue = Double(pow(base, Double(level+3)))
+            UserDefaults.standard.set(false, forKey: "firstTimeBonus")
+            return
+        }
+        
         let random = Int(arc4random_uniform(100))
-        if random < 50 {
-            prizeValue = 1
-        } else if random < 60 {
-            prizeValue = 100
-        } else if random < 65 {
-            prizeValue = 10
+        if random < 5 {
+            prizeValue = Double(pow(base, Double(level+3)))
+        } else if random < 15 {
+            prizeValue = Double(pow(base, Double(level+2)))
+        } else if random < 40 {
+            prizeValue = Double(pow(base, Double(level+1)))
         } else {
-            prizeValue = 100
+            prizeValue = Double(pow(base, Double(level)))
         }
     }
 }

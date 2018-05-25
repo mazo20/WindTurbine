@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StatsView" customModule="WindTurbine" customModuleProvider="target">
+            <connections>
+                <outlet property="balanceLabel" destination="vvj-jX-5fI" id="De7-hm-5xB"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="vtW-4h-jPu"/>
+                <outlet property="moneyPerSecLabel" destination="EZm-sW-wdS" id="Kr5-ca-1QL"/>
+                <outlet property="powerLabel" destination="Dwu-e1-GbC" id="5em-mb-6Dg"/>
+                <outlet property="windSpeedLabel" destination="2do-23-mG1" id="9k0-Ga-6Kb"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="461" height="121"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="$90/sec" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZm-sW-wdS" customClass="TextLabel" customModule="WindTurbine" customModuleProvider="target">
+                    <rect key="frame" x="64.5" y="93.5" width="100" height="19.5"/>
+                    <color key="backgroundColor" red="0.94509803920000002" green="0.85882352939999995" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="ITY-4N-QRN">
+                            <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                        </constraint>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="5.6MW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dwu-e1-GbC" customClass="TextLabel" customModule="WindTurbine" customModuleProvider="target">
+                    <rect key="frame" x="180.5" y="93.5" width="100" height="19.5"/>
+                    <color key="backgroundColor" red="0.94509803920000002" green="0.85882352939999995" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    </variation>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="$789,234,123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvj-jX-5fI" customClass="TextLabel" customModule="WindTurbine" customModuleProvider="target">
+                    <rect key="frame" x="20" y="8" width="421" height="75.5"/>
+                    <color key="backgroundColor" red="0.94509803920000002" green="0.85882352939999995" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="90km/h" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2do-23-mG1" customClass="TextLabel" customModule="WindTurbine" customModuleProvider="target">
+                    <rect key="frame" x="296.5" y="93.5" width="100" height="19.5"/>
+                    <color key="backgroundColor" red="0.94509803920000002" green="0.85882352939999995" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    </variation>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vvj-jX-5fI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="5qZ-2n-3Bn"/>
+                <constraint firstItem="Dwu-e1-GbC" firstAttribute="leading" secondItem="EZm-sW-wdS" secondAttribute="trailing" constant="16" id="Cc3-Qa-32Q"/>
+                <constraint firstItem="Dwu-e1-GbC" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Ntv-d3-Qrb"/>
+                <constraint firstItem="2do-23-mG1" firstAttribute="leading" secondItem="Dwu-e1-GbC" secondAttribute="trailing" constant="16" id="OtQ-CL-1Gp"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Dwu-e1-GbC" secondAttribute="bottom" constant="8" id="Rxv-ko-CUm"/>
+                <constraint firstItem="EZm-sW-wdS" firstAttribute="top" secondItem="vvj-jX-5fI" secondAttribute="bottom" constant="10" id="YOU-pM-jbe"/>
+                <constraint firstItem="2do-23-mG1" firstAttribute="top" secondItem="vvj-jX-5fI" secondAttribute="bottom" constant="10" id="bv3-lT-Pvu"/>
+                <constraint firstItem="Dwu-e1-GbC" firstAttribute="top" secondItem="vvj-jX-5fI" secondAttribute="bottom" constant="10" id="eNM-Ob-SAv"/>
+                <constraint firstItem="vvj-jX-5fI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="jyc-8q-x0A"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vvj-jX-5fI" secondAttribute="trailing" constant="20" id="qJb-Ac-L34"/>
+                <constraint firstItem="vvj-jX-5fI" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="uKg-eC-6qC"/>
+                <constraint firstItem="2do-23-mG1" firstAttribute="width" secondItem="EZm-sW-wdS" secondAttribute="width" id="y7Z-vg-tva"/>
+                <constraint firstItem="Dwu-e1-GbC" firstAttribute="width" secondItem="EZm-sW-wdS" secondAttribute="width" id="yKN-Vy-odd"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="76.5" y="-179.5"/>
+        </view>
+    </objects>
+</document>

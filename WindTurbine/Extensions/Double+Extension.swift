@@ -8,13 +8,18 @@
 
 import Foundation
 
+enum formatterType {
+    case power
+    case income
+    case balance
+    case wind
+    case powerPerKm
+    case pricePerW
+    case capacity
+    case cost
+}
 
 extension Double {
-    enum formatterType {
-        case power
-        case income
-        case balance
-    }
     
     /// Rounds the double to decimal places value
     func rounded(toPlaces places: Int) -> Double {
@@ -50,7 +55,31 @@ extension Double {
         }
         return string
         
-        
+    }
+    
+    func valueFormatter(ofType type: formatterType) -> String {
+        switch type {
+        case .wind:
+            return numberFormatter(ofType: .income) + "km/h"
+        case .power:
+            return numberFormatter(ofType: .power) + "W"
+        case .income:
+            return "$" + numberFormatter(ofType: .income) + "/s"
+        case .balance:
+            return "$" + numberFormatter(ofType: .balance)
+        case .powerPerKm:
+            return numberFormatter(ofType: .power) + "W/(km/h)"
+        case .pricePerW:
+            return numberFormatter(ofType: .power) + "$/W"
+        case .cost:
+            return "$" + numberFormatter(ofType: .income)
+        default:
+            return numberFormatter(ofType: .power) + "Wh"
+        }
+    }
+    
+    public static func random(min: Double, max: Double) -> Double {
+        return drand48() * (max - min) + min
     }
     
     

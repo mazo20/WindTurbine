@@ -35,19 +35,10 @@
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         </variation>
                     </label>
-                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21n-eO-efi">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sEx-bv-7Od">
                         <rect key="frame" x="269" y="21" width="90" height="35"/>
                         <color key="backgroundColor" red="0.31372549020000001" green="0.31764705879999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="90" id="sfH-zp-LOv">
-                                <variation key="heightClass=regular-widthClass=regular" constant="120"/>
-                            </constraint>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                        <variation key="heightClass=regular-widthClass=regular">
-                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                        </variation>
-                    </button>
+                    </view>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xhf-Le-eq6">
                         <rect key="frame" x="294.5" y="28" width="39.5" height="20"/>
                         <subviews>
@@ -77,25 +68,41 @@
                             <constraint firstItem="eiM-Sb-PGG" firstAttribute="top" secondItem="Xhf-Le-eq6" secondAttribute="top" id="fF1-Vs-Upp"/>
                         </constraints>
                     </stackView>
+                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8d-0g-AvV">
+                        <rect key="frame" x="269" y="21" width="90" height="35"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="Oou-0C-A8n">
+                                <variation key="heightClass=regular-widthClass=regular" constant="120"/>
+                            </constraint>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                        </variation>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="sEx-bv-7Od" firstAttribute="height" secondItem="a8d-0g-AvV" secondAttribute="height" id="0fD-vi-Fud"/>
                     <constraint firstItem="eTG-ZW-Hx3" firstAttribute="centerY" secondItem="Fmq-Zm-QXM" secondAttribute="centerY" id="2ke-z1-5im"/>
-                    <constraint firstItem="Xhf-Le-eq6" firstAttribute="centerY" secondItem="21n-eO-efi" secondAttribute="centerY" id="47v-bK-DVR"/>
                     <constraint firstItem="BIy-m5-gVC" firstAttribute="centerY" secondItem="Fmq-Zm-QXM" secondAttribute="centerY" id="6WE-zA-N9Z"/>
                     <constraint firstItem="eTG-ZW-Hx3" firstAttribute="centerY" secondItem="Fmq-Zm-QXM" secondAttribute="centerY" id="EvL-68-ekr"/>
-                    <constraint firstItem="21n-eO-efi" firstAttribute="centerY" secondItem="Fmq-Zm-QXM" secondAttribute="centerY" id="M0a-ea-fJ4"/>
-                    <constraint firstItem="Xhf-Le-eq6" firstAttribute="centerX" secondItem="21n-eO-efi" secondAttribute="centerX" id="MnA-sl-O47"/>
+                    <constraint firstAttribute="trailing" secondItem="sEx-bv-7Od" secondAttribute="trailing" constant="16" id="Jf8-Zd-LZ4"/>
+                    <constraint firstItem="sEx-bv-7Od" firstAttribute="width" secondItem="a8d-0g-AvV" secondAttribute="width" id="KkC-ew-mcy"/>
+                    <constraint firstItem="Xhf-Le-eq6" firstAttribute="centerY" secondItem="sEx-bv-7Od" secondAttribute="centerY" id="QkH-Qy-nO9"/>
                     <constraint firstItem="Xhf-Le-eq6" firstAttribute="centerY" secondItem="Fmq-Zm-QXM" secondAttribute="centerY" id="SKz-7N-ZGx"/>
+                    <constraint firstItem="a8d-0g-AvV" firstAttribute="centerY" secondItem="sEx-bv-7Od" secondAttribute="centerY" id="T6B-hf-43F"/>
                     <constraint firstItem="BIy-m5-gVC" firstAttribute="leading" secondItem="eTG-ZW-Hx3" secondAttribute="trailing" constant="16" id="dRm-hm-QHa"/>
                     <constraint firstItem="eTG-ZW-Hx3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Fmq-Zm-QXM" secondAttribute="top" constant="16" id="fjy-gT-FF4"/>
                     <constraint firstItem="eTG-ZW-Hx3" firstAttribute="leading" secondItem="Fmq-Zm-QXM" secondAttribute="leading" constant="16" id="i0e-Bw-9Ah"/>
-                    <constraint firstAttribute="trailing" secondItem="21n-eO-efi" secondAttribute="trailing" constant="16" id="iUM-IE-Kuw"/>
-                    <constraint firstItem="Xhf-Le-eq6" firstAttribute="centerX" secondItem="21n-eO-efi" secondAttribute="centerX" id="mjD-RR-y6Q"/>
-                    <constraint firstItem="21n-eO-efi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BIy-m5-gVC" secondAttribute="trailing" constant="16" id="qpa-D3-llI"/>
+                    <constraint firstItem="a8d-0g-AvV" firstAttribute="centerX" secondItem="sEx-bv-7Od" secondAttribute="centerX" id="iae-Xa-9y2"/>
+                    <constraint firstItem="sEx-bv-7Od" firstAttribute="centerY" secondItem="Fmq-Zm-QXM" secondAttribute="centerY" id="ijh-2p-eg1"/>
+                    <constraint firstItem="Xhf-Le-eq6" firstAttribute="centerX" secondItem="sEx-bv-7Od" secondAttribute="centerX" id="seT-sy-egz"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="button" destination="21n-eO-efi" id="5ff-2O-Fw0"/>
+                <outlet property="button" destination="a8d-0g-AvV" id="emN-K5-wG6"/>
+                <outlet property="buttonView" destination="sEx-bv-7Od" id="4ND-Ep-Gp3"/>
                 <outlet property="currencyImageView" destination="mTR-ap-YVT" id="hqq-ze-xZh"/>
                 <outlet property="priceLabel" destination="eiM-Sb-PGG" id="yod-5Q-kCS"/>
                 <outlet property="scratchCardImageView" destination="eTG-ZW-Hx3" id="0B0-ZS-ObZ"/>

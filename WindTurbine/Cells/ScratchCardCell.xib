@@ -26,6 +26,9 @@
                             <constraint firstAttribute="width" secondItem="GAx-iB-LZT" secondAttribute="height" multiplier="2:1" id="XZh-NH-VVt"/>
                         </constraints>
                         <state key="normal" title="Button" image="CardBackground1"/>
+                        <connections>
+                            <action selector="showNewCard:" destination="Z79-2k-oTR" eventType="touchUpInside" id="HZ5-FC-DJA"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123km/h (60s)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yb3-40-umM">
                         <rect key="frame" x="28.5" y="77" width="345" height="41"/>
@@ -39,6 +42,9 @@
                             <constraint firstAttribute="width" secondItem="SrS-R2-Afe" secondAttribute="height" multiplier="2:1" id="ktM-nt-jh5"/>
                         </constraints>
                         <state key="normal" title="Button" image="ScratchCard1"/>
+                        <connections>
+                            <action selector="cardScratched:" destination="Z79-2k-oTR" eventType="touchUpInside" id="5tz-6K-sTh"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

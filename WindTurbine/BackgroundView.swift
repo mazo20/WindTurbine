@@ -29,8 +29,9 @@ class BackgroundView: UIView {
     }
     
     func addClouds() {
-        let timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true, block: { (Timer) in
-            let cloud = Cloud()
+        print("backgroungView called")
+        let _ = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true, block: { (Timer) in
+            let cloud = CloudView()
             cloud.alpha = 0.9
             let y = cloud.frame.height/2 + CGFloat(arc4random_uniform(UInt32(self.frame.midY/2 - cloud.frame.height)))
             cloud.center = CGPoint(x: -cloud.frame.width/2, y: y)

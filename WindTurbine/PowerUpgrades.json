@@ -5,43 +5,43 @@
                 "name" : "Increase hight",
                 "baseCost" : 2,
                 "baseValue" : 0.15,
-                "costMult" : 1.31,
-                "valueMult" : 1.5
+                "costMult" : 1.21,
+                "valueMult" : 1.3
                 },{
                 "emoji" : "⚖️",
                 "name" : "Change blades material",
                 "baseCost" : 25,
                 "baseValue" : 0.8,
-                "costMult" : 1.32,
-                "valueMult" : 1.49
+                "costMult" : 1.22,
+                "valueMult" : 1.29
                 },{
                 "emoji" : "⚙️",
                 "name" : "Oil the gears",
                 "baseCost" : 300,
                 "baseValue" : 4,
-                "costMult" : 1.33,
-                "valueMult" : 1.48
+                "costMult" : 1.23,
+                "valueMult" : 1.28
                 },{
                 "emoji" : "🔎",
                 "name" : "Modify the blades",
                 "baseCost" : 2250,
                 "baseValue" : 15,
-                "costMult" : 1.34,
-                "valueMult" : 1.47
+                "costMult" : 1.24,
+                "valueMult" : 1.27
                 },{
                 "emoji" : "🌡️",
                 "name" : "Increase cooling",
                 "baseCost" : 20000,
                 "baseValue" : 50,
-                "costMult" : 1.35,
-                "valueMult" : 1.46
+                "costMult" : 1.25,
+                "valueMult" : 1.26
                 },{
                 "emoji" : "🔌",
                 "name" : "Upgrade power lines",
                 "baseCost" : 400000,
                 "baseValue" : 400,
-                "costMult" : 1.36,
-                "valueMult" : 1.45
+                "costMult" : 1.26,
+                "valueMult" : 1.25
                 }
   ]
 }

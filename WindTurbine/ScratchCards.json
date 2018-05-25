@@ -1,0 +1,68 @@
+{
+  "level1" : [
+  	{
+  		"type" : "money",
+  		"chance" : 0.74,
+  		"value" : 1
+  	},
+  	{
+  		"type" : "money",
+  		"chance" : 0.2,
+  		"value" : 10
+  	},
+  	{
+  		"type" : "money",
+  		"chance" : 0.05,
+  		"value" : 100
+  	},
+  	{
+  		"type" : "money",
+  		"chance" : 0.01,
+  		"value" : 1000
+  	}
+  ],
+  "level2" : [
+  	{
+  		"type" : "money",
+  		"chance" : 0.74,
+  		"value" : 10
+  	},
+  	{
+  		"type" : "money",
+  		"chance" : 0.2,
+  		"value" : 100
+  	},
+  	{
+  		"type" : "money",
+  		"chance" : 0.05,
+  		"value" : 1000
+  	},
+  	{
+  		"type" : "money",
+  		"chance" : 0.01,
+  		"value" : 10000
+  	}
+  ], 
+  "level3" : [
+  	{
+  		"type" : "money",
+  		"chance" : 0.74,
+  		"value" : 100
+  	},
+  	{
+  		"type" : "money",
+  		"chance" : 0.2,
+  		"value" : 1000
+  	},
+  	{
+  		"type" : "money",
+  		"chance" : 0.05,
+  		"value" : 10000
+  	},
+  	{
+  		"type" : "money",
+  		"chance" : 0.01,
+  		"value" : 100000
+  	}
+  ] 
+}

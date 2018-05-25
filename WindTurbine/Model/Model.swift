@@ -16,12 +16,11 @@ class Model: NSObject, NSCoding {
     var level: Int
     var levelProgress: Double
     var powerConversion: Double
+    var lightnings: Int
     var battery: Battery
     var cardStore: ScratchCardStore
-    
-    var levels: [Double] = [10, 100, 1000, 10000, 100000]
     var windMultiplier: Double = 1
-    var upgradeLevels = [[Int]]()
+    var upgradeStore: UpgradeStore
     
     var windSpeed: Double {
         return nominalWindSpeed * windMultiplier
@@ -40,7 +39,21 @@ class Model: NSObject, NSCoding {
     }
     
     var levelGoal: Double {
-        return levels[level-1]
+        return 5 * pow(10.0, Double(level-1))
+    }
+    
+    var upgradeLevels: [[Int]] {
+        get {
+            return upgradeStore.upgradeLevels
+        }
+        set(newLevels) {
+            upgradeStore.upgradeLevels = newLevels
+        }
+        
+    }
+    
+    var upgrades: [[Upgrade]] {
+        return upgradeStore.upgrades
     }
     
     
@@ -53,9 +66,25 @@ class Model: NSObject, NSCoding {
         powerPrice = 0.1
         level = 1
         levelProgress = 0
+        lightnings = 1
         battery = Battery(chargingPower: 0.05, capacity: 36)
-        cardStore = ScratchCardStore()
+        cardStore = ScratchCardStore(cards: [3, 2, 1])
+        upgradeStore = UpgradeStore()
     }
+    
+    func reset() {
+        nominalWindSpeed = 0.1
+        money = 0
+        powerConversion = 1
+        powerPrice = 0.1
+        level = 1
+        levelProgress = 0
+        lightnings = 1
+        battery = Battery(chargingPower: 0.05, capacity: 36)
+        cardStore = ScratchCardStore(cards: [3, 2, 1])
+        upgradeStore = UpgradeStore()
+    }
+    
     
     
     
@@ -66,17 +95,13 @@ class Model: NSObject, NSCoding {
         powerConversion = aDecoder.decodeDouble(forKey: "powerConversion")
         level = aDecoder.decodeInteger(forKey: "level")
         levelProgress = aDecoder.decodeDouble(forKey: "levelProgress")
-        levels = aDecoder.decodeObject(forKey: "levels") as! [Double]
-        upgradeLevels = aDecoder.decodeObject(forKey: "upgradeLevels") as! [[Int]]
-        if let battery = aDecoder.decodeObject(forKey: "battery") as? Battery {
-           self.battery = battery
+        lightnings = aDecoder.decodeInteger(forKey: "lightnings")
+        battery = aDecoder.decodeObject(forKey: "battery") as! Battery
+        cardStore = aDecoder.decodeObject(forKey: "cardStore") as! ScratchCardStore
+        if let upgradeStore = aDecoder.decodeObject(forKey: "upgradeStore") as? UpgradeStore {
+            self.upgradeStore = upgradeStore
         } else {
-            self.battery = Battery(chargingPower: 0.05, capacity: 36)
-        }
-        if let cardStore = aDecoder.decodeObject(forKey: "cardStore") as? ScratchCardStore {
-            self.cardStore = cardStore
-        } else {
-            self.cardStore = ScratchCardStore()
+            self.upgradeStore = UpgradeStore()
         }
     }
     
@@ -87,10 +112,10 @@ class Model: NSObject, NSCoding {
         aCoder.encode(powerPrice, forKey: "powerPrice")
         aCoder.encode(level, forKey: "level")
         aCoder.encode(levelProgress, forKey: "levelProgress")
-        aCoder.encode(levels, forKey: "levels")
-        aCoder.encode(upgradeLevels, forKey: "upgradeLevels")
         aCoder.encode(battery, forKey: "battery")
         aCoder.encode(cardStore, forKey: "cardStore")
+        aCoder.encode(lightnings, forKey: "lightnings")
+        aCoder.encode(upgradeStore, forKey: "upgradeStore")
     }
     
     
@@ -98,17 +123,21 @@ class Model: NSObject, NSCoding {
         decayWindSpeed()
         money += moneyPerSec/10
         levelProgress += moneyPerSec/10
+        
+        let time = Date().timeIntervalSince(battery.startTime)
+        battery.startTime = Date()
+        battery.charge += battery.chargingPower*time
     }
     
     func decayWindSpeed() {
-        windMultiplier -= windMultiplier/10
+        windMultiplier -= windMultiplier/20
         if windMultiplier < 1 {
             windMultiplier = 1
         }
     }
     
     func tapped() {
-        windMultiplier += 1
+        windMultiplier += 0.5
     }
     
 }

@@ -13,89 +13,82 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ScratchCardsMenuCell" rowHeight="135" id="yg2-Oa-JxI" customClass="ScratchCardsMenuCell" customModule="WindTurbine" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="385" height="135"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ScratchCardsMenuCell" rowHeight="175" id="yg2-Oa-JxI" customClass="ScratchCardsMenuCell" customModule="WindTurbine" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="292" height="175"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yg2-Oa-JxI" id="nw5-Kx-uJ5">
-                <rect key="frame" x="0.0" y="0.0" width="385" height="134.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="292" height="174.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Dd1-Hh-q4I">
-                        <rect key="frame" x="16" y="11" width="353" height="113"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dd1-Hh-q4I">
+                        <rect key="frame" x="16" y="38.5" width="260" height="97.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick your scratch card!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJd-fE-Gh4">
-                                <rect key="frame" x="0.0" y="0.0" width="353" height="28.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" text="Pick your scratch card!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJd-fE-Gh4">
+                                <rect key="frame" x="0.0" y="0.0" width="260" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cJf-NK-WvG">
-                                <rect key="frame" x="0.0" y="34.5" width="353" height="78.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FSk-Ne-uPZ">
+                                <rect key="frame" x="0.0" y="30.5" width="260" height="40"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Cgj-k6-npC">
-                                        <rect key="frame" x="0.0" y="0.0" width="111" height="78.5"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsK-3j-tXw">
-                                                <rect key="frame" x="0.0" y="0.0" width="111" height="55.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="nsK-3j-tXw" secondAttribute="height" multiplier="2:1" id="6Wl-0P-UOg"/>
-                                                </constraints>
-                                                <state key="normal" title="Button" image="ScratchCard1"/>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoq-YD-R1A">
-                                                <rect key="frame" x="0.0" y="61.5" width="111" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="TlR-1m-VxQ">
-                                        <rect key="frame" x="121" y="0.0" width="111" height="78.5"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3w4-vM-Cax">
-                                                <rect key="frame" x="0.0" y="0.0" width="111" height="55.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="3w4-vM-Cax" secondAttribute="height" multiplier="2:1" id="bOR-c3-6oi"/>
-                                                </constraints>
-                                                <state key="normal" title="Button" image="ScratchCard2"/>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6S-Mu-tbt">
-                                                <rect key="frame" x="0.0" y="61.5" width="111" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="5Iu-bQ-ZDu">
-                                        <rect key="frame" x="242" y="0.0" width="111" height="78.5"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDG-th-CGH">
-                                                <rect key="frame" x="0.0" y="0.0" width="111" height="55.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="PDG-th-CGH" secondAttribute="height" multiplier="2:1" id="LsI-iq-lpe"/>
-                                                </constraints>
-                                                <state key="normal" title="Button" image="ScratchCard3"/>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlU-Iz-aas">
-                                                <rect key="frame" x="0.0" y="61.5" width="111" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsK-3j-tXw">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="nsK-3j-tXw" secondAttribute="height" multiplier="2:1" id="6Wl-0P-UOg"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="ScratchCard1"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3w4-vM-Cax">
+                                        <rect key="frame" x="90" y="0.0" width="80" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="3w4-vM-Cax" secondAttribute="height" multiplier="2:1" id="bOR-c3-6oi"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="ScratchCard2"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDG-th-CGH">
+                                        <rect key="frame" x="180" y="0.0" width="80" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="PDG-th-CGH" secondAttribute="height" multiplier="2:1" id="LsI-iq-lpe"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="ScratchCard3"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cJf-NK-WvG">
+                                <rect key="frame" x="0.0" y="80.5" width="260" height="17"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoq-YD-R1A">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6S-Mu-tbt">
+                                        <rect key="frame" x="90" y="0.0" width="80" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlU-Iz-aas">
+                                        <rect key="frame" x="180" y="0.0" width="80" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="FSk-Ne-uPZ" secondAttribute="trailing" id="Meh-PH-fSO"/>
+                            <constraint firstItem="FSk-Ne-uPZ" firstAttribute="leading" secondItem="Dd1-Hh-q4I" secondAttribute="leading" id="Rb9-zU-Mvs"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Dd1-Hh-q4I" firstAttribute="top" secondItem="nw5-Kx-uJ5" secondAttribute="topMargin" id="WNm-Rg-6ch"/>
                     <constraint firstItem="Dd1-Hh-q4I" firstAttribute="leading" secondItem="nw5-Kx-uJ5" secondAttribute="leadingMargin" id="Ysk-We-Nzf"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Dd1-Hh-q4I" secondAttribute="bottom" id="tMk-Iz-cXi"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Dd1-Hh-q4I" secondAttribute="trailing" id="v4H-sT-KD5"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Dd1-Hh-q4I" secondAttribute="trailing" id="dwM-uz-but"/>
+                    <constraint firstItem="Dd1-Hh-q4I" firstAttribute="centerY" secondItem="nw5-Kx-uJ5" secondAttribute="centerY" id="tii-O5-Vb8"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -106,7 +99,7 @@
                 <outlet property="level2CountLabel" destination="H6S-Mu-tbt" id="Uyy-B4-fTC"/>
                 <outlet property="level3CountLabel" destination="KlU-Iz-aas" id="JlV-n9-aka"/>
             </connections>
-            <point key="canvasLocation" x="-96" y="14"/>
+            <point key="canvasLocation" x="-143" y="33.5"/>
         </tableViewCell>
     </objects>
     <resources>

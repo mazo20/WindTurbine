@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Upgrade {
+class Upgrade: NSObject {
     
     var emoji: String
     var imageName: String?
@@ -25,7 +25,7 @@ class Upgrade {
     }
     
     var value: Double {
-        return baseValue * pow(valueMult, Double(level/5))
+        return baseValue * pow(valueMult, Double(level-1))
     }
     
     

@@ -27,29 +27,19 @@ class Model: NSObject, NSCoding {
     }
     
     var turbineRPM: Double {
-        return pow(windSpeed,1/4) * windMultiplier
+        return pow(windSpeed, 1/3) * windMultiplier
     }
     
     var moneyPerSec: Double {
-        return powerOutput * powerPrice
+        return pow(powerOutput * powerPrice, 1/3)
     }
     
     var powerOutput: Double {
-        return windSpeed * powerConversion
+        return windSpeed * powerConversion * windMultiplier
     }
     
     var levelGoal: Double {
         return 5 * pow(10.0, Double(level-1))
-    }
-    
-    var upgradeLevels: [[Int]] {
-        get {
-            return upgradeStore.upgradeLevels
-        }
-        set(newLevels) {
-            upgradeStore.upgradeLevels = newLevels
-        }
-        
     }
     
     var upgrades: [[Upgrade]] {
@@ -62,12 +52,12 @@ class Model: NSObject, NSCoding {
     override init() {
         nominalWindSpeed = 0.1
         money = 0
-        powerConversion = 1
-        powerPrice = 0.1
+        powerConversion = 0.01
+        powerPrice = 0.01
         level = 1
         levelProgress = 0
         lightnings = 1
-        battery = Battery(chargingPower: 0.05, capacity: 36)
+        battery = Battery(chargingPower: 0.01, capacity: 36)
         cardStore = ScratchCardStore(cards: [3, 2, 1])
         upgradeStore = UpgradeStore()
     }
@@ -75,12 +65,12 @@ class Model: NSObject, NSCoding {
     func reset() {
         nominalWindSpeed = 0.1
         money = 0
-        powerConversion = 1
-        powerPrice = 0.1
+        powerConversion = 0.01
+        powerPrice = 0.01
         level = 1
         levelProgress = 0
         lightnings = 1
-        battery = Battery(chargingPower: 0.05, capacity: 36)
+        battery = Battery(chargingPower: 0.01, capacity: 36)
         cardStore = ScratchCardStore(cards: [3, 2, 1])
         upgradeStore = UpgradeStore()
     }
@@ -137,7 +127,7 @@ class Model: NSObject, NSCoding {
     }
     
     func tapped() {
-        windMultiplier += 0.5
+        windMultiplier += 1
     }
     
 }

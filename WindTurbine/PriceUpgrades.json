@@ -3,45 +3,45 @@
                 {
                 "emoji" : "💡",
                 "name" : "Turn on lights",
-                "baseCost" : 1,
-                "baseValue" : 0.01,
-                "costMult" : 1.3,
-                "valueMult" : 1.3
+                "baseCost" : 5.5,
+                "baseValue" : 0.02,
+                "costMult" : 1.15,
+                "valueMult" : 1
                 },{
                 "emoji" : "📱",
                 "name" : "More smartphones",
-                "baseCost" : 10,
-                "baseValue" : 0.04,
-                "costMult" : 1.31,
-                "valueMult" : 1.29
+                "baseCost" : 39,
+                "baseValue" : 0.12,
+                "costMult" : 1.15,
+                "valueMult" : 1
                 },{
                 "emoji" : "🚗",
                 "name" : "Electric cars",
-                "baseCost" : 75,
-                "baseValue" : 0.12,
-                "costMult" : 1.32,
-                "valueMult" : 1.28
+                "baseCost" : 270,
+                "baseValue" : 0.72,
+                "costMult" : 1.15,
+                "valueMult" : 1
                 },{
                 "emoji" : "🔥",
                 "name" : "Fight competition",
-                "baseCost" : 800,
-                "baseValue" : 0.5,
-                "costMult" : 1.33,
-                "valueMult" : 1.27
+                "baseCost" : 1875,
+                "baseValue" : 4.3,
+                "costMult" : 1.15,
+                "valueMult" : 1
                 },{
                 "emoji" : "☢️",
                 "name" : "Ban nuclear power",
-                "baseCost" : 9000,
-                "baseValue" : 2.5,
-                "costMult" : 1.34,
-                "valueMult" : 1.26
+                "baseCost" : 13200,
+                "baseValue" : 25.9,
+                "costMult" : 1.15,
+                "valueMult" : 1
                 },{
                 "emoji" : "🌘",
                 "name" : "Hide sun",
-                "baseCost" : 100000,
-                "baseValue" : 4,
-                "costMult" : 1.35,
-                "valueMult" : 1.25
+                "baseCost" : 92500,
+                "baseValue" : 155,
+                "costMult" : 1.15,
+                "valueMult" : 1
                 }
   ]
 }

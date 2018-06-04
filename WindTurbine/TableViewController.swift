@@ -72,13 +72,13 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BatteryLevelCell", for: indexPath) as! BatteryLevelCell
                 cell.battery = battery
-                cell.powerPrice = model.powerPrice
+                cell.powerPrice = sqrt(model.powerPrice)
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonCell", for: indexPath) as! ButtonCell
                 cell.button.addTarget(self, action: #selector(dischargeBatteryButton(sender:)), for: .touchUpInside)
                 cell.button.tag = indexPath.row
-                let maxAmount = battery.capacity * model.powerPrice
+                let maxAmount = battery.capacity * sqrt(model.powerPrice)
                 let currentAmount = Double(battery.chargePercentage)/100 * maxAmount
                 cell.currentAmount = currentAmount
                 return cell
@@ -135,7 +135,7 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func dischargeBatteryButton(sender: UIButton) {
-        model.money += Double(battery.chargePercentage)/100*battery.capacity*model.powerPrice * Double(sender.tag)
+        model.money += Double(battery.chargePercentage)/100*battery.capacity*sqrt(model.powerPrice) * Double(sender.tag)
         battery.charge = 0
         battery.startTime = Date()
         tableView.reloadSections([0], with: .none)
@@ -209,6 +209,9 @@ extension GameViewController: UpgradeViewCellDelegate {
             guard model.money > upgrade.cost else { return }
             model.money -= upgrade.cost
             upgrade.level += 1
+            if let level = model.upgradeStore.upgradeLevels[upgrade.emoji] {
+                model.upgradeStore.upgradeLevels[upgrade.emoji] = level+1
+            }
             if tag == 0 { model.nominalWindSpeed += upgrade.value }
             if tag == 1 { model.powerConversion += upgrade.value }
             if tag == 2 { model.powerPrice += upgrade.value }
@@ -216,12 +219,15 @@ extension GameViewController: UpgradeViewCellDelegate {
             let upgrade = cell.upgrade!
             guard model.money > upgrade.cost else { return }
             model.money -= upgrade.cost
-            upgrade.level += 1
             guard let index = tableView.indexPath(for: cell)?.row else { return }
             if index == 0 {
                 battery.chargingPower += upgrade.value
             } else {
                 battery.capacity += upgrade.value * 3600
+            }
+            upgrade.level += 1
+            if let level = model.upgradeStore.upgradeLevels[upgrade.emoji] {
+                model.upgradeStore.upgradeLevels[upgrade.emoji] = level+1
             }
         }
         tableView.reloadData()

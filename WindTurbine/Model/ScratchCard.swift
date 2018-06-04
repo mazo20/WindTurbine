@@ -36,21 +36,25 @@ class ScratchCard {
         
         let base = 2.5
         if UserDefaults.standard.value(forKey: "firstTimeBonus") == nil && level == 3 {
-            print("First time")
             prizeValue = Double(pow(base, Double(level+3)))
             UserDefaults.standard.set(false, forKey: "firstTimeBonus")
             return
         }
         
         let random = Int(arc4random_uniform(100))
-        if random < 5 {
+        
+        switch random {
+        case 0..<5:
             prizeValue = Double(pow(base, Double(level+3)))
-        } else if random < 15 {
+        case 5..<15:
             prizeValue = Double(pow(base, Double(level+2)))
-        } else if random < 40 {
+        case 15..<40:
             prizeValue = Double(pow(base, Double(level+1)))
-        } else {
+        case 40..<100:
             prizeValue = Double(pow(base, Double(level)))
+        default:
+            print("Random value too big")
+            prizeValue = 0
         }
     }
 }

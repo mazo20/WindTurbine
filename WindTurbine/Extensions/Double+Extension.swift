@@ -70,7 +70,7 @@ extension Double {
         case .powerPerKm:
             return numberFormatter(ofType: .power) + "W/(km/h)"
         case .pricePerW:
-            return numberFormatter(ofType: .power) + "$/W"
+            return numberFormatter(ofType: .power) 
         case .cost:
             return "$" + numberFormatter(ofType: .income)
         default:

@@ -12,22 +12,14 @@ class UpgradeStore: NSObject, NSCoding {
     
     var upgrades = [[Upgrade]]() {
         didSet {
-            for i in 0..<upgradeLevels.count {
-                for j in 0..<upgradeLevels[i].count {
-                    upgradeLevels[i][j] = upgrades[i][j].level
-                }
-            }
+            _ = upgrades.compactMap({ $0.compactMap({
+                $0.level = upgradeLevels[$0.emoji] ?? 1
+            })})
         }
+        
     }
-    var upgradeLevels = [[Int]]() {
-        didSet {
-            for i in 0..<upgradeLevels.count {
-                for j in 0..<upgradeLevels[i].count {
-                    upgrades[i][j].level = upgradeLevels[i][j]
-                }
-            }
-        }
-    }
+    
+    var upgradeLevels = [String: Int]()
     
     enum Key: String {
         case upgrades, emoji, imageName, name, baseCost, baseValue, costMult, valueMult, buyCards, priceType, value, price
@@ -92,24 +84,28 @@ class UpgradeStore: NSObject, NSCoding {
     }
     
     func initUpgradeLevels() {
-        for i in 0..<4 {
-            let array = [Int](repeating: 1, count: upgrades[i].count)
-            upgradeLevels.append(array)
+        for arr in upgrades {
+            for upgrade in arr {
+                upgradeLevels[upgrade.emoji] = 1
+            }
         }
     }
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(upgradeLevels, forKey: "upgradeLevels")
+        dump(upgradeLevels)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init()
+        
+        if let levels = aDecoder.decodeObject(forKey: "upgradeLevels") as? [String: Int] {
+            upgradeLevels = levels
+            dump(upgradeLevels)
+        }
+        
         loadUpgrades()
         
-        defer {
-            //Makes sure didSet is called
-            upgradeLevels = aDecoder.decodeObject(forKey: "upgradeLevels") as! [[Int]]
-        }
     }
     
 }

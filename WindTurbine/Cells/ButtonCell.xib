@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,33 +11,38 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ButtonCell" rowHeight="44" id="Nyg-rT-0NG" customClass="ButtonCell" customModule="WindTurbine" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ButtonCell" rowHeight="53" id="Nyg-rT-0NG" customClass="ButtonCell" customModule="WindTurbine" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="941" height="53"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nyg-rT-0NG" id="gU6-vd-07h">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="941" height="52.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvm-Wv-ZgX">
-                        <rect key="frame" x="16" y="3" width="343" height="36"/>
+                        <rect key="frame" x="16" y="9" width="909" height="36"/>
                         <color key="backgroundColor" red="0.31372549020000001" green="0.31764705879999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <state key="normal" title="Discharge battery ($189.85k)"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <variation key="heightClass=regular-widthClass=regular">
                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                         </variation>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="hvm-Wv-ZgX" secondAttribute="trailing" constant="16" id="Go0-KP-N6U"/>
                     <constraint firstItem="hvm-Wv-ZgX" firstAttribute="centerY" secondItem="gU6-vd-07h" secondAttribute="centerY" id="aqx-1n-zfI"/>
-                    <constraint firstItem="hvm-Wv-ZgX" firstAttribute="leading" secondItem="gU6-vd-07h" secondAttribute="leading" constant="16" id="evl-V3-mHD"/>
+                    <constraint firstItem="hvm-Wv-ZgX" firstAttribute="width" secondItem="gU6-vd-07h" secondAttribute="width" constant="-32" id="eqo-ta-aUG"/>
+                    <constraint firstItem="hvm-Wv-ZgX" firstAttribute="centerX" secondItem="gU6-vd-07h" secondAttribute="centerX" id="mDK-Dd-V1J"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="button" destination="hvm-Wv-ZgX" id="OcB-N9-fMr"/>
             </connections>
-            <point key="canvasLocation" x="-33.5" y="-66"/>
+            <point key="canvasLocation" x="249.5" y="-61.5"/>
         </tableViewCell>
     </objects>
 </document>

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum formatterType {
+enum formatterType: String {
     case power
     case income
     case balance
@@ -17,6 +17,8 @@ enum formatterType {
     case pricePerW
     case capacity
     case cost
+    case charging
+    case price
 }
 
 extension Double {
@@ -30,28 +32,30 @@ extension Double {
     
     func numberFormatter(ofType type: formatterType) -> String {
         var string = ""
-        if self < 1 && type != .balance {
-            string = String(format: "%.3f", locale: Locale.current,self).replacingOccurrences(of: ".000", with: "")
-        } else if self < 1000 || (self < 10000 && type == .balance){
-            string = String(format: "%.2f", locale: Locale.current,self).replacingOccurrences(of: ".00", with: "")
-        } else if self < 1000000 {
-            string = String(format: "%.2fk", locale: Locale.current,self/1000).replacingOccurrences(of: ".00", with: "")
-        } else if self < 1000000000 {
-            string = String(format: "%.2fM", locale: Locale.current,self/1000000).replacingOccurrences(of: ".00", with: "")
-        } else if self < 1000000000000 {
-            if type == .power {
-                string = String(format: "%.2fG", locale: Locale.current,self/1000000000).replacingOccurrences(of: ".00", with: "")
-            } else {
-                string = String(format: "%.2fB", locale: Locale.current,self/1000000000).replacingOccurrences(of: ".00", with: "")
+        switch (self, type) {
+        case (0..<1000, _):
+            string = String(format: "%.2f", locale: Locale.current, self)
+        case (0..<10000, .balance):
+            string = String(format: "%.2f", locale: Locale.current, self)
+        case (1000..<1000000, _):
+            string = String(format: "%.2fk", locale: Locale.current, self/1000)
+        case (1000000..<1000000000, _):
+            string = String(format: "%.2fM", locale: Locale.current, self/1000000)
+        case (1000000000..<1000000000000, .power):
+            string = String(format: "%.2fG", locale: Locale.current, self/1000000000)
+        case (1000000000..<1000000000000, _):
+            string = String(format: "%.2fB", locale: Locale.current, self/1000000000)
+        default:
+            string = String(format: "%.2fT", locale: Locale.current, self/1000000000000)
+        }
+        if let separator = Locale.current.decimalSeparator {
+            for _ in 1...4 {
+                if string.contains(separator) &&
+                    (string.last == "0" || string.last == Character(separator)) &&
+                    type != .balance {
+                    string = String(string.dropLast())
+                }
             }
-        } else {
-            string = String(format: "%.2fT", locale: Locale.current,self/1000000000000).replacingOccurrences(of: ".00", with: "")
-        }
-        if string.contains(".") && string.last == "0" {
-            string = String(string.dropLast())
-        }
-        if string.contains(".") && string.last == "0" {
-            string = String(string.dropLast())
         }
         return string
         
@@ -61,7 +65,7 @@ extension Double {
         switch type {
         case .wind:
             return numberFormatter(ofType: .income) + "km/h"
-        case .power:
+        case .power, .charging:
             return numberFormatter(ofType: .power) + "W"
         case .income:
             return "$" + numberFormatter(ofType: .income) + "/s"
@@ -69,7 +73,7 @@ extension Double {
             return "$" + numberFormatter(ofType: .balance)
         case .powerPerKm:
             return numberFormatter(ofType: .power) + "W/(km/h)"
-        case .pricePerW:
+        case .pricePerW, .price:
             return numberFormatter(ofType: .power) 
         case .cost:
             return "$" + numberFormatter(ofType: .income)

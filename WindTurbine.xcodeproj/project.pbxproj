@@ -21,14 +21,27 @@
 		541C756D20876ECD00D268C4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C756C20876ECD00D268C4 /* Model.swift */; };
 		541C756F2087729200D268C4 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C756E2087729200D268C4 /* Double+Extension.swift */; };
 		541C75712087B6D200D268C4 /* TextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C75702087B6D200D268C4 /* TextLabel.swift */; };
+		541ED46120C6D78200DB4F4D /* GameCenterControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541ED46020C6D78200DB4F4D /* GameCenterControllerDelegate.swift */; };
+		541ED46320C7CA2200DB4F4D /* BuyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541ED46220C7CA2200DB4F4D /* BuyButton.swift */; };
+		541ED46720C7DB8600DB4F4D /* ScaledWidthImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541ED46620C7DB8600DB4F4D /* ScaledWidthImageView.swift */; };
+		541ED46920C812AA00DB4F4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 541ED46820C812A900DB4F4D /* GoogleService-Info.plist */; };
+		541ED46B20C8232800DB4F4D /* RewardAdDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541ED46A20C8232800DB4F4D /* RewardAdDelegate.swift */; };
+		541ED46D20C8655700DB4F4D /* StoreReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541ED46C20C8655600DB4F4D /* StoreReviewHelper.swift */; };
+		541ED46F20C865F200DB4F4D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541ED46E20C865F200DB4F4D /* Constants.swift */; };
 		542609FF20B5DBC800808199 /* CloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542609FE20B5DBC800808199 /* CloudViewController.swift */; };
 		54260A0120B5E56100808199 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54260A0020B5E56100808199 /* CGFloat+Extension.swift */; };
 		54260A0320B5ED8A00808199 /* TurbineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54260A0220B5ED8900808199 /* TurbineViewController.swift */; };
 		54260A0520B5F6E600808199 /* StatsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54260A0420B5F6E600808199 /* StatsView.xib */; };
 		54260A0720B5F91600808199 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54260A0620B5F91600808199 /* StatsView.swift */; };
 		54260A0920B6005700808199 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54260A0820B6005700808199 /* TableViewController.swift */; };
-		54260A0B20B72A0800808199 /* LevelUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54260A0A20B72A0800808199 /* LevelUpView.xib */; };
-		54260A0D20B730E900808199 /* LevelUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54260A0C20B730E800808199 /* LevelUpView.swift */; };
+		5427D85320C9277A005F91CA /* ExtraButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427D85220C9277A005F91CA /* ExtraButtonsViewController.swift */; };
+		5427D85520C92874005F91CA /* ExtraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427D85420C92874005F91CA /* ExtraButton.swift */; };
+		5427D85720C93EBC005F91CA /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427D85620C93EBC005F91CA /* PopUpView.swift */; };
+		5427D85920C93ED0005F91CA /* PopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5427D85820C93ED0005F91CA /* PopUpView.xib */; };
+		5427D85B20C94DB3005F91CA /* PopUpViewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427D85A20C94DB3005F91CA /* PopUpViewsController.swift */; };
+		5427D85D20C97723005F91CA /* BonusMultiplierHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427D85C20C97723005F91CA /* BonusMultiplierHelper.swift */; };
+		5427D85F20C9AA6E005F91CA /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5427D85E20C9AA6E005F91CA /* View.xib */; };
+		54503C4120CE853500E50047 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54503C4020CE853500E50047 /* UITableView+Extension.swift */; };
 		5452C92E207D3FA5002DB75E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5452C92D207D3FA5002DB75E /* UIView+Extension.swift */; };
 		545317B820889FCD005EA09C /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545317B720889FCD005EA09C /* Dictionary+Extension.swift */; };
 		545317BA2088E8D3005EA09C /* WindUpgrades.json in Resources */ = {isa = PBXBuildFile; fileRef = 545317B92088E8D3005EA09C /* WindUpgrades.json */; };
@@ -52,8 +65,11 @@
 		54DB2B98209A4640003B8B0B /* BatteryLevelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54DB2B97209A463F003B8B0B /* BatteryLevelCell.xib */; };
 		54DB2B9A209A5D32003B8B0B /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54DB2B99209A5D31003B8B0B /* ButtonCell.xib */; };
 		54DB2B9C209AFBA8003B8B0B /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DB2B9B209AFBA8003B8B0B /* ButtonCell.swift */; };
+		54E4937120CA643300165A37 /* OnboardingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E4937020CA643300165A37 /* OnboardingHelper.swift */; };
+		54E4937320CA6A8200165A37 /* OnboardingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54E4937220CA6A8200165A37 /* OnboardingView.xib */; };
 		54FA5285207E520300D2E78E /* CloudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FA5284207E520300D2E78E /* CloudView.swift */; };
 		54FA5288207E558D00D2E78E /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FA5287207E558D00D2E78E /* BackgroundView.swift */; };
+		A8DF3BF5DE201A17D089B77C /* Pods_WindTurbine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6106C2BADDBB2A98D7DA030 /* Pods_WindTurbine.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,14 +87,27 @@
 		541C756C20876ECD00D268C4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		541C756E2087729200D268C4 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		541C75702087B6D200D268C4 /* TextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLabel.swift; sourceTree = "<group>"; };
+		541ED46020C6D78200DB4F4D /* GameCenterControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterControllerDelegate.swift; sourceTree = "<group>"; };
+		541ED46220C7CA2200DB4F4D /* BuyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyButton.swift; sourceTree = "<group>"; };
+		541ED46620C7DB8600DB4F4D /* ScaledWidthImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledWidthImageView.swift; sourceTree = "<group>"; };
+		541ED46820C812A900DB4F4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		541ED46A20C8232800DB4F4D /* RewardAdDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardAdDelegate.swift; sourceTree = "<group>"; };
+		541ED46C20C8655600DB4F4D /* StoreReviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewHelper.swift; sourceTree = "<group>"; };
+		541ED46E20C865F200DB4F4D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		542609FE20B5DBC800808199 /* CloudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudViewController.swift; sourceTree = "<group>"; };
 		54260A0020B5E56100808199 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		54260A0220B5ED8900808199 /* TurbineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurbineViewController.swift; sourceTree = "<group>"; };
 		54260A0420B5F6E600808199 /* StatsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatsView.xib; sourceTree = "<group>"; };
 		54260A0620B5F91600808199 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		54260A0820B6005700808199 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		54260A0A20B72A0800808199 /* LevelUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelUpView.xib; sourceTree = "<group>"; };
-		54260A0C20B730E800808199 /* LevelUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpView.swift; sourceTree = "<group>"; };
+		5427D85220C9277A005F91CA /* ExtraButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraButtonsViewController.swift; sourceTree = "<group>"; };
+		5427D85420C92874005F91CA /* ExtraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraButton.swift; sourceTree = "<group>"; };
+		5427D85620C93EBC005F91CA /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		5427D85820C93ED0005F91CA /* PopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpView.xib; sourceTree = "<group>"; };
+		5427D85A20C94DB3005F91CA /* PopUpViewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewsController.swift; sourceTree = "<group>"; };
+		5427D85C20C97723005F91CA /* BonusMultiplierHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusMultiplierHelper.swift; sourceTree = "<group>"; };
+		5427D85E20C9AA6E005F91CA /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		54503C4020CE853500E50047 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		5452C92D207D3FA5002DB75E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		545317B720889FCD005EA09C /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		545317B92088E8D3005EA09C /* WindUpgrades.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WindUpgrades.json; sourceTree = "<group>"; };
@@ -104,8 +133,13 @@
 		54DB2B97209A463F003B8B0B /* BatteryLevelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BatteryLevelCell.xib; sourceTree = "<group>"; };
 		54DB2B99209A5D31003B8B0B /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		54DB2B9B209AFBA8003B8B0B /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
+		54E4937020CA643300165A37 /* OnboardingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHelper.swift; sourceTree = "<group>"; };
+		54E4937220CA6A8200165A37 /* OnboardingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingView.xib; sourceTree = "<group>"; };
 		54FA5284207E520300D2E78E /* CloudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudView.swift; sourceTree = "<group>"; };
 		54FA5287207E558D00D2E78E /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		5902649BD56C324615448BE7 /* Pods-WindTurbine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WindTurbine.release.xcconfig"; path = "Pods/Target Support Files/Pods-WindTurbine/Pods-WindTurbine.release.xcconfig"; sourceTree = "<group>"; };
+		A6106C2BADDBB2A98D7DA030 /* Pods_WindTurbine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WindTurbine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2A597D210E5F5F7533210C1 /* Pods-WindTurbine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WindTurbine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WindTurbine/Pods-WindTurbine.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8DF3BF5DE201A17D089B77C /* Pods_WindTurbine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +186,26 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		541ED45D20C6ACF400DB4F4D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				54260A0420B5F6E600808199 /* StatsView.xib */,
+				54260A0620B5F91600808199 /* StatsView.swift */,
+				5427D85820C93ED0005F91CA /* PopUpView.xib */,
+				5427D85620C93EBC005F91CA /* PopUpView.swift */,
+				54C29D4C20A5FDB70085FE2C /* LightningStoreView.xib */,
+				54C29D4E20AC4E6B0085FE2C /* LightningStoreView.swift */,
+				54C29D5020AC5B740085FE2C /* LightningBuyView.xib */,
+				54C29D5220AC5B950085FE2C /* LightningBuyView.swift */,
+				541ED46620C7DB8600DB4F4D /* ScaledWidthImageView.swift */,
+				541ED46220C7CA2200DB4F4D /* BuyButton.swift */,
+				5427D85420C92874005F91CA /* ExtraButton.swift */,
+				54E4937220CA6A8200165A37 /* OnboardingView.xib */,
+				5427D85E20C9AA6E005F91CA /* View.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		5452C92F207D3FC2002DB75E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +213,7 @@
 				541C756E2087729200D268C4 /* Double+Extension.swift */,
 				545317B720889FCD005EA09C /* Dictionary+Extension.swift */,
 				54260A0020B5E56100808199 /* CGFloat+Extension.swift */,
+				54503C4020CE853500E50047 /* UITableView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -167,6 +223,8 @@
 			children = (
 				546A20A2207509A5009A3EC0 /* WindTurbine */,
 				546A20A1207509A5009A3EC0 /* Products */,
+				E86309FAE4DD0BFFE4706832 /* Pods */,
+				A7BB6B693A1791ABB37C59CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,17 +241,18 @@
 			children = (
 				5452C92F207D3FC2002DB75E /* Extensions */,
 				54FA5286207E541700D2E78E /* Animations */,
+				541ED46E20C865F200DB4F4D /* Constants.swift */,
 				546A20A3207509A5009A3EC0 /* AppDelegate.swift */,
+				541ED46C20C8655600DB4F4D /* StoreReviewHelper.swift */,
+				5427D85C20C97723005F91CA /* BonusMultiplierHelper.swift */,
+				54E4937020CA643300165A37 /* OnboardingHelper.swift */,
+				541ED46020C6D78200DB4F4D /* GameCenterControllerDelegate.swift */,
+				5427D85220C9277A005F91CA /* ExtraButtonsViewController.swift */,
 				546A20A5207509A5009A3EC0 /* GameViewController.swift */,
+				5427D85A20C94DB3005F91CA /* PopUpViewsController.swift */,
+				541ED46A20C8232800DB4F4D /* RewardAdDelegate.swift */,
 				54260A0820B6005700808199 /* TableViewController.swift */,
-				54260A0420B5F6E600808199 /* StatsView.xib */,
-				54260A0620B5F91600808199 /* StatsView.swift */,
-				54260A0A20B72A0800808199 /* LevelUpView.xib */,
-				54260A0C20B730E800808199 /* LevelUpView.swift */,
-				54C29D4C20A5FDB70085FE2C /* LightningStoreView.xib */,
-				54C29D4E20AC4E6B0085FE2C /* LightningStoreView.swift */,
-				54C29D5020AC5B740085FE2C /* LightningBuyView.xib */,
-				54C29D5220AC5B950085FE2C /* LightningBuyView.swift */,
+				541ED45D20C6ACF400DB4F4D /* Views */,
 				54069D2E209C763B00CF3922 /* Cells */,
 				541C756B20876E7C00D268C4 /* Model */,
 				54FA5287207E558D00D2E78E /* BackgroundView.swift */,
@@ -208,6 +267,7 @@
 				546A20AA207509A5009A3EC0 /* Assets.xcassets */,
 				546A20AC207509A5009A3EC0 /* LaunchScreen.storyboard */,
 				546A20AF207509A5009A3EC0 /* Info.plist */,
+				541ED46820C812A900DB4F4D /* GoogleService-Info.plist */,
 			);
 			path = WindTurbine;
 			sourceTree = "<group>";
@@ -222,6 +282,23 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
+		A7BB6B693A1791ABB37C59CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6106C2BADDBB2A98D7DA030 /* Pods_WindTurbine.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E86309FAE4DD0BFFE4706832 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E2A597D210E5F5F7533210C1 /* Pods-WindTurbine.debug.xcconfig */,
+				5902649BD56C324615448BE7 /* Pods-WindTurbine.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -229,9 +306,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 546A20B2207509A5009A3EC0 /* Build configuration list for PBXNativeTarget "WindTurbine" */;
 			buildPhases = (
+				736BA9987582CC6996F02CDD /* [CP] Check Pods Manifest.lock */,
 				546A209C207509A5009A3EC0 /* Sources */,
 				546A209D207509A5009A3EC0 /* Frameworks */,
 				546A209E207509A5009A3EC0 /* Resources */,
+				8BD39FAA2CB17A52D4FDEB57 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -287,17 +366,20 @@
 				54DB2B98209A4640003B8B0B /* BatteryLevelCell.xib in Resources */,
 				54C29D5120AC5B740085FE2C /* LightningBuyView.xib in Resources */,
 				545317BE2088EF14005EA09C /* PowerUpgrades.json in Resources */,
+				5427D85920C93ED0005F91CA /* PopUpView.xib in Resources */,
+				5427D85F20C9AA6E005F91CA /* View.xib in Resources */,
 				545317BA2088E8D3005EA09C /* WindUpgrades.json in Resources */,
 				54C29D4D20A5FDB70085FE2C /* LightningStoreView.xib in Resources */,
-				54260A0B20B72A0800808199 /* LevelUpView.xib in Resources */,
 				54ABFD58209F359300E7F582 /* ScratchCardBuyCell.xib in Resources */,
 				546A20AE207509A5009A3EC0 /* LaunchScreen.storyboard in Resources */,
 				546A20AB207509A5009A3EC0 /* Assets.xcassets in Resources */,
+				54E4937320CA6A8200165A37 /* OnboardingView.xib in Resources */,
 				54DB2B9A209A5D32003B8B0B /* ButtonCell.xib in Resources */,
 				545317C02088EF27005EA09C /* PriceUpgrades.json in Resources */,
 				546A20A9207509A5009A3EC0 /* Main.storyboard in Resources */,
 				545C763620ADFC280012F741 /* BuyScratchCards.json in Resources */,
 				54260A0520B5F6E600808199 /* StatsView.xib in Resources */,
+				541ED46920C812AA00DB4F4D /* GoogleService-Info.plist in Resources */,
 				54D9210920A4CAE300B45402 /* ScratchCards.json in Resources */,
 				541C7564207FAC0000D268C4 /* UpgradeViewCell.xib in Resources */,
 			);
@@ -305,21 +387,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		736BA9987582CC6996F02CDD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WindTurbine-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8BD39FAA2CB17A52D4FDEB57 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WindTurbine/Pods-WindTurbine-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WindTurbine/Pods-WindTurbine-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		546A209C207509A5009A3EC0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54260A0D20B730E900808199 /* LevelUpView.swift in Sources */,
 				54069D36209C89D100CF3922 /* Battery.swift in Sources */,
 				545317BC2088EA39005EA09C /* Upgrade.swift in Sources */,
+				541ED46120C6D78200DB4F4D /* GameCenterControllerDelegate.swift in Sources */,
 				54260A0120B5E56100808199 /* CGFloat+Extension.swift in Sources */,
 				54260A0320B5ED8A00808199 /* TurbineViewController.swift in Sources */,
 				54D9210720A4555800B45402 /* ScratchCardStore.swift in Sources */,
 				541C756F2087729200D268C4 /* Double+Extension.swift in Sources */,
+				54503C4120CE853500E50047 /* UITableView+Extension.swift in Sources */,
 				546A20A6207509A5009A3EC0 /* GameViewController.swift in Sources */,
 				54069D38209DBE8600CF3922 /* ScratchCard.swift in Sources */,
 				542609FF20B5DBC800808199 /* CloudViewController.swift in Sources */,
+				54E4937120CA643300165A37 /* OnboardingHelper.swift in Sources */,
 				54FA5288207E558D00D2E78E /* BackgroundView.swift in Sources */,
 				54C29D5320AC5B950085FE2C /* LightningBuyView.swift in Sources */,
 				54069D34209C768E00CF3922 /* ScratchCardsMenuCell.swift in Sources */,
@@ -328,16 +453,26 @@
 				54ABFD5A209F4B5000E7F582 /* ScratchCardBuyCell.swift in Sources */,
 				541C75712087B6D200D268C4 /* TextLabel.swift in Sources */,
 				54069D32209C768100CF3922 /* ScratchCardCell.swift in Sources */,
+				5427D85720C93EBC005F91CA /* PopUpView.swift in Sources */,
 				5452C92E207D3FA5002DB75E /* UIView+Extension.swift in Sources */,
+				5427D85D20C97723005F91CA /* BonusMultiplierHelper.swift in Sources */,
+				5427D85B20C94DB3005F91CA /* PopUpViewsController.swift in Sources */,
+				5427D85520C92874005F91CA /* ExtraButton.swift in Sources */,
 				5410BA4C20A0645C00A7570D /* UpgradeStore.swift in Sources */,
 				546A20A4207509A5009A3EC0 /* AppDelegate.swift in Sources */,
 				54DB2B9C209AFBA8003B8B0B /* ButtonCell.swift in Sources */,
+				541ED46320C7CA2200DB4F4D /* BuyButton.swift in Sources */,
 				54260A0720B5F91600808199 /* StatsView.swift in Sources */,
+				5427D85320C9277A005F91CA /* ExtraButtonsViewController.swift in Sources */,
+				541ED46F20C865F200DB4F4D /* Constants.swift in Sources */,
 				54FA5285207E520300D2E78E /* CloudView.swift in Sources */,
+				541ED46B20C8232800DB4F4D /* RewardAdDelegate.swift in Sources */,
 				541C7562207FABB600D268C4 /* UpgradeViewCell.swift in Sources */,
+				541ED46D20C8655700DB4F4D /* StoreReviewHelper.swift in Sources */,
 				54C29D4F20AC4E6B0085FE2C /* LightningStoreView.swift in Sources */,
 				54260A0920B6005700808199 /* TableViewController.swift in Sources */,
 				545317B820889FCD005EA09C /* Dictionary+Extension.swift in Sources */,
+				541ED46720C7DB8600DB4F4D /* ScaledWidthImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +611,7 @@
 		};
 		546A20B3207509A5009A3EC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2A597D210E5F5F7533210C1 /* Pods-WindTurbine.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -493,6 +629,7 @@
 		};
 		546A20B4207509A5009A3EC0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5902649BD56C324615448BE7 /* Pods-WindTurbine.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

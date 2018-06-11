@@ -20,13 +20,13 @@ extension GameViewController {
         let frame = windTurbineView.frame
         let hill1 = UIImageView(image: #imageLiteral(resourceName: "Hill1"))
         hill1.frame.size.height = frame.height * 0.4
-        hill1.frame.size.width = frame.height*1.1
+        hill1.frame.size.width = frame.height*1.2
         hill1.center = CGPoint(x: frame.midX, y: frame.maxY)
         hill1.layer.zPosition = 1
         
         let hill2 = UIImageView(image: #imageLiteral(resourceName: "Hill2"))
         hill2.frame.size.height = frame.height * 0.4
-        hill2.frame.size.width = frame.height*1.1
+        hill2.frame.size.width = frame.height*1.2
         hill2.center = CGPoint(x: frame.midX, y: frame.maxY * 1.05)
         hill2.layer.zPosition = 2
         

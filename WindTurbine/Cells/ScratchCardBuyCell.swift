@@ -10,24 +10,20 @@ import UIKit
 
 class ScratchCardBuyCell: UITableViewCell {
     
-    @IBOutlet var scratchCardImageView: UIImageView!
+    @IBOutlet var scratchCardImageView: ScaledWidthImageView!
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var button: UIButton!
+    @IBOutlet var button: BuyButton!
     @IBOutlet var buttonView: UIView!
-    @IBOutlet var currencyImageView: UIImageView!
-    @IBOutlet var priceLabel: UILabel!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        
         
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        buttonView.roundCorners(.allCorners, radius: 8)
+        button.roundCorners(.allCorners, radius: 8)
     }
     
     required init?(coder aDecoder: NSCoder) {

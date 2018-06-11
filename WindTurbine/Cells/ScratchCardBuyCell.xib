@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,15 +19,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="77.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ScratchCardRandom" translatesAutoresizingMaskIntoConstraints="NO" id="eTG-ZW-Hx3">
-                        <rect key="frame" x="16" y="18.5" width="80" height="40"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ScratchCardRandom" translatesAutoresizingMaskIntoConstraints="NO" id="eTG-ZW-Hx3" customClass="ScaledWidthImageView" customModule="WindTurbine" customModuleProvider="target">
+                        <rect key="frame" x="16" y="5" width="85" height="68"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="eTG-ZW-Hx3" secondAttribute="height" multiplier="2:1" id="UMb-fc-18T"/>
-                            <constraint firstAttribute="width" constant="80" id="fqN-HD-8vc"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" secondItem="eTG-ZW-Hx3" secondAttribute="height" multiplier="5:4" id="gUJ-1g-ZKj"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 random cards" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIy-m5-gVC">
-                        <rect key="frame" x="112" y="28.5" width="120.5" height="20.5"/>
+                        <rect key="frame" x="117" y="28.5" width="120.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -35,46 +34,14 @@
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         </variation>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sEx-bv-7Od">
-                        <rect key="frame" x="269" y="21" width="90" height="35"/>
+                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8d-0g-AvV" customClass="BuyButton" customModule="WindTurbine" customModuleProvider="target">
+                        <rect key="frame" x="269" y="21.5" width="90" height="35"/>
                         <color key="backgroundColor" red="0.31372549020000001" green="0.31764705879999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xhf-Le-eq6">
-                        <rect key="frame" x="294.5" y="28" width="39.5" height="20"/>
-                        <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AdIcon" translatesAutoresizingMaskIntoConstraints="NO" id="mTR-ap-YVT">
-                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                <color key="tintColor" red="0.94509803920000002" green="0.85882352939999995" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="CiT-d9-u69">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="30"/>
-                                    </constraint>
-                                    <constraint firstAttribute="height" constant="20" id="d6G-KQ-ObO">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="30"/>
-                                    </constraint>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiM-Sb-PGG">
-                                <rect key="frame" x="28" y="0.0" width="11.5" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                </variation>
-                            </label>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="eiM-Sb-PGG" firstAttribute="top" secondItem="Xhf-Le-eq6" secondAttribute="top" id="fF1-Vs-Upp"/>
-                        </constraints>
-                    </stackView>
-                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8d-0g-AvV">
-                        <rect key="frame" x="269" y="21" width="90" height="35"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="90" id="Oou-0C-A8n">
                                 <variation key="heightClass=regular-widthClass=regular" constant="120"/>
                             </constraint>
+                            <constraint firstAttribute="width" secondItem="a8d-0g-AvV" secondAttribute="height" multiplier="18:7" id="Xcc-W9-XW4"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -83,28 +50,18 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="sEx-bv-7Od" firstAttribute="height" secondItem="a8d-0g-AvV" secondAttribute="height" id="0fD-vi-Fud"/>
+                    <constraint firstItem="a8d-0g-AvV" firstAttribute="centerY" secondItem="Fmq-Zm-QXM" secondAttribute="centerY" id="2De-ET-ar0"/>
                     <constraint firstItem="eTG-ZW-Hx3" firstAttribute="centerY" secondItem="Fmq-Zm-QXM" secondAttribute="centerY" id="2ke-z1-5im"/>
                     <constraint firstItem="BIy-m5-gVC" firstAttribute="centerY" secondItem="Fmq-Zm-QXM" secondAttribute="centerY" id="6WE-zA-N9Z"/>
                     <constraint firstItem="eTG-ZW-Hx3" firstAttribute="centerY" secondItem="Fmq-Zm-QXM" secondAttribute="centerY" id="EvL-68-ekr"/>
-                    <constraint firstAttribute="trailing" secondItem="sEx-bv-7Od" secondAttribute="trailing" constant="16" id="Jf8-Zd-LZ4"/>
-                    <constraint firstItem="sEx-bv-7Od" firstAttribute="width" secondItem="a8d-0g-AvV" secondAttribute="width" id="KkC-ew-mcy"/>
-                    <constraint firstItem="Xhf-Le-eq6" firstAttribute="centerY" secondItem="sEx-bv-7Od" secondAttribute="centerY" id="QkH-Qy-nO9"/>
-                    <constraint firstItem="Xhf-Le-eq6" firstAttribute="centerY" secondItem="Fmq-Zm-QXM" secondAttribute="centerY" id="SKz-7N-ZGx"/>
-                    <constraint firstItem="a8d-0g-AvV" firstAttribute="centerY" secondItem="sEx-bv-7Od" secondAttribute="centerY" id="T6B-hf-43F"/>
+                    <constraint firstAttribute="trailing" secondItem="a8d-0g-AvV" secondAttribute="trailing" constant="16" id="Nhp-8L-Sds"/>
                     <constraint firstItem="BIy-m5-gVC" firstAttribute="leading" secondItem="eTG-ZW-Hx3" secondAttribute="trailing" constant="16" id="dRm-hm-QHa"/>
-                    <constraint firstItem="eTG-ZW-Hx3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Fmq-Zm-QXM" secondAttribute="top" constant="16" id="fjy-gT-FF4"/>
+                    <constraint firstItem="eTG-ZW-Hx3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Fmq-Zm-QXM" secondAttribute="top" constant="5" id="fjy-gT-FF4"/>
                     <constraint firstItem="eTG-ZW-Hx3" firstAttribute="leading" secondItem="Fmq-Zm-QXM" secondAttribute="leading" constant="16" id="i0e-Bw-9Ah"/>
-                    <constraint firstItem="a8d-0g-AvV" firstAttribute="centerX" secondItem="sEx-bv-7Od" secondAttribute="centerX" id="iae-Xa-9y2"/>
-                    <constraint firstItem="sEx-bv-7Od" firstAttribute="centerY" secondItem="Fmq-Zm-QXM" secondAttribute="centerY" id="ijh-2p-eg1"/>
-                    <constraint firstItem="Xhf-Le-eq6" firstAttribute="centerX" secondItem="sEx-bv-7Od" secondAttribute="centerX" id="seT-sy-egz"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="button" destination="a8d-0g-AvV" id="emN-K5-wG6"/>
-                <outlet property="buttonView" destination="sEx-bv-7Od" id="4ND-Ep-Gp3"/>
-                <outlet property="currencyImageView" destination="mTR-ap-YVT" id="hqq-ze-xZh"/>
-                <outlet property="priceLabel" destination="eiM-Sb-PGG" id="yod-5Q-kCS"/>
                 <outlet property="scratchCardImageView" destination="eTG-ZW-Hx3" id="0B0-ZS-ObZ"/>
                 <outlet property="titleLabel" destination="BIy-m5-gVC" id="LH2-VY-bMG"/>
             </connections>
@@ -112,7 +69,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="AdIcon" width="90" height="90"/>
         <image name="ScratchCardRandom" width="1200" height="600"/>
     </resources>
 </document>

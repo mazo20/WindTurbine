@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -36,7 +36,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="79% ($83.26M)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jx6-Vb-W8T">
@@ -45,7 +45,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charging power" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diQ-AS-B2C">
@@ -54,7 +54,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="459 kW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3y-I7-QjY">
@@ -63,7 +63,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capacity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dG-da-fLF">
@@ -72,7 +72,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="80 kWh ($105.6M)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xqk-mv-6YR">
@@ -81,7 +81,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -90,8 +90,12 @@
                 <constraints>
                     <constraint firstItem="0Wr-Ol-j4U" firstAttribute="centerY" secondItem="zA8-Q0-R9O" secondAttribute="centerY" id="1RA-Cp-dG2"/>
                     <constraint firstItem="W0n-6S-bhE" firstAttribute="top" secondItem="zA8-Q0-R9O" secondAttribute="top" constant="16" id="E6I-cY-Q26"/>
-                    <constraint firstItem="0Wr-Ol-j4U" firstAttribute="leading" secondItem="W0n-6S-bhE" secondAttribute="trailing" constant="16" id="HhW-nC-Wm2"/>
-                    <constraint firstItem="W0n-6S-bhE" firstAttribute="leading" secondItem="zA8-Q0-R9O" secondAttribute="leadingMargin" id="Ifm-vJ-9vO"/>
+                    <constraint firstItem="0Wr-Ol-j4U" firstAttribute="leading" secondItem="W0n-6S-bhE" secondAttribute="trailing" constant="16" id="HhW-nC-Wm2">
+                        <variation key="heightClass=regular-widthClass=regular" constant="24"/>
+                    </constraint>
+                    <constraint firstItem="W0n-6S-bhE" firstAttribute="leading" secondItem="zA8-Q0-R9O" secondAttribute="leadingMargin" id="Ifm-vJ-9vO">
+                        <variation key="heightClass=regular-widthClass=regular" constant="8"/>
+                    </constraint>
                     <constraint firstItem="W0n-6S-bhE" firstAttribute="centerY" secondItem="zA8-Q0-R9O" secondAttribute="centerY" id="RsP-9i-MxI"/>
                     <constraint firstAttribute="bottom" secondItem="W0n-6S-bhE" secondAttribute="bottom" constant="16" id="coX-2c-xSe"/>
                 </constraints>

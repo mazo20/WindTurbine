@@ -14,13 +14,14 @@ extension GameViewController {
         //Add cloud and animate it
         var cloud = addCloud(to: view)
         animateCloud(cloud, in: view)
-        _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (Timer) in
+        let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (Timer) in
             if cloud.center.x > view.frame.maxX * 0.2 {
                 //When the cloud moves past certain point add new one
                 cloud = self.addCloud(to: view)
                 self.animateCloud(cloud, in: view)
             }
         })
+        timer.tolerance = 0.5
         
         addInitialClouds(to: view)
     }

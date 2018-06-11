@@ -35,7 +35,12 @@ class ButtonCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        button.roundCorners(.allCorners, radius: 8)
+        
+        //button.roundCorners(.allCorners, radius: 8)
+        
+        button.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        button.setNeedsLayout()
+        button.layoutIfNeeded()
     }
     
     required init?(coder aDecoder: NSCoder) {

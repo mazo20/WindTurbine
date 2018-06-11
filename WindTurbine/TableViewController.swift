@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+
 
 extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -18,15 +20,16 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView.tag {
         case 0:
-            return upgrades[segmentedUpgradeControl.selectedSegmentIndex].count
+            return model.upgradeStore.upgradesForIncome()[segmentedUpgradeControl.selectedSegmentIndex].count
         case 1:
-            let rows = [3, 2]
-            return rows[section]
+            if section == 0 && battery.chargePercentage == 0 { return 1 }
+            if section == 0 && GADRewardBasedVideoAd.sharedInstance().isReady { return 3 }
+            return 2
         case 2:
             let rows = [2, cardStore.buyScratchCards.count]
             return rows[section]
         default:
-            return 2
+            return model.level > model.numberOfRestarts + 2 ? 2 : 1
         }
     }
     
@@ -48,20 +51,21 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView.tag == 3 && indexPath.row == 0 {
+        if tableView.tag == 3 && indexPath.row == 1 {
             //Start playing from the start
-            model.reset()
-            tableView.reloadData()
+            showRestartGameView()
         }
     }
     
     func setupUpgradesTableView(indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UpgradeViewCell", for: indexPath) as! UpgradeViewCell
         let tag = segmentedUpgradeControl.selectedSegmentIndex
-        let upgrade = upgrades[tag][indexPath.row]
+        let type = [upgradeType.wind, upgradeType.power, upgradeType.price]
+        let upgrade = model.upgradeStore.upgradesWithType(type[tag])[indexPath.row]
         
         cell.delegate = self
         cell.upgrade = upgrade
+        cell.buyScratchCard = nil
         cell.buyButton.tag = indexPath.row
         cell.buyButton.backgroundColor = model.money > upgrade.cost ? #colorLiteral(red: 0.1457930078, green: 0.764910063, blue: 0.2355007071, alpha: 1) : #colorLiteral(red: 0.3137254902, green: 0.3176470588, blue: 0.3098039216, alpha: 1)
         return cell
@@ -84,12 +88,12 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             }
         } else {
-            let upgrade = upgrades[3][indexPath.row]
+            let upgrade = model.upgradeStore.upgradesForBattery()[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "UpgradeViewCell", for: indexPath) as! UpgradeViewCell
             cell.delegate = self
             cell.upgrade = upgrade
+            cell.buyScratchCard = nil
             cell.buyButton.tag = indexPath.row
-            cell.buyButton.addTarget(self, action: #selector(handleButtonAction(sender:)), for: .touchUpInside)
             cell.buyButton.backgroundColor = model.money > upgrade.cost ? #colorLiteral(red: 0.1457930078, green: 0.764910063, blue: 0.2355007071, alpha: 1) : #colorLiteral(red: 0.3137254902, green: 0.3176470588, blue: 0.3098039216, alpha: 1)
             return cell
         }
@@ -112,21 +116,22 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
             }
             return cell
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ScratchCardBuyCell", for: indexPath) as! ScratchCardBuyCell
-        cell.button.addTarget(self, action: #selector(handleButtonAction(sender:)), for: .touchUpInside)
-        cell.button.tag = indexPath.row
-        cell.scratchCardImageView.image = #imageLiteral(resourceName: "ScratchCardRandom")
-        cell.titleLabel.text = "\(cardStore.buyScratchCards[indexPath.row].value) cards"
-        cell.currencyImageView.image = cardStore.buyScratchCards[indexPath.row].type == .ad ? #imageLiteral(resourceName: "AdIcon") : #imageLiteral(resourceName: "Lightning")
-        cell.priceLabel.text = "\(cardStore.buyScratchCards[indexPath.row].price)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UpgradeViewCell", for: indexPath) as! UpgradeViewCell
+        cell.upgrade = nil
+        cell.buyScratchCard = cardStore.buyScratchCards[indexPath.row]
+        cell.buyButton.tag = indexPath.row
+        cell.buyButton.backgroundColor = #colorLiteral(red: 0.3137254902, green: 0.3176470588, blue: 0.3098039216, alpha: 1)
+        cell.delegate = self
         return cell
     }
     
     func setupSettingsView(indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
-        if indexPath.row == 0 {
+        if indexPath.row == 1 {
             cell.textLabel?.text = "Start from beggining"
-            cell.detailTextLabel?.text = "Will delete your progress"
+            cell.detailTextLabel?.text = "Get a bonus"
+            cell.accessoryType = .disclosureIndicator
+            cell.selectionStyle = .none
         } else {
             cell.textLabel?.text = "Created by"
             cell.detailTextLabel?.text = "Maciej Kowalski"
@@ -135,10 +140,11 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func dischargeBatteryButton(sender: UIButton) {
-        model.money += Double(battery.chargePercentage)/100*battery.capacity*sqrt(model.powerPrice) * Double(sender.tag)
-        battery.charge = 0
-        battery.startTime = Date()
-        tableView.reloadSections([0], with: .none)
+        if sender.tag == 2 {
+            presentRewardVideoAd(for: .battery)
+        } else {
+            dischargeBattery(withMultiplier: 1)
+        }
     }
     
     @objc func changeScratchCard(sender: UIButton) {
@@ -147,88 +153,75 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .none)
     }
     
-    @objc func handleButtonAction(sender: UIButton) {
-        let i = sender.tag
-        if tableView.tag == 2 {
-            let card = cardStore.buyScratchCards[i]
-            if card.type == .lightning && card.price > model.lightnings {
-                showStoreView()
-                return
-            }
-            if card.type == .lightning { model.lightnings -= card.price }
-            cardStore.addCards(cardStore.buyScratchCards[i].value)
-            tableView.reloadSections([0], with: .none)
-        }
-        tableView.reloadData()
-    }
-    
-    
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        var height: CGFloat = 0.0
-        if tableView.tag == 1 && indexPath.section == 0 {
-            switch indexPath.row {
-            case 0: height = 170
-            default: height = 50
-            }
-        } else if tableView.tag == 2 && indexPath.section == 0 {
-            switch indexPath.row {
-            case 0: height = 130
-            default: height = 192
-            }
-        } else {
-            height = 80
-        }
-        return UIDevice.current.userInterfaceIdiom == .pad ? height*2 : height
+        return rowHeightFor(tableView, indexPath: indexPath)
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return rowHeightFor(tableView, indexPath: indexPath)
+    }
+    
+    func rowHeightFor(_ tableView: UITableView, indexPath: IndexPath) -> CGFloat {
         var height: CGFloat = 0.0
-        if tableView.tag == 1 && indexPath.section == 0 {
-            switch indexPath.row {
-            case 0: height = 170
-            default: height = 50
-            }
-        } else if tableView.tag == 2 && indexPath.section == 0 {
-            switch indexPath.row {
-            case 0: height = 130
-            default: height = 192
-            }
-        } else {
+        switch (tableView.tag, indexPath.section, indexPath.row) {
+        case (1, 0, 0):
+            height = 170
+        case (1, 0, _):
+            height = 50
+        case (2, 0, 0):
+            height = 145
+        case (2, 0, 1):
+            height = 180
+        default:
             height = 80
         }
-        return UIDevice.current.userInterfaceIdiom == .pad ? height*2 : height
+        return UIDevice.current.userInterfaceIdiom == .pad ? height * 1.3 : height
     }
 }
 
 extension GameViewController: UpgradeViewCellDelegate {
     func buyButtonPressed(cell: UpgradeViewCell) {
-        if tableView.tag == 0 {
-            let tag = segmentedUpgradeControl.selectedSegmentIndex
-            let upgrade = cell.upgrade!
-            guard model.money > upgrade.cost else { return }
-            model.money -= upgrade.cost
-            upgrade.level += 1
-            if let level = model.upgradeStore.upgradeLevels[upgrade.emoji] {
-                model.upgradeStore.upgradeLevels[upgrade.emoji] = level+1
-            }
-            if tag == 0 { model.nominalWindSpeed += upgrade.value }
-            if tag == 1 { model.powerConversion += upgrade.value }
-            if tag == 2 { model.powerPrice += upgrade.value }
-        } else if tableView.tag == 1 {
-            let upgrade = cell.upgrade!
-            guard model.money > upgrade.cost else { return }
-            model.money -= upgrade.cost
-            guard let index = tableView.indexPath(for: cell)?.row else { return }
-            if index == 0 {
+        StoreReviewHelper.checkAndAskForReview()
+        if let upgrade = cell.upgrade, upgrade.cost < model.money {
+            model.subtractMoney(amount: upgrade.cost)
+            switch upgrade.type {
+            case .wind:
+                model.nominalWindSpeed += upgrade.value
+            case .power:
+                model.powerConversion += upgrade.value
+            case .price:
+                model.powerPrice += upgrade.value
+            case .charging:
                 battery.chargingPower += upgrade.value
-            } else {
+            case .capacity:
                 battery.capacity += upgrade.value * 3600
             }
             upgrade.level += 1
-            if let level = model.upgradeStore.upgradeLevels[upgrade.emoji] {
-                model.upgradeStore.upgradeLevels[upgrade.emoji] = level+1
+        } else if let purchase = cell.buyScratchCard {
+            switch purchase.type {
+            case .lightning:
+                if purchase.price > model.lightnings {
+                    showStoreView()
+                } else {
+                    model.lightnings -= purchase.price
+                    cardStore.addCards(purchase.value)
+                }
+            case .date:
+                guard let date = purchase.date, date.timeIntervalSinceNow < 0 else {
+                    cell.buyButton.shake()
+                    return }
+                purchase.date = Date(timeIntervalSinceNow: 3605)
+                cardStore.freeCardsDate = Date(timeIntervalSinceNow: 3605)
+                cardStore.addCards(purchase.value)
+            case .ad:
+                if isRewardVideoAdReady() {
+                    presentRewardVideoAd(for: .addCards)
+                } else {
+                    cell.buyButton.shake()
+                }
             }
+        } else {
+            cell.buyButton.shake()
         }
         tableView.reloadData()
     }
@@ -245,7 +238,7 @@ extension GameViewController: ScratchCardCellDelegate {
         cell.scratchCardButton.hide()
         tableView.reloadSections([0], with: .none)
         if currentScratchCard.prizeType == .money {
-            model.money += cell.currentCard!.prizeValue * cell.moneyPerSec!
+            model.addMoney(amount: cell.currentCard!.prizeValue * cell.moneyPerSec!)
         }
     }
     

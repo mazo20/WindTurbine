@@ -25,6 +25,7 @@ class LightningStoreView: UIView {
                 views[i]?.delegate = self.delegate
                 views[i]?.buyButton.tag = i+1
                 views[i]?.valueLabel.text = "\(values[i])"
+                
             }
         }
     }

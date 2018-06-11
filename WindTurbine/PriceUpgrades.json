@@ -4,44 +4,50 @@
                 "emoji" : "💡",
                 "name" : "Turn on lights",
                 "baseCost" : 5.5,
-                "baseValue" : 0.02,
-                "costMult" : 1.15,
-                "valueMult" : 1
+                "baseValue" : 0.018,
+                "costMult" : 1.22,
+                "valueMult" : 2,
+                "type" : "price"
                 },{
                 "emoji" : "📱",
                 "name" : "More smartphones",
-                "baseCost" : 39,
-                "baseValue" : 0.12,
-                "costMult" : 1.15,
-                "valueMult" : 1
+                "baseCost" : 22,
+                "baseValue" : 0.054,
+                "costMult" : 1.22,
+                "valueMult" : 2,
+                "type" : "price"
                 },{
                 "emoji" : "🚗",
                 "name" : "Electric cars",
-                "baseCost" : 270,
-                "baseValue" : 0.72,
-                "costMult" : 1.15,
-                "valueMult" : 1
+                "baseCost" : 132,
+                "baseValue" : 0.24,
+                "costMult" : 1.22,
+                "valueMult" : 2,
+                "type" : "price"
                 },{
                 "emoji" : "🔥",
                 "name" : "Fight competition",
-                "baseCost" : 1875,
-                "baseValue" : 4.3,
-                "costMult" : 1.15,
-                "valueMult" : 1
+                "baseCost" : 790,
+                "baseValue" : 1.1,
+                "costMult" : 1.22,
+                "valueMult" : 2,
+                "type" : "price"
                 },{
                 "emoji" : "☢️",
                 "name" : "Ban nuclear power",
-                "baseCost" : 13200,
-                "baseValue" : 25.9,
-                "costMult" : 1.15,
-                "valueMult" : 1
+                "baseCost" : 4750,
+                "baseValue" : 4.92,
+                "costMult" : 1.22,
+                "valueMult" : 2,
+                "type" : "price"
                 },{
                 "emoji" : "🌘",
                 "name" : "Hide sun",
-                "baseCost" : 92500,
-                "baseValue" : 155,
-                "costMult" : 1.15,
-                "valueMult" : 1
+                "baseCost" : 28500,
+                "baseValue" : 22.1,
+                "costMult" : 1.22,
+                "valueMult" : 2,
+                "type" : "price"
                 }
   ]
 }

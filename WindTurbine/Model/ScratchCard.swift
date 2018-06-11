@@ -34,7 +34,7 @@ class ScratchCard {
         
         prizeType = .money
         
-        let base = 2.5
+        let base: Double = 3.0
         if UserDefaults.standard.value(forKey: "firstTimeBonus") == nil && level == 3 {
             prizeValue = Double(pow(base, Double(level+3)))
             UserDefaults.standard.set(false, forKey: "firstTimeBonus")
@@ -42,7 +42,6 @@ class ScratchCard {
         }
         
         let random = Int(arc4random_uniform(100))
-        
         switch random {
         case 0..<5:
             prizeValue = Double(pow(base, Double(level+3)))

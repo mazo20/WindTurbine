@@ -1,20 +1,22 @@
 {
   "upgrades" : [
-  	{
-  		"imageName" : "BatteryCharging",
-  		"name" : "Charging power",
-  		"baseCost" : 10,
-  		"baseValue" : 0.018,
-  		"costMult" : 9.6,
-  		"valueMult" : 4.3
-  	},
-  	{
-  		"imageName" : "BatteryCapacity",
-  		"name" : "Capacity",
-  		"baseCost" : 10,
-  		"baseValue" : 0.023,
-  		"costMult" : 11.2,
-  		"valueMult" : 6.8
-  	}
+                {
+                "imageName" : "BatteryCharging",
+                "name" : "Charging power",
+                "baseCost" : 10,
+                "baseValue" : 0.018,
+                "costMult" : 5.8,
+                "valueMult" : 2.3,
+                "type" : "charging"
+                },
+                {
+                "imageName" : "BatteryCapacity",
+                "name" : "Capacity",
+                "baseCost" : 10,
+                "baseValue" : 0.11,
+                "costMult" : 6.2,
+                "valueMult" : 2.8,
+                "type" : "capacity"
+                }
   ]
 }

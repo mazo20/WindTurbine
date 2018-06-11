@@ -9,25 +9,28 @@
 import Foundation
 
 enum priceType: String {
-    case ad, lightning
+    case ad, lightning, date
 }
 
-struct BuyScratchCard {
+class BuyScratchCard {
     
     var type: priceType
     var value: Int
     var price: Int
+    var date: Date?
     
-    init(type: priceType, value: Int, price: Int) {
+    init(type: priceType, value: Int, price: Int, date: Date? = nil) {
         self.type = type
         self.value = value
         self.price = price
+        self.date = date
     }
 }
 
 class ScratchCardStore: NSObject, NSCoding {
     
     var cards: [Int]!
+    var freeCardsDate: Date
     var buyScratchCards = [BuyScratchCard]()
     
     convenience override init() {
@@ -35,18 +38,16 @@ class ScratchCardStore: NSObject, NSCoding {
     }
     
     init(cards: [Int]) {
-        super.init()
         self.cards = cards
+        self.freeCardsDate = Date()
+        super.init()
         commonInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
+        cards = aDecoder.decodeObject(forKey: "cards") as? [Int] ?? [10, 5, 3]
+        freeCardsDate = aDecoder.decodeObject(forKey: "date") as? Date ?? Date()
         super.init()
-        if let cards = aDecoder.decodeObject(forKey: "cards") as? [Int] {
-            self.cards = cards
-        } else {
-            self.cards = [10, 5, 3]
-        }
         commonInit()
     }
     
@@ -54,10 +55,15 @@ class ScratchCardStore: NSObject, NSCoding {
         if let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename: "BuyScratchCards") {
             if let buyCards = dictionary["buyCards"] as? [Dictionary<String, Any>] {
                 for card in buyCards {
-                    if let type = card["priceType"] as? String,
+                    guard let typeString = card["priceType"] as? String,
+                        let type = priceType(rawValue: typeString),
                         let value = card["value"] as? Int,
-                        let price = card["price"] as? Int {
-                        let buyScratchCard = BuyScratchCard(type: priceType(rawValue: type)!, value: value, price: price)
+                        let price = card["price"] as? Int else { continue }
+                    if type == .date {
+                        let buyScratchCard = BuyScratchCard(type: type, value: value, price: price, date: freeCardsDate)
+                        buyScratchCards.append(buyScratchCard)
+                    } else {
+                        let buyScratchCard = BuyScratchCard(type: type, value: value, price: price)
                         buyScratchCards.append(buyScratchCard)
                     }
                 }
@@ -67,6 +73,7 @@ class ScratchCardStore: NSObject, NSCoding {
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(cards, forKey: "cards")
+        aCoder.encode(freeCardsDate, forKey: "date")
     }
     
     func addCards(_ n: Int) {

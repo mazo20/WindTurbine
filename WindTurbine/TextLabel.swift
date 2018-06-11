@@ -27,7 +27,7 @@ class TextLabel: UILabel {
     }
     
     func commonInit() {
-        self.layer.cornerRadius = 10
+        self.layer.cornerRadius = 12
         self.clipsToBounds = true
         self.backgroundColor = #colorLiteral(red: 0.9450980392, green: 0.8588235294, blue: 0.2941176471, alpha: 1)
     }

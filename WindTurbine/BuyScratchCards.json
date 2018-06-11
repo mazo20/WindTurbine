@@ -1,29 +1,25 @@
 {
   "buyCards" : [
-  	{
-  		"priceType" : "ad",
-  		"value" : 3,
-  		"price" : 1
-  	},
-  	{
-  		"priceType" : "lightning",
-  		"value" : 5,
-  		"price" : 1
-  	},
-  	{
-  		"priceType" : "ad",
-  		"value" : 12,
-  		"price" : 3
-  	},
-  	{
-  		"priceType" : "lightning",
-  		"value" : 30,
-  		"price" : 5
-  	},
-  	{
-  		"priceType" : "lightning",
-  		"value" : 150,
-  		"price" : 20
-  	}
+                {
+                "priceType" : "date",
+                "value" : 5,
+                "price" : 1
+                },{
+                "priceType" : "ad",
+                "value" : 7,
+                "price" : 1
+                },{
+                "priceType" : "lightning",
+                "value" : 10,
+                "price" : 3
+                },{
+                "priceType" : "lightning",
+                "value" : 50,
+                "price" : 10
+                },{
+                "priceType" : "lightning",
+                "value" : 150,
+                "price" : 25
+                }
   ]
 }

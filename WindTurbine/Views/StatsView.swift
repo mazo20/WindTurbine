@@ -30,6 +30,13 @@ class StatsView: UIView {
         Bundle.main.loadNibNamed("StatsView", owner: self, options: nil)
         self.addSubview(contentView)
         contentView.frame = self.bounds
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            balanceLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 50, weight: .regular)
+        } else {
+            balanceLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 35, weight: .regular)
+        }
+        
     }
     
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -35,6 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         viewController.model = model
         
         
+        FirebaseApp.configure()
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-2381874254836236~8128670647")
+        
+        StoreReviewHelper.incrementAppOpenedCount()
+        
         
         return true
     }
@@ -53,7 +59,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             } else {
                 print("Couldn't save")
             }
+            vc.submitScoreToGameCenter()
         }
+        
         
         
     }

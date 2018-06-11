@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import StoreKit
 
 class GameViewController: UIViewController {
     
@@ -31,14 +33,24 @@ class GameViewController: UIViewController {
     @IBOutlet var tabButton3: UIButton!
     @IBOutlet var tabButton4: UIButton!
     
+    var bonusAdButton: ExtraButton?
+    var gameCenterButton: ExtraButton?
+    
     var storeView: LightningStoreView?
-    var levelUpView: LevelUpView?
+    var popUpView: PopUpView?
     var darkBackgroundView: UIView?
-    var upgrades: [[Upgrade]] {
-        get {
-            return model.upgrades
-        }
-    }
+    
+    var didAddBackground = false
+    
+    var levelUpPrize = 0.0
+    var bonusMultiplier: (multiplier: Double, duration: TimeInterval)?
+    
+    var currentRewardAd = RewardAd.none
+    var currentOnboardingScene = OnboardingType.unknown
+    var bonusAdDate = Date()
+    
+    var gcEnabled = false // Stores if the user has Game Center enabled
+    
     var model: Model!
     var cardStore: ScratchCardStore {
         return model.cardStore
@@ -53,10 +65,23 @@ class GameViewController: UIViewController {
         let title = ["Buy upgrades to earn more", "Battery charges when you aren't playing", "Test your luck with scratch cards", "Menu"]
         tableTitle.text = title[sender.tag]
         tableView.tag = sender.tag
-        tableView.reloadData()
+        
+        tableView.reloadDataWithAutoSizingCellWorkAround()
         upgradeView.show()
+        
         setTabButtonsWhite()
         sender.setImage(UIImage(imageLiteralResourceName: "TabButton\(sender.tag+1)Yellow"), for: .normal)
+        
+        if [0, 1, 2].contains(sender.tag) {
+           shouldShowOnboardingViewFor(value: sender.tag)
+        }
+    }
+    
+    func shouldShowOnboardingViewFor(value: Int) {
+        let type = OnboardingType(rawValue: value) ?? OnboardingType.unknown
+        if OnboardingHelper.isOpeningFirstTime(type: type) {
+            showOnboardingViewFor(type: type)
+        }
     }
     
     func setTabButtonsWhite() {
@@ -93,7 +118,7 @@ class GameViewController: UIViewController {
     func showStoreView() {
         showDarkBackgroundView()
         
-        let frame = CGRect(origin: self.view.frame.origin, size: CGSize(width: self.view.frame.width*0.8, height: self.view.frame.height*0.6))
+        let frame = CGRect(origin: self.view.frame.origin, size: CGSize(width: self.view.frame.width*0.85, height: self.view.frame.height*0.6))
         storeView = LightningStoreView(frame: frame)
         storeView?.delegate = self
         storeView?.center = self.view.center
@@ -101,24 +126,7 @@ class GameViewController: UIViewController {
         self.view.addSubview(storeView!)
     }
     
-    func showLevelUpView() {
-        showDarkBackgroundView()
-        
-        let frame = CGRect(origin: self.view.frame.origin, size: CGSize(width: self.view.frame.width*0.7, height: self.view.frame.height*0.5))
-        levelUpView = LevelUpView(frame: frame)
-        levelUpView?.center = self.view.center
-        levelUpView?.delegate = self
-        levelUpView?.levelGoal = model.levelGoal
-        self.view.addSubview(levelUpView!)
-    }
     
-    func showDarkBackgroundView() {
-        darkBackgroundView = UIView(frame: self.view.frame)
-        darkBackgroundView?.center = self.view.center
-        darkBackgroundView?.backgroundColor = .black
-        darkBackgroundView?.alpha = 0.8
-        self.view.addSubview(darkBackgroundView!)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,22 +136,43 @@ class GameViewController: UIViewController {
             let nib = UINib(nibName: nibName, bundle: nil)
             tableView.register(nib, forCellReuseIdentifier: nibName)
         }
+        
+        //nibNames.map { tableView.register(UINib(nibName: $0, bundle: nil), forCellReuseIdentifier: $0)}
+        
+        let updateModelTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(update), userInfo: nil, repeats: true)
+        let updateTablesTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(updateTables), userInfo: nil, repeats: true)
+        updateModelTimer.tolerance = 0.05
+        updateTablesTimer.tolerance = 1
+        RunLoop.main.add(updateModelTimer, forMode: .commonModes)
+        
+        
+        
+        
+        authenticateLocalPlayer()
+        
+        GADRewardBasedVideoAd.sharedInstance().delegate = self
+        loadRewardVideoAd()
+        upgradeView.hide()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        initCloudView(cloudView)
-        initTurbineView()
-        
-        upgradeView.hide()
-        
+    override func viewDidLayoutSubviews() {
         lightningCountView.roundCorners(.bottomLeft, radius: 8)
         levelView.roundCorners(.bottomRight, radius: 8)
         levelUpButton.roundCorners(.allCorners, radius: 8)
-        
-        let timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(update), userInfo: nil, repeats: true)
-        _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTables), userInfo: nil, repeats: true)
-        RunLoop.main.add(timer, forMode: .commonModes)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if !didAddBackground {
+            initCloudView(cloudView)
+            initTurbineView()
+            didAddBackground = true
+            
+            shouldShowOnboardingViewFor(value: 3) //main1 onboarding
+            currentOnboardingScene = .main1
+            
+        }
+    }
+    
     
     
     @objc func update() {
@@ -167,6 +196,8 @@ class GameViewController: UIViewController {
             let contentOffset = tableView.contentOffset
             tableView.reloadSections([0], with: .none)
             tableView.contentOffset = contentOffset
+        } else if !upgradeView.isHidden && tableView.tag == 2 {
+            tableView.reloadRows(at: [IndexPath(row: 0, section: 1)], with: .none)
         }
     }
     
@@ -174,16 +205,14 @@ class GameViewController: UIViewController {
     func updateProgressBar() {
         levelProgressView.setProgress(Float(model.levelProgress/model.levelGoal), animated: true)
         if levelProgressView.progress == 1 {
-            levelProgressView.isHidden = true
-            levelUpButton.isHidden = false
+            levelProgressView.hide()
+            levelUpButton.show()
         }
     }
     
     func checkForUpgrades() {
-        guard [0,1].contains(tableView.tag) else { return }
-        let tag = tableView.tag == 0 ? segmentedUpgradeControl.selectedSegmentIndex : 3
-        for (i, upgrade) in upgrades[tag].enumerated() where upgrade.cost < model.money {
-            guard let cell = tableView.cellForRow(at: IndexPath(row: i, section: tableView.tag)) as?  UpgradeViewCell else { return }
+        for case let cell as UpgradeViewCell in tableView.visibleCells {
+            guard let upgrade = cell.upgrade, upgrade.cost < model.money else { return }
             cell.buyButton.backgroundColor = #colorLiteral(red: 0.1457930078, green: 0.764910063, blue: 0.2355007071, alpha: 1)
         }
     }
@@ -194,6 +223,19 @@ class GameViewController: UIViewController {
         model.lightnings += 1
         levelUpButton.hide()
         levelProgressView.show()
+        StoreReviewHelper.incrementLevelUpCount()
+    }
+    
+    func dischargeBattery(withMultiplier x: Double) {
+        model.addMoney(amount: Double(battery.chargePercentage)/100 * battery.capacity * sqrt(model.powerPrice) * x)
+        battery.charge = 0
+        battery.startTime = Date()
+        tableView.reloadSections([0], with: .none)
+    }
+    
+    func collectLevelUpReward(withMultiplier x: Double) {
+        model.addMoney(amount: levelUpPrize * x)
+        hidePopUp()
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -202,16 +244,9 @@ class GameViewController: UIViewController {
 }
 
 extension GameViewController: UIGestureRecognizerDelegate {
+    
     @IBAction func handleTap(recognizer: UITapGestureRecognizer) {
         model.tapped()
-    }
-}
-
-extension GameViewController: LevelUpViewDelegate {
-    func collectMoney(button: UIButton) {
-        model.money += levelUpView!.prize * Double(button.tag)
-        levelUpView?.removeFromSuperview()
-        darkBackgroundView?.removeFromSuperview()
     }
 }
 
@@ -222,6 +257,5 @@ extension GameViewController: LightningStoreViewDelegate {
         storeView?.removeFromSuperview()
         darkBackgroundView?.removeFromSuperview()
     }
-    
-
 }
+

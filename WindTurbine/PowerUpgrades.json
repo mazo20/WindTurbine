@@ -3,45 +3,51 @@
                 {
                 "emoji" : "⏫",
                 "name" : "Increase hight",
-                "baseCost" : 6,
-                "baseValue" : 0.03,
-                "costMult" : 1.15,
-                "valueMult" : 1
+                "baseCost" : 4,
+                "baseValue" : 0.02,
+                "costMult" : 1.22,
+                "valueMult" : 2,
+                "type" : "power"
                 },{
                 "emoji" : "⚖️",
                 "name" : "Change blades material",
-                "baseCost" : 40,
-                "baseValue" : 0.17,
-                "costMult" : 1.15,
-                "valueMult" : 1
+                "baseCost" : 16,
+                "baseValue" : 0.06,
+                "costMult" : 1.22,
+                "valueMult" : 2,
+                "type" : "power"
                 },{
                 "emoji" : "⚙️",
                 "name" : "Oil the gears",
-                "baseCost" : 295,
-                "baseValue" : 1.1,
-                "costMult" : 1.15,
-                "valueMult" : 1
+                "baseCost" : 100,
+                "baseValue" : 0.27,
+                "costMult" : 1.22,
+                "valueMult" : 2,
+                "type" : "power"
                 },{
                 "emoji" : "🔎",
                 "name" : "Modify the blades",
-                "baseCost" : 2040,
-                "baseValue" : 6.5,
-                "costMult" : 1.15,
-                "valueMult" : 1
+                "baseCost" : 570,
+                "baseValue" : 1.21,
+                "costMult" : 1.22,
+                "valueMult" : 2,
+                "type" : "power"
                 },{
                 "emoji" : "🌡️",
                 "name" : "Increase cooling",
-                "baseCost" : 14400,
-                "baseValue" : 40,
-                "costMult" : 1.15,
-                "valueMult" : 1
+                "baseCost" : 3500,
+                "baseValue" : 5.5,
+                "costMult" : 1.22,
+                "valueMult" : 2,
+                "type" : "power"
                 },{
                 "emoji" : "🔌",
                 "name" : "Upgrade power lines",
-                "baseCost" : 100800,
-                "baseValue" : 235,
-                "costMult" : 1.15,
-                "valueMult" : 1
+                "baseCost" : 20700,
+                "baseValue" : 24.5,
+                "costMult" : 1.22,
+                "valueMult" : 2,
+                "type" : "power"
                 }
   ]
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,65 +13,69 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ScratchCardsMenuCell" rowHeight="175" id="yg2-Oa-JxI" customClass="ScratchCardsMenuCell" customModule="WindTurbine" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="292" height="175"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ScratchCardsMenuCell" rowHeight="193" id="yg2-Oa-JxI" customClass="ScratchCardsMenuCell" customModule="WindTurbine" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="734" height="193"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yg2-Oa-JxI" id="nw5-Kx-uJ5">
-                <rect key="frame" x="0.0" y="0.0" width="292" height="174.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="734" height="192.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dd1-Hh-q4I">
-                        <rect key="frame" x="16" y="38.5" width="260" height="97.5"/>
+                        <rect key="frame" x="20" y="11.5" width="694" height="169.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" text="Pick your scratch card!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJd-fE-Gh4">
-                                <rect key="frame" x="0.0" y="0.0" width="260" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Pick your scratch card!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJd-fE-Gh4">
+                                <rect key="frame" x="0.0" y="0.0" width="694" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                </variation>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FSk-Ne-uPZ">
-                                <rect key="frame" x="0.0" y="30.5" width="260" height="40"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FSk-Ne-uPZ">
+                                <rect key="frame" x="0.0" y="30.5" width="694" height="112"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsK-3j-tXw">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="225" height="112"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="nsK-3j-tXw" secondAttribute="height" multiplier="2:1" id="6Wl-0P-UOg"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="ScratchCard1"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3w4-vM-Cax">
-                                        <rect key="frame" x="90" y="0.0" width="80" height="40"/>
+                                        <rect key="frame" x="235" y="0.0" width="224" height="112"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="3w4-vM-Cax" secondAttribute="height" multiplier="2:1" id="bOR-c3-6oi"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="ScratchCard2"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDG-th-CGH">
-                                        <rect key="frame" x="180" y="0.0" width="80" height="40"/>
+                                        <rect key="frame" x="469" y="0.0" width="225" height="112"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="PDG-th-CGH" secondAttribute="height" multiplier="2:1" id="LsI-iq-lpe"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="ScratchCard3"/>
                                     </button>
                                 </subviews>
+                                <variation key="heightClass=regular-widthClass=regular" spacing="20"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cJf-NK-WvG">
-                                <rect key="frame" x="0.0" y="80.5" width="260" height="17"/>
+                                <rect key="frame" x="0.0" y="152.5" width="694" height="17"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoq-YD-R1A">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="224.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6S-Mu-tbt">
-                                        <rect key="frame" x="90" y="0.0" width="80" height="17"/>
+                                        <rect key="frame" x="234.5" y="0.0" width="225" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlU-Iz-aas">
-                                        <rect key="frame" x="180" y="0.0" width="80" height="17"/>
+                                        <rect key="frame" x="469.5" y="0.0" width="224.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -99,7 +103,7 @@
                 <outlet property="level2CountLabel" destination="H6S-Mu-tbt" id="Uyy-B4-fTC"/>
                 <outlet property="level3CountLabel" destination="KlU-Iz-aas" id="JlV-n9-aka"/>
             </connections>
-            <point key="canvasLocation" x="-143" y="33.5"/>
+            <point key="canvasLocation" x="162" y="151.5"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -72,7 +72,7 @@ extension GameViewController: GADRewardBasedVideoAdDelegate {
         let request = GADRequest()
         request.testDevices = ["1f6002c7d5c2f1b6ccf6cad047464c74"]
         request.keywords = ["idle", "game"]
-        //GADRewardBasedVideoAd.sharedInstance().load(request, withAdUnitID: "ca-app-pub-2381874254836236/8164754698")
+        GADRewardBasedVideoAd.sharedInstance().load(request, withAdUnitID: AdmobAPIKeys.REWARD_AD_ID)
         GADRewardBasedVideoAd.sharedInstance().load(request, withAdUnitID: "ca-app-pub-3940256099942544/1712485313")
         
     }

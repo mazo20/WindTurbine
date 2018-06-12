@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         FirebaseApp.configure()
-        GADMobileAds.configure(withApplicationID: "ca-app-pub-2381874254836236~8128670647")
+        GADMobileAds.configure(withApplicationID: AdmobAPIKeys.APPLICATION_ID)
         
         StoreReviewHelper.incrementAppOpenedCount()
         

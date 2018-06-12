@@ -17,5 +17,9 @@ struct GameCenterIdentifiers {
     static let POWER_TOTAL_MONEY = "PowerTotalMoney"
 }
 
-
+struct AdmobAPIKeys {
+    static let APPLICATION_ID = "a"
+    static let REWARD_AD_ID = "b"
+    
+}
 

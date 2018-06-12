@@ -42,6 +42,7 @@
 		5427D85D20C97723005F91CA /* BonusMultiplierHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5427D85C20C97723005F91CA /* BonusMultiplierHelper.swift */; };
 		5427D85F20C9AA6E005F91CA /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5427D85E20C9AA6E005F91CA /* View.xib */; };
 		54503C4120CE853500E50047 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54503C4020CE853500E50047 /* UITableView+Extension.swift */; };
+		54503C4520CFD3DB00E50047 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 54503C4420CFD3DB00E50047 /* .gitignore */; };
 		5452C92E207D3FA5002DB75E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5452C92D207D3FA5002DB75E /* UIView+Extension.swift */; };
 		545317B820889FCD005EA09C /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545317B720889FCD005EA09C /* Dictionary+Extension.swift */; };
 		545317BA2088E8D3005EA09C /* WindUpgrades.json in Resources */ = {isa = PBXBuildFile; fileRef = 545317B92088E8D3005EA09C /* WindUpgrades.json */; };
@@ -108,6 +109,7 @@
 		5427D85C20C97723005F91CA /* BonusMultiplierHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusMultiplierHelper.swift; sourceTree = "<group>"; };
 		5427D85E20C9AA6E005F91CA /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		54503C4020CE853500E50047 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		54503C4420CFD3DB00E50047 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		5452C92D207D3FA5002DB75E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		545317B720889FCD005EA09C /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		545317B92088E8D3005EA09C /* WindUpgrades.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WindUpgrades.json; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				546A20AA207509A5009A3EC0 /* Assets.xcassets */,
 				546A20AC207509A5009A3EC0 /* LaunchScreen.storyboard */,
 				546A20AF207509A5009A3EC0 /* Info.plist */,
+				54503C4420CFD3DB00E50047 /* .gitignore */,
 				541ED46820C812A900DB4F4D /* GoogleService-Info.plist */,
 			);
 			path = WindTurbine;
@@ -365,6 +368,7 @@
 				54069D2B209B4F3A00CF3922 /* ScratchCardCell.xib in Resources */,
 				54DB2B98209A4640003B8B0B /* BatteryLevelCell.xib in Resources */,
 				54C29D5120AC5B740085FE2C /* LightningBuyView.xib in Resources */,
+				54503C4520CFD3DB00E50047 /* .gitignore in Resources */,
 				545317BE2088EF14005EA09C /* PowerUpgrades.json in Resources */,
 				5427D85920C93ED0005F91CA /* PopUpView.xib in Resources */,
 				5427D85F20C9AA6E005F91CA /* View.xib in Resources */,

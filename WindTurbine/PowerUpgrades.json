@@ -1,51 +1,83 @@
 {
   "upgrades" : [
                 {
-                "emoji" : "⏫",
-                "name" : "Increase hight",
+                "emoji" : "📕",
+                "name" : "Optimize speed",
                 "baseCost" : 4,
                 "baseValue" : 0.02,
-                "costMult" : 1.22,
+                "costMult" : 1.3,
                 "valueMult" : 2,
                 "type" : "power"
                 },{
-                "emoji" : "⚖️",
-                "name" : "Change blades material",
+                "emoji" : "💦",
+                "name" : "Clean from dust",
                 "baseCost" : 16,
                 "baseValue" : 0.06,
-                "costMult" : 1.22,
+                "costMult" : 1.3,
                 "valueMult" : 2,
                 "type" : "power"
                 },{
-                "emoji" : "⚙️",
-                "name" : "Oil the gears",
-                "baseCost" : 100,
-                "baseValue" : 0.27,
-                "costMult" : 1.22,
+                "emoji" : "💽",
+                "name" : "Update software",
+                "baseCost" : 125,
+                "baseValue" : 0.36,
+                "costMult" : 1.3,
                 "valueMult" : 2,
                 "type" : "power"
                 },{
-                "emoji" : "🔎",
-                "name" : "Modify the blades",
-                "baseCost" : 570,
-                "baseValue" : 1.21,
-                "costMult" : 1.22,
+                "emoji" : "🛠️",
+                "name" : "Repair turbine",
+                "baseCost" : 1020,
+                "baseValue" : 2.16,
+                "costMult" : 1.3,
                 "valueMult" : 2,
                 "type" : "power"
                 },{
                 "emoji" : "🌡️",
                 "name" : "Increase cooling",
-                "baseCost" : 3500,
-                "baseValue" : 5.5,
-                "costMult" : 1.22,
+                "baseCost" : 8100,
+                "baseValue" : 13,
+                "costMult" : 1.3,
+                "valueMult" : 2,
+                "type" : "power"
+                },{
+                "emoji" : "⚙️",
+                "name" : "Oil the gears",
+                "baseCost" : 65500,
+                "baseValue" : 77,
+                "costMult" : 1.3,
+                "valueMult" : 2,
+                "type" : "power"
+                },{
+                "emoji" : "📐",
+                "name" : "Modify the blades",
+                "baseCost" : 525150,
+                "baseValue" : 460,
+                "costMult" : 1.3,
+                "valueMult" : 2,
+                "type" : "power"
+                },{
+                "emoji" : "⏫",
+                "name" : "Increase hight",
+                "baseCost" : 4220000,
+                "baseValue" : 2800,
+                "costMult" : 1.3,
+                "valueMult" : 2,
+                "type" : "power"
+                },{
+                "emoji" : "⚖️",
+                "name" : "Use lighter material",
+                "baseCost" : 34350000,
+                "baseValue" : 16800,
+                "costMult" : 1.3,
                 "valueMult" : 2,
                 "type" : "power"
                 },{
                 "emoji" : "🔌",
                 "name" : "Upgrade power lines",
-                "baseCost" : 20700,
-                "baseValue" : 24.5,
-                "costMult" : 1.22,
+                "baseCost" : 271250000,
+                "baseValue" : 100000,
+                "costMult" : 1.3,
                 "valueMult" : 2,
                 "type" : "power"
                 }

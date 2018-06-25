@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="buyButton" destination="wEH-pW-Iyg" id="f7L-1O-aRA"/>
                 <outlet property="contentView" destination="S0t-rA-TFQ" id="hfx-ih-Le1"/>
+                <outlet property="freeValueLabel" destination="PzB-Fy-Vb9" id="pne-Ry-Mc2"/>
                 <outlet property="imageView" destination="2lc-WK-wIK" id="EIV-ep-0xe"/>
                 <outlet property="valueLabel" destination="hmE-Fn-vGk" id="6RA-2V-G4n"/>
             </connections>
@@ -23,9 +24,79 @@
             <rect key="frame" x="0.0" y="0.0" width="180" height="263"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WyX-Cr-odB">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WyX-Cr-odB">
                     <rect key="frame" x="4" y="5" width="172" height="253"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="-2" translatesAutoresizingMaskIntoConstraints="NO" id="ep6-5y-E3Z">
+                            <rect key="frame" x="54" y="20" width="65.5" height="30"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lightning" translatesAutoresizingMaskIntoConstraints="NO" id="2lc-WK-wIK">
+                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="LsW-X3-0dt">
+                                            <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                                        </constraint>
+                                        <constraint firstAttribute="width" constant="30" id="Nf9-pi-6aE">
+                                            <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                                        </constraint>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmE-Fn-vGk">
+                                    <rect key="frame" x="28" y="0.0" width="37.5" height="30"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                    <variation key="heightClass=regular-widthClass=regular">
+                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                    </variation>
+                                </label>
+                            </subviews>
+                            <variation key="heightClass=regular-widthClass=regular" spacing="5"/>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(5 free)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PzB-Fy-Vb9">
+                            <rect key="frame" x="61" y="70" width="48.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="heightClass=regular-widthClass=regular">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            </variation>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEH-pW-Iyg">
+                            <rect key="frame" x="5" y="219" width="162" height="29"/>
+                            <color key="backgroundColor" red="0.41568627450000001" green="0.41960784309999999" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="$200.99">
+                                <color key="titleColor" red="0.94509803920000002" green="0.85882352939999995" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <variation key="heightClass=regular-widthClass=regular">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            </variation>
+                            <connections>
+                                <action selector="buyButtonPressed:" destination="-1" eventType="touchUpInside" id="Mvz-Kb-Sgl"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" red="0.70082194687249078" green="0.70512999297862378" blue="0.68491496145939934" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="PzB-Fy-Vb9" firstAttribute="centerX" secondItem="WyX-Cr-odB" secondAttribute="centerX" id="8Oi-3x-kW5"/>
+                        <constraint firstAttribute="trailing" secondItem="wEH-pW-Iyg" secondAttribute="trailing" constant="5" id="MfH-K6-F1L">
+                            <variation key="heightClass=regular-widthClass=regular" constant="10"/>
+                        </constraint>
+                        <constraint firstItem="wEH-pW-Iyg" firstAttribute="leading" secondItem="WyX-Cr-odB" secondAttribute="leading" constant="5" id="OZc-rz-J5D">
+                            <variation key="heightClass=regular-widthClass=regular" constant="10"/>
+                        </constraint>
+                        <constraint firstItem="ep6-5y-E3Z" firstAttribute="centerX" secondItem="WyX-Cr-odB" secondAttribute="centerX" id="P46-ZF-vc6"/>
+                        <constraint firstAttribute="bottom" secondItem="wEH-pW-Iyg" secondAttribute="bottom" constant="5" id="dCU-7u-IkI">
+                            <variation key="heightClass=regular-widthClass=regular" constant="10"/>
+                        </constraint>
+                        <constraint firstItem="ep6-5y-E3Z" firstAttribute="top" secondItem="WyX-Cr-odB" secondAttribute="top" constant="20" id="oPS-vo-EQH">
+                            <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                        </constraint>
+                        <constraint firstItem="PzB-Fy-Vb9" firstAttribute="top" secondItem="ep6-5y-E3Z" secondAttribute="bottom" constant="20" id="v9R-20-1fa">
+                            <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                        </constraint>
+                    </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                             <real key="value" value="0.0"/>
@@ -35,71 +106,19 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lightning" translatesAutoresizingMaskIntoConstraints="NO" id="2lc-WK-wIK">
-                    <rect key="frame" x="65" y="106.5" width="50" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="LsW-X3-0dt">
-                            <variation key="heightClass=regular-widthClass=regular" constant="80"/>
-                        </constraint>
-                        <constraint firstAttribute="width" constant="50" id="Nf9-pi-6aE">
-                            <variation key="heightClass=regular-widthClass=regular" constant="80"/>
-                        </constraint>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmE-Fn-vGk">
-                    <rect key="frame" x="55.5" y="70" width="70" height="26.5"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="70" id="DTU-bi-LkU"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                    <color key="textColor" red="0.19723182077974624" green="0.19944329790637658" blue="0.24414243316690054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="heightClass=regular-widthClass=regular">
-                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                    </variation>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEH-pW-Iyg">
-                    <rect key="frame" x="50.5" y="166.5" width="80" height="32"/>
-                    <color key="backgroundColor" red="0.41568627450000001" green="0.41960784309999999" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="80" id="vPh-kU-RZ5">
-                            <variation key="heightClass=regular-widthClass=regular" constant="110"/>
-                        </constraint>
-                    </constraints>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
-                    <state key="normal" title="$200.99">
-                        <color key="titleColor" red="0.94509803920000002" green="0.85882352939999995" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <variation key="heightClass=regular-widthClass=regular">
-                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
-                    </variation>
-                    <connections>
-                        <action selector="buyButtonPressed:" destination="-1" eventType="touchUpInside" id="Mvz-Kb-Sgl"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="WyX-Cr-odB" firstAttribute="centerY" secondItem="S0t-rA-TFQ" secondAttribute="centerY" id="1lI-fp-88J"/>
-                <constraint firstItem="wEH-pW-Iyg" firstAttribute="top" secondItem="2lc-WK-wIK" secondAttribute="bottom" constant="10" id="Jvs-G7-2yx">
-                    <variation key="heightClass=regular-widthClass=regular" constant="20"/>
-                </constraint>
                 <constraint firstItem="WyX-Cr-odB" firstAttribute="top" secondItem="eQR-X4-khW" secondAttribute="top" constant="5" id="NZm-fh-oy1">
                     <variation key="heightClass=regular-widthClass=regular" constant="10"/>
                 </constraint>
-                <constraint firstItem="2lc-WK-wIK" firstAttribute="centerY" secondItem="S0t-rA-TFQ" secondAttribute="centerY" id="RJM-C8-wpI"/>
                 <constraint firstItem="WyX-Cr-odB" firstAttribute="leading" secondItem="eQR-X4-khW" secondAttribute="leading" constant="4" id="Rja-K0-0jG">
                     <variation key="heightClass=regular-widthClass=regular" constant="8"/>
                 </constraint>
-                <constraint firstItem="2lc-WK-wIK" firstAttribute="top" secondItem="hmE-Fn-vGk" secondAttribute="bottom" constant="10" id="WqR-2Y-ofF">
-                    <variation key="heightClass=regular-widthClass=regular" constant="20"/>
-                </constraint>
-                <constraint firstItem="wEH-pW-Iyg" firstAttribute="centerX" secondItem="S0t-rA-TFQ" secondAttribute="centerX" id="YCD-tk-ugl"/>
-                <constraint firstItem="hmE-Fn-vGk" firstAttribute="centerX" secondItem="S0t-rA-TFQ" secondAttribute="centerX" id="YIc-mQ-n1H"/>
                 <constraint firstItem="eQR-X4-khW" firstAttribute="bottom" secondItem="WyX-Cr-odB" secondAttribute="bottom" constant="5" id="aK7-f5-61j">
                     <variation key="heightClass=regular-widthClass=regular" constant="10"/>
                 </constraint>
-                <constraint firstItem="2lc-WK-wIK" firstAttribute="centerX" secondItem="S0t-rA-TFQ" secondAttribute="centerX" id="fKB-de-bQf"/>
                 <constraint firstItem="eQR-X4-khW" firstAttribute="trailing" secondItem="WyX-Cr-odB" secondAttribute="trailing" constant="4" id="gXd-Uw-6A0">
                     <variation key="heightClass=regular-widthClass=regular" constant="8"/>
                 </constraint>

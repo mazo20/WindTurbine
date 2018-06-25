@@ -46,6 +46,7 @@ class PopUpView: UIView {
         Bundle.main.loadNibNamed("PopUpView", owner: self, options: nil)
         self.addSubview(contentView)
         contentView.frame = self.bounds
+        contentView.layoutSubviews()
         greyButton.tag = 1
         yellowButton.tag = 2
     }

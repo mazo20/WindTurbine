@@ -24,52 +24,19 @@ class UpgradeViewCell: UITableViewCell {
     @IBOutlet var emojiLabel: UILabel!
     @IBOutlet var iconImageView: ScaledWidthImageView!
     
-    var upgrade: Upgrade? {
+    var data: UpgradeCellData? {
         didSet {
-            guard let upgrade = upgrade else { return }
-            titleLabel.text = upgrade.name
-            detailLabel.text = "+" + upgrade.value.valueFormatter(ofType: formatterType(rawValue: upgrade.type.rawValue)!)
-            emojiLabel.text = upgrade.emoji
-            levelView.show()
-            levelLabel.text = "\(upgrade.level)"
-            buyButton.setImage(nil, for: .normal)
-            buyButton.setTitle(upgrade.cost.valueFormatter(ofType: .cost), for: .normal)
+            guard let data = data else { return }
+            titleLabel.text = data.titleText
+            detailLabel.text = data.detailText
+            emojiLabel.text = data.emoji
+            levelLabel.text = data.level
+            levelView.isHidden = data.level == nil ? true : false
+            buyButton.setImage(data.buttonImage, for: .normal)
+            buyButton.setTitle(data.buttonTitle, for: .normal)
+            buyButton.backgroundColor = data.buttonColor
             buyButton.addTarget(self, action: #selector(didTapBuyButton(sender:)), for: .touchUpInside)
-            if let imageName = upgrade.imageName {
-                iconImageView.image = UIImage(imageLiteralResourceName: imageName)
-            } else {
-                iconImageView.image = nil
-            }
-        }
-    }
-    
-    var buyScratchCard: BuyScratchCard? {
-        didSet {
-            guard let card = buyScratchCard else { return }
-            detailLabel.text = ""
-            emojiLabel.text = ""
-            levelView.hide()
-            iconImageView.image = #imageLiteral(resourceName: "ScratchCardRandom")
-            buyButton.backgroundColor = #colorLiteral(red: 0.3137254902, green: 0.3176470588, blue: 0.3098039216, alpha: 1)
-            titleLabel.text = "\(card.value) cards"
-            switch card.type {
-            case .date:
-                guard let date = card.date else { return }
-                buyButton.setImage(nil, for: .normal)
-                let time = date.timeIntervalSinceNow
-                if time < 0 {
-                    buyButton.setTitle("Collect", for: .normal)
-                } else {
-                    buyButton.setTitle("\(Int(time/60))min", for: .normal)
-                }
-            case .ad:
-                buyButton.setImage(#imageLiteral(resourceName: "AdIcon"), for: .normal)
-                buyButton.setTitle("\(card.price)", for: .normal)
-            case .lightning:
-                buyButton.setImage(#imageLiteral(resourceName: "Lightning"), for: .normal)
-                buyButton.setTitle("\(card.price)", for: .normal)
-            }
-            buyButton.addTarget(self, action: #selector(didTapBuyButton(sender:)), for: .touchUpInside)
+            iconImageView.image = data.iconImage
         }
     }
     

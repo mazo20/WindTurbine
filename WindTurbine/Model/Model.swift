@@ -11,7 +11,7 @@ import Foundation
 class Model: NSObject, NSCoding {
     
     enum Key: String {
-        case nominalWindSpeed, money, powerPrice, powerConversion, level, levelProgress, lightnings, incomeMult, numberOfRestarts, maxLevel, battery, cardStore, upgradeStore, totalMoney
+        case nominalWindSpeed, money, powerPrice, powerConversion, level, levelProgress, lightnings, incomeMult, numberOfRestarts, maxLevel, battery, cardStore, upgradeStore, totalMoney, freeCardsDate
     }
     
     var nominalWindSpeed: Double
@@ -23,20 +23,22 @@ class Model: NSObject, NSCoding {
     var lightnings: Int
     var battery: Battery
     var cardStore: ScratchCardStore
-    var windMultiplier: Double = 1
     var upgradeStore: UpgradeStore
+    var windMultiplier: Double = 1
     var incomeMult: Double
-    var numberOfRestarts: Int
+    private var numberOfRestarts: Int
     var maxLevel: Int
     var totalMoney: Double
     var bonusIncomeMultiplier: Double = 1
+    var freeCardsDate: Date
     
     var windSpeed: Double {
         return nominalWindSpeed * windMultiplier
     }
     
     var turbineRPM: Double {
-        return pow(windSpeed, 1/4) * windMultiplier
+        let rpm = pow(windSpeed, 1/5) * windMultiplier
+        return rpm < 40 ? rpm : 40.0
     }
     
     var moneyPerSec: Double {
@@ -48,7 +50,7 @@ class Model: NSObject, NSCoding {
     }
     
     var levelGoal: Double {
-        return 5 * pow(8, Double(level-1))
+        return 5 * pow(7, Double(level-1))
     }
     
     var level: Int {
@@ -56,6 +58,12 @@ class Model: NSObject, NSCoding {
             if level > maxLevel { maxLevel = level }
         }
     }
+    
+    func shouldAvailableRestart() -> Bool {
+        return level > 7 + numberOfRestarts*2
+    }
+    
+    
     
     func addMoney(amount: Double) {
         money += amount
@@ -77,10 +85,11 @@ class Model: NSObject, NSCoding {
     
     
     override init() {
-        nominalWindSpeed = 0.1
+        freeCardsDate = Date()
+        nominalWindSpeed = 0.05
         money = 0
-        powerConversion = 0.1
-        powerPrice = 0.1
+        powerConversion = 0.05
+        powerPrice = 0.05 
         level = 1
         levelProgress = 0
         lightnings = 1
@@ -88,19 +97,20 @@ class Model: NSObject, NSCoding {
         numberOfRestarts = 0
         maxLevel = 1
         totalMoney = 0
-        battery = Battery(chargingPower: 0.01, capacity: 216)
+        battery = Battery(chargingPower: 0.01, capacity: 108)
         cardStore = ScratchCardStore(cards: [3, 2, 1])
         upgradeStore = UpgradeStore()
     }
     
     func reset() {
-        nominalWindSpeed = 0.1
+        numberOfRestarts += 1
+        nominalWindSpeed = 0.05
         money = 0
-        powerConversion = 0.1
-        powerPrice = 0.1
+        powerConversion = 0.05
+        powerPrice = 0.05
         level = 1
         levelProgress = 0
-        battery = Battery(chargingPower: 0.01, capacity: 216)
+        battery = Battery(chargingPower: 0.01, capacity: 108)
         upgradeStore = UpgradeStore()
     }
     
@@ -116,9 +126,12 @@ class Model: NSObject, NSCoding {
         numberOfRestarts = aDecoder.containsValue(forKey: Key.numberOfRestarts.rawValue) ? aDecoder.decodeInteger(forKey: Key.numberOfRestarts.rawValue) : 0
         maxLevel = aDecoder.containsValue(forKey: Key.maxLevel.rawValue) ? aDecoder.decodeInteger(forKey: Key.maxLevel.rawValue) : 1
         totalMoney = aDecoder.containsValue(forKey: Key.totalMoney.rawValue) ? aDecoder.decodeDouble(forKey: Key.totalMoney.rawValue) : 0
+        freeCardsDate = aDecoder.decodeObject(forKey: Key.freeCardsDate.rawValue) as? Date ?? Date()
         battery = aDecoder.decodeObject(forKey: Key.battery.rawValue) as! Battery
         cardStore = aDecoder.decodeObject(forKey: Key.cardStore.rawValue) as! ScratchCardStore
         upgradeStore = aDecoder.decodeObject(forKey: Key.upgradeStore.rawValue) as? UpgradeStore ?? UpgradeStore()
+        super.init()
+        upgradeStore.income = moneyPerSec
     }
     
     func encode(with aCoder: NSCoder) {
@@ -133,6 +146,7 @@ class Model: NSObject, NSCoding {
         aCoder.encode(lightnings, forKey: Key.lightnings.rawValue)
         aCoder.encode(incomeMult, forKey: Key.incomeMult.rawValue)
         aCoder.encode(numberOfRestarts, forKey: Key.numberOfRestarts.rawValue)
+        aCoder.encode(freeCardsDate, forKey: Key.freeCardsDate.rawValue)
         aCoder.encode(maxLevel, forKey: Key.maxLevel.rawValue)
         aCoder.encode(totalMoney, forKey: Key.totalMoney.rawValue)
         aCoder.encode(upgradeStore, forKey: Key.upgradeStore.rawValue)
@@ -143,10 +157,6 @@ class Model: NSObject, NSCoding {
         decayWindSpeed()
         addMoney(amount: moneyPerSec/10)
         levelProgress += moneyPerSec/10
-        
-        let time = Date().timeIntervalSince(battery.startTime)
-        battery.startTime = Date()
-        battery.addCharge(value: battery.chargingPower*time)
     }
     
     func decayWindSpeed() {

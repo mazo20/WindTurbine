@@ -13,24 +13,35 @@ import Firebase
 extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if tableView.tag == 0 || tableView.tag == 3 { return 1 }
-        return 2
+        switch tableView.tag {
+        case 0: return 1
+        case 1, 2: return 2
+        case 3: return model.shouldAvailableRestart() ? 3 : 2
+        default: return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView.tag {
         case 0:
-            return model.upgradeStore.upgradesForIncome()[segmentedUpgradeControl.selectedSegmentIndex].count
+            return model.upgradeStore.upgradesForIncome[segmentedUpgradeControl.selectedSegmentIndex].count
         case 1:
             if section == 0 && battery.chargePercentage == 0 { return 1 }
             if section == 0 && GADRewardBasedVideoAd.sharedInstance().isReady { return 3 }
             return 2
         case 2:
-            let rows = [2, cardStore.buyScratchCards.count]
+            let rows = [2, model.upgradeStore.purchaseCards.count]
             return rows[section]
         default:
-            return model.level > model.numberOfRestarts + 2 ? 2 : 1
+            let rows = [model.upgradeStore.menuUpgrades.count, 1, 1]
+            return rows[section]
+            
         }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        guard tableView.tag == 2 && section == 1 else { return nil }
+        return "Chance to get a card:\nLvl1: 50%, lvl2: 30%, lvl3: 20%\nPrize is income multiplied by:\nLvl1: 60% - 3x, 25% - 9x, 10% - 27x, 5% - 81x\nLvl2: 60% - 9x, 25% - 27x, 10% - 81x, 5% - 243x\nLvl3: 60% - 27x, 25% - 81x, 10% - 243x, 5% - 729x"
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -51,8 +62,7 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView.tag == 3 && indexPath.row == 1 {
-            //Start playing from the start
+        if model.shouldAvailableRestart() && tableView.tag == 3 && indexPath.section == 1 {
             showRestartGameView()
         }
     }
@@ -64,8 +74,7 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
         let upgrade = model.upgradeStore.upgradesWithType(type[tag])[indexPath.row]
         
         cell.delegate = self
-        cell.upgrade = upgrade
-        cell.buyScratchCard = nil
+        cell.data = UpgradeCellData(upgrade: upgrade)
         cell.buyButton.tag = indexPath.row
         cell.buyButton.backgroundColor = model.money > upgrade.cost ? #colorLiteral(red: 0.1457930078, green: 0.764910063, blue: 0.2355007071, alpha: 1) : #colorLiteral(red: 0.3137254902, green: 0.3176470588, blue: 0.3098039216, alpha: 1)
         return cell
@@ -88,11 +97,10 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             }
         } else {
-            let upgrade = model.upgradeStore.upgradesForBattery()[indexPath.row]
+            let upgrade = model.upgradeStore.upgradesForBattery[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "UpgradeViewCell", for: indexPath) as! UpgradeViewCell
             cell.delegate = self
-            cell.upgrade = upgrade
-            cell.buyScratchCard = nil
+            cell.data = UpgradeCellData(upgrade: upgrade)
             cell.buyButton.tag = indexPath.row
             cell.buyButton.backgroundColor = model.money > upgrade.cost ? #colorLiteral(red: 0.1457930078, green: 0.764910063, blue: 0.2355007071, alpha: 1) : #colorLiteral(red: 0.3137254902, green: 0.3176470588, blue: 0.3098039216, alpha: 1)
             return cell
@@ -117,8 +125,7 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "UpgradeViewCell", for: indexPath) as! UpgradeViewCell
-        cell.upgrade = nil
-        cell.buyScratchCard = cardStore.buyScratchCards[indexPath.row]
+        cell.data = UpgradeCellData(upgrade: model.upgradeStore.purchaseCards[indexPath.row])
         cell.buyButton.tag = indexPath.row
         cell.buyButton.backgroundColor = #colorLiteral(red: 0.3137254902, green: 0.3176470588, blue: 0.3098039216, alpha: 1)
         cell.delegate = self
@@ -126,17 +133,32 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func setupSettingsView(indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
-        if indexPath.row == 1 {
-            cell.textLabel?.text = "Start from beggining"
-            cell.detailTextLabel?.text = "Get a bonus"
+        switch (indexPath.section, indexPath.row, model.shouldAvailableRestart()) {
+        case (0, _, _):
+            let cell = tableView.dequeueReusableCell(withIdentifier: "UpgradeViewCell", for: indexPath) as! UpgradeViewCell
+            cell.data = UpgradeCellData(upgrade: model.upgradeStore.menuUpgrades[indexPath.row])
+            cell.buyButton.tag = indexPath.row
+            cell.buyButton.backgroundColor = #colorLiteral(red: 0.3137254902, green: 0.3176470588, blue: 0.3098039216, alpha: 1)
+            cell.delegate = self
+            return cell
+        case (1, _, false), (2, _, true):
+            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+            cell.textLabel?.text = "Developed by Maciej Kowalski"
+            cell.detailTextLabel?.text = "Contact at maciej.kowalski.developer@gmail.com"
+            cell.selectionStyle = .none
+            return cell
+        case (1,_, true):
+            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+            cell.textLabel?.text = "Increase your income for free"
+            cell.detailTextLabel?.text = "You have to sacrifice some things, however"
             cell.accessoryType = .disclosureIndicator
             cell.selectionStyle = .none
-        } else {
-            cell.textLabel?.text = "Created by"
-            cell.detailTextLabel?.text = "Maciej Kowalski"
+            return cell
+        default:
+            return UITableViewCell()
         }
-        return cell
+        
+        
     }
     
     @objc func dischargeBatteryButton(sender: UIButton) {
@@ -182,7 +204,8 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
 extension GameViewController: UpgradeViewCellDelegate {
     func buyButtonPressed(cell: UpgradeViewCell) {
         StoreReviewHelper.checkAndAskForReview()
-        if let upgrade = cell.upgrade, upgrade.cost < model.money {
+        if let data = cell.data, let upgrade = model.upgradeStore.upgradesHashDict[data.hashValue],
+            upgrade.cost < model.money {
             model.subtractMoney(amount: upgrade.cost)
             switch upgrade.type {
             case .wind:
@@ -197,28 +220,38 @@ extension GameViewController: UpgradeViewCellDelegate {
                 battery.capacity += upgrade.value * 3600
             }
             upgrade.level += 1
-        } else if let purchase = cell.buyScratchCard {
-            switch purchase.type {
-            case .lightning:
-                if purchase.price > model.lightnings {
-                    showStoreView()
+        } else if let data = cell.data, let purchase = model.upgradeStore.extraUpgradesHashDict[data.hashValue]{
+            switch (purchase.priceType, purchase.rewardType) {
+            case (.lightning, .card):
+                guard purchase.price < model.lightnings else { showStoreView(); break }
+                model.lightnings -= purchase.price
+                cardStore.addCards(purchase.rewardValue)
+            case (.lightning, .balance):
+                guard purchase.price < model.lightnings else { showStoreView(); break }
+                model.lightnings -= purchase.price
+                let income = purchase.income ?? 1
+                model.addMoney(amount: Double(purchase.rewardValue) * income)
+            case (.lightning, .income):
+                guard purchase.price < model.lightnings else { showStoreView(); break }
+                model.lightnings -= purchase.price
+                model.incomeMult *= Double(purchase.rewardValue)
+            case (.date, .card):
+                let date = UserDefaults.standard.value(forKey: "freeCardsDate") as? Date ?? Date()
+                let time = date.timeIntervalSinceNow
+                if time < 0 {
+                    UserDefaults.standard.set(Date(timeIntervalSinceNow: 3605), forKey: "freeCardsDate")
+                    cardStore.addCards(purchase.rewardValue)
                 } else {
-                    model.lightnings -= purchase.price
-                    cardStore.addCards(purchase.value)
-                }
-            case .date:
-                guard let date = purchase.date, date.timeIntervalSinceNow < 0 else {
                     cell.buyButton.shake()
-                    return }
-                purchase.date = Date(timeIntervalSinceNow: 3605)
-                cardStore.freeCardsDate = Date(timeIntervalSinceNow: 3605)
-                cardStore.addCards(purchase.value)
-            case .ad:
+                }
+            case (.ad, .card):
                 if isRewardVideoAdReady() {
                     presentRewardVideoAd(for: .addCards)
                 } else {
                     cell.buyButton.shake()
                 }
+            default:
+                print("Unknown purchase")
             }
         } else {
             cell.buyButton.shake()

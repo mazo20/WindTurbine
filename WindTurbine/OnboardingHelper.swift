@@ -35,9 +35,9 @@ struct OnboardingHelper {
         case .main1:
             return (title: "Welcome to Power!", description: "The wind turbine is producing electricity. Tap the screen to increase wind speed and therefore your income!")
         case .main2:
-            return (title: "Welcome to Power!", description: "Buy upgrades to expand your production.\nUse battery and scratch cards for your advantage.")
+            return (title: "Welcome to Power!", description: "Buy upgrades to expand your production. Use battery and scratch cards for your advantage.")
         case .main3:
-            return (title: "Welcome to Power!", description: "Do you have what it take's to power the world?")
+            return (title: "Welcome to Power!", description: "Do you have what it takes to power the world?")
         case .upgrades:
             return (title: "Upgrade store", description: "Here you can upgrade your turbine which will greatly increase your income.")
         case .battery:

@@ -37,7 +37,7 @@ extension GameViewController: PopUpViewDelegate {
     }
     
     func showLevelUpView() {
-        levelUpPrize = model.levelGoal * Double.random(min: 0.04, max: 0.06)
+        levelUpPrize = model.levelGoal * Double.random(min: 0.06, max: 0.08)
         guard let view = initPopUpView() else { return }
         view.type = .levelUp
         view.titleLabel.text = "Level up bonus!"
@@ -71,9 +71,10 @@ extension GameViewController: PopUpViewDelegate {
     func showOnboardingViewFor(type: OnboardingType) {
         guard type != .unknown else { return }
         let text = OnboardingHelper.textFor(type: type)
+        currentOnboardingScene = type
         
-        let origin = upgradeView.convert(CGPoint(x: upgradeView.frame.minX+10, y: upgradeView.frame.midY+10), to: self.view)
-        let frame = CGRect(origin: origin, size: CGSize(width: tableView.frame.width-20, height: upgradeView.frame.height/2+tabButton1.frame.height-20))
+        let origin = upgradeView.convert(CGPoint(x: upgradeView.frame.minX+10, y: upgradeView.frame.midY), to: self.view)
+        let frame = CGRect(origin: origin, size: CGSize(width: tableView.frame.width-20, height: upgradeView.frame.height/2+tabButton1.frame.height-10))
         let popUpView = PopUpView(frame: frame)
         
         popUpView.delegate = self
@@ -103,7 +104,6 @@ extension GameViewController: PopUpViewDelegate {
         case (.restartGame, 1):
             model.reset()
             model.incomeMult *= 1.2
-            model.numberOfRestarts += 1
             upgradeView.hide()
             hidePopUp(view: view)
         case (.restartGame, 2):

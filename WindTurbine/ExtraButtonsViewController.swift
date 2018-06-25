@@ -56,7 +56,7 @@ extension GameViewController {
         }
         let button = ExtraButton()
         button.frame = CGRect(origin: .zero, size: CGSize(width: Size.width, height: Size.height))
-        button.setImage(#imageLiteral(resourceName: "AdIcon"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "RewardIconWhite"), for: .normal)
         button.center = CGPoint(x: windTurbineView.frame.maxX + Size.width, y: windTurbineView.frame.maxY - Size.height)
         button.addTarget(self, action: #selector(showBonusAdView), for: .touchUpInside)
         button.layer.zPosition = 4

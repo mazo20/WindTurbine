@@ -4,18 +4,18 @@
                 "imageName" : "BatteryCharging",
                 "name" : "Charging power",
                 "baseCost" : 10,
-                "baseValue" : 0.018,
-                "costMult" : 5.8,
-                "valueMult" : 2.3,
+                "baseValue" : 0.02,
+                "costMult" : 3.3,
+                "valueMult" : 1.9,
                 "type" : "charging"
                 },
                 {
                 "imageName" : "BatteryCapacity",
                 "name" : "Capacity",
                 "baseCost" : 10,
-                "baseValue" : 0.11,
-                "costMult" : 6.2,
-                "valueMult" : 2.8,
+                "baseValue" : 0.04,
+                "costMult" : 3.4,
+                "valueMult" : 2.1,
                 "type" : "capacity"
                 }
   ]

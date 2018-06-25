@@ -5,7 +5,7 @@
                 "name" : "Turn on lights",
                 "baseCost" : 5.5,
                 "baseValue" : 0.018,
-                "costMult" : 1.22,
+                "costMult" : 1.28,
                 "valueMult" : 2,
                 "type" : "price"
                 },{
@@ -13,39 +13,63 @@
                 "name" : "More smartphones",
                 "baseCost" : 22,
                 "baseValue" : 0.054,
-                "costMult" : 1.22,
+                "costMult" : 1.3,
                 "valueMult" : 2,
                 "type" : "price"
                 },{
                 "emoji" : "🚗",
                 "name" : "Electric cars",
-                "baseCost" : 132,
-                "baseValue" : 0.24,
-                "costMult" : 1.22,
+                "baseCost" : 176,
+                "baseValue" : 0.32,
+                "costMult" : 1.3,
                 "valueMult" : 2,
                 "type" : "price"
                 },{
                 "emoji" : "🔥",
                 "name" : "Fight competition",
-                "baseCost" : 790,
-                "baseValue" : 1.1,
-                "costMult" : 1.22,
+                "baseCost" : 1410,
+                "baseValue" : 1.94,
+                "costMult" : 1.3,
                 "valueMult" : 2,
                 "type" : "price"
                 },{
                 "emoji" : "☢️",
                 "name" : "Ban nuclear power",
-                "baseCost" : 4750,
-                "baseValue" : 4.92,
-                "costMult" : 1.22,
+                "baseCost" : 11200,
+                "baseValue" : 11.6,
+                "costMult" : 1.3,
+                "valueMult" : 2,
+                "type" : "price"
+                },{
+                "emoji" : "🛩️",
+                "name" : "Electric airplanes",
+                "baseCost" : 92500,
+                "baseValue" : 70,
+                "costMult" : 1.3,
+                "valueMult" : 2,
+                "type" : "price"
+                },{
+                "emoji" : "🛢️",
+                "name" : "Oil ban",
+                "baseCost" : 720900,
+                "baseValue" : 410,
+                "costMult" : 1.3,
+                "valueMult" : 2,
+                "type" : "price"
+                },{
+                "emoji" : "🏛️",
+                "name" : "Corrupt government",
+                "baseCost" : 6890000,
+                "baseValue" : 2600,
+                "costMult" : 1.3,
                 "valueMult" : 2,
                 "type" : "price"
                 },{
                 "emoji" : "🌘",
                 "name" : "Hide sun",
-                "baseCost" : 28500,
-                "baseValue" : 22.1,
-                "costMult" : 1.22,
+                "baseCost" : 75980000,
+                "baseValue" : 17000,
+                "costMult" : 1.3,
                 "valueMult" : 2,
                 "type" : "price"
                 }

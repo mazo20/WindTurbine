@@ -18,7 +18,16 @@ class UpgradeStore: NSObject, NSCoding {
         case WindUpgrades, PowerUpgrades, PriceUpgrades, BatteryUpgrades, BuyScratchCards
     }
     
+    var income: Double? {
+        didSet {
+            extraUpgrades.forEach { $0.income = income }
+        }
+    }
+    
     var upgrades = [Upgrade]()
+    var upgradesHashDict = [Int: Upgrade]()
+    var extraUpgrades = [ExtraUpgrade]()
+    var extraUpgradesHashDict = [Int: ExtraUpgrade]()
     
     var upgradeLevels = [String: Int]()
     
@@ -26,16 +35,25 @@ class UpgradeStore: NSObject, NSCoding {
         return upgrades.filter({$0.type == type})
     }
     
-    func upgradesForIncome() -> [[Upgrade]] {
+    var upgradesForIncome: [[Upgrade]] {
         var u = [[Upgrade]]()
         let type = [upgradeType.wind, upgradeType.power, upgradeType.price]
         _ = type.map({ u.append(upgradesWithType($0)) })
         return u
     }
     
-    func upgradesForBattery() -> [Upgrade] {
+    var upgradesForBattery: [Upgrade] {
         return upgrades.filter({$0.type == upgradeType.charging || $0.type == upgradeType.capacity})
     }
+    
+    var purchaseCards: [ExtraUpgrade] {
+        return extraUpgrades.filter({$0.rewardType == .card})
+    }
+    
+    var menuUpgrades: [ExtraUpgrade] {
+        return extraUpgrades.filter({$0.rewardType == .income || $0.rewardType == .balance})
+    }
+    
     
     
     override init() {
@@ -80,6 +98,29 @@ class UpgradeStore: NSObject, NSCoding {
                     }
                 }
             }
+        }
+        if let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename: "ExtraUpgrades") {
+            if let extraUpgrades = dictionary["extraUpgrades"] as? [Dictionary<String, Any>] {
+                for extra in extraUpgrades {
+                    guard let priceTypeString = extra["priceType"] as? String,
+                        let priceType = UpgradePriceType(rawValue: priceTypeString),
+                        let rewardTypeString = extra["rewardType"] as? String,
+                        let rewardType = RewardType(rawValue: rewardTypeString),
+                        let value = extra["value"] as? Int,
+                        let price = extra["price"] as? Int else { continue }
+                    let emoji = extra[Key.emoji.rawValue] as? String
+                    let imageName = extra[Key.imageName.rawValue] as? String
+                    let extraUpgrade = ExtraUpgrade(rewardType: rewardType, value: value, priceType: priceType, price: price, emoji: emoji, imageName: imageName)
+                    self.extraUpgrades.append(extraUpgrade)
+                }
+            }
+        }
+        
+        for upgrade in upgrades {
+            upgradesHashDict[upgrade.hashValue] = upgrade
+        }
+        for extraUpgrade in extraUpgrades {
+            extraUpgradesHashDict[extraUpgrade.hashValue] = extraUpgrade
         }
     }
     

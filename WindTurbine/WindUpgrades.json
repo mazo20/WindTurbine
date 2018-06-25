@@ -3,49 +3,81 @@
   	{
                 "emoji" : "🤧",
                 "name" : "Encourage sneezing",
-                "baseCost" : 1,
+                "baseCost" : 1.5,
                 "baseValue" : 0.01,
                 "costMult" : 1.3,
-                "valueMult" : 1.5,
+                "valueMult" : 2,
+                "type" : "wind"
+                },{
+                "emoji" : "😤",
+                "name" : "Make them angry",
+                "baseCost" : 6,
+                "baseValue" : 0.03,
+                "costMult" : 1.3,
+                "valueMult" : 2,
+                "type" : "wind"
+                },{
+                "emoji" : "🏢",
+                "name" : "Ban tall buildings",
+                "baseCost" : 48,
+                "baseValue" : 0.18,
+                "costMult" : 1.3,
+                "valueMult" : 2,
                 "type" : "wind"
                 },{
                 "emoji" : "🌲",
                 "name" : "Cut down trees",
-                "baseCost" : 6,
-                "baseValue" : 0.03,
-                "costMult" : 1.22,
-                "valueMult" : 2,
-                "type" : "wind"
-                },{
-                "emoji" : "🏡",
-                "name" : "Demolish nearby houses",
-                "baseCost" : 35,
-                "baseValue" : 0.135,
-                "costMult" : 1.22,
-                "valueMult" : 2,
-                "type" : "wind"
-                },{
-                "emoji" : "✈️",
-                "name" : "Use jet engines",
-                "baseCost" : 220,
-                "baseValue" : 0.6,
-                "costMult" : 1.22,
+                "baseCost" : 400,
+                "baseValue" : 1.08,
+                "costMult" : 1.3,
                 "valueMult" : 2,
                 "type" : "wind"
                 },{
                 "emoji" : "🏝️",
                 "name" : "Flatten terrain",
-                "baseCost" : 1300,
-                "baseValue" : 2.75,
-                "costMult" : 1.22,
+                "baseCost" : 3020,
+                "baseValue" : 6.5,
+                "costMult" : 1.3,
+                "valueMult" : 2,
+                "type" : "wind"
+                },{
+                "emoji" : "🏘️",
+                "name" : "Demolish houses",
+                "baseCost" : 24410,
+                "baseValue" : 38.8,
+                "costMult" : 1.3,
+                "valueMult" : 2,
+                "type" : "wind"
+                },{
+                "emoji" : "✈️",
+                "name" : "Use jet engines",
+                "baseCost" : 196300,
+                "baseValue" : 233,
+                "costMult" : 1.3,
+                "valueMult" : 2,
+                "type" : "wind"
+                },{
+                "emoji" : "👽",
+                "name" : "Alien's help",
+                "baseCost" : 1576000,
+                "baseValue" : 1400,
+                "costMult" : 1.3,
+                "valueMult" : 2,
+                "type" : "wind"
+                },{
+                "emoji" : "🚀",
+                "name" : "Use rockets",
+                "baseCost" : 13220000,
+                "baseValue" : 8400,
+                "costMult" : 1.3,
                 "valueMult" : 2,
                 "type" : "wind"
                 },{
                 "emoji" : "🌪️",
                 "name" : "Change climate",
-                "baseCost" : 7800,
-                "baseValue" : 12.3,
-                "costMult" : 1.22,
+                "baseCost" : 101320000,
+                "baseValue" : 50000,
+                "costMult" : 1.3,
                 "valueMult" : 2,
                 "type" : "wind"
                 }

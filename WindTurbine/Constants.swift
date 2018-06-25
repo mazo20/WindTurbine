@@ -14,7 +14,7 @@ struct UserDefaultsKeys {
 }
 
 struct GameCenterIdentifiers {
-    static let POWER_TOTAL_MONEY = "PowerTotalMoney"
+    static let POWER_TOTAL_MONEY = "total_money"
 }
 
 

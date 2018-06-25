@@ -16,8 +16,23 @@ class LightningStoreView: UIView {
     
     var delegate: LightningStoreViewDelegate? {
         didSet {
+            let products = IAPHandler.shared.products()
+            guard products.count == 6 else {
+                self.removeFromSuperview()
+                return
+            }
             let views = [buyView1, buyView2, buyView3, buyView4, buyView5, buyView6]
-            let values = [5, 12, 29, 52, 89, 180]
+            let values = [25, 55, 140, 320, 760, 1830]
+            let free = [5, 15, 50, 160, 500, 1400]
+            
+            var price = [String]()
+            for product in products {
+                let numberFormatter = NumberFormatter()
+                numberFormatter.formatterBehavior = .behavior10_4
+                numberFormatter.numberStyle = .currency
+                numberFormatter.locale = product.priceLocale
+                price.append(numberFormatter.string(from: product.price)!)
+            }
             
             
             for i in 0..<views.count {
@@ -25,6 +40,8 @@ class LightningStoreView: UIView {
                 views[i]?.delegate = self.delegate
                 views[i]?.buyButton.tag = i+1
                 views[i]?.valueLabel.text = "\(values[i])"
+                views[i]?.freeValueLabel.text = "(\(free[i]) free)"
+                views[i]?.buyButton.setTitle(price[i], for: .normal)
                 
             }
         }

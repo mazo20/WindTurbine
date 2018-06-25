@@ -40,6 +40,8 @@ class GameViewController: UIViewController {
     var popUpView: PopUpView?
     var darkBackgroundView: UIView?
     
+    var purchaseIndex: Int?
+    
     var didAddBackground = false
     
     var levelUpPrize = 0.0
@@ -116,6 +118,7 @@ class GameViewController: UIViewController {
     }
     
     func showStoreView() {
+        guard IAPHandler.shared.productsAreReady() else { return }
         showDarkBackgroundView()
         
         let frame = CGRect(origin: self.view.frame.origin, size: CGSize(width: self.view.frame.width*0.85, height: self.view.frame.height*0.6))
@@ -124,6 +127,7 @@ class GameViewController: UIViewController {
         storeView?.center = self.view.center
         storeView?.closeButton.addTarget(self, action: #selector(closeStoreView), for: .touchUpInside)
         self.view.addSubview(storeView!)
+        storeView?.layoutSubviews()
     }
     
     
@@ -146,7 +150,24 @@ class GameViewController: UIViewController {
         RunLoop.main.add(updateModelTimer, forMode: .commonModes)
         
         
-        
+        IAPHandler.shared.fetchAvailableProducts()
+        IAPHandler.shared.purchaseStatusBlock = {[weak self] (type) in
+            guard let strongSelf = self else{ return }
+            if type == .purchased {
+                if let index = strongSelf.purchaseIndex {
+                    strongSelf.model.lightnings += IAPHandler.shared.PURCHASE_VALUES[index]
+                }
+                
+                let alertView = UIAlertController(title: "", message: type.message(), preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default, handler: { (alert) in
+                    
+                })
+                alertView.addAction(action)
+                strongSelf.present(alertView, animated: true, completion: nil)
+                
+            }
+            strongSelf.purchaseIndex = nil
+        }
         
         authenticateLocalPlayer()
         
@@ -168,8 +189,7 @@ class GameViewController: UIViewController {
             didAddBackground = true
             
             shouldShowOnboardingViewFor(value: 3) //main1 onboarding
-            currentOnboardingScene = .main1
-            
+            IAPHandler.shared.fetchAvailableProducts()
         }
     }
     
@@ -212,8 +232,8 @@ class GameViewController: UIViewController {
     
     func checkForUpgrades() {
         for case let cell as UpgradeViewCell in tableView.visibleCells {
-            guard let upgrade = cell.upgrade, upgrade.cost < model.money else { return }
-            cell.buyButton.backgroundColor = #colorLiteral(red: 0.1457930078, green: 0.764910063, blue: 0.2355007071, alpha: 1)
+            guard let upgrade = model.upgradeStore.upgrades.first(where: {$0.hashValue == cell.data?.hashValue}) else { return }
+            cell.buyButton.backgroundColor = upgrade.cost < model.money ? #colorLiteral(red: 0.1457930078, green: 0.764910063, blue: 0.2355007071, alpha: 1) : #colorLiteral(red: 0.3137254902, green: 0.3176470588, blue: 0.3098039216, alpha: 1)
         }
     }
     
@@ -227,9 +247,7 @@ class GameViewController: UIViewController {
     }
     
     func dischargeBattery(withMultiplier x: Double) {
-        model.addMoney(amount: Double(battery.chargePercentage)/100 * battery.capacity * sqrt(model.powerPrice) * x)
-        battery.charge = 0
-        battery.startTime = Date()
+        model.addMoney(amount: battery.discharge() * model.powerPrice * x)
         tableView.reloadSections([0], with: .none)
     }
     
@@ -252,10 +270,8 @@ extension GameViewController: UIGestureRecognizerDelegate {
 
 extension GameViewController: LightningStoreViewDelegate {
     func buyLightnings(button: UIButton) {
-        let values = [5, 12, 29, 52, 89, 180]
-        model.lightnings += values[button.tag-1]
-        storeView?.removeFromSuperview()
-        darkBackgroundView?.removeFromSuperview()
+        purchaseIndex = button.tag-1
+        IAPHandler.shared.purchaseMyProduct(index: purchaseIndex!)
     }
 }
 

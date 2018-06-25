@@ -7,6 +7,7 @@ target 'WindTurbine' do
   
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
+  pod 'GoogleMobileAdsMediationUnity'
 
   # Pods for WindTurbine
 

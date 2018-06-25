@@ -10,7 +10,7 @@ import UIKit
 
 class CloudView: UIImageView {
     
-    let imageNames = ["Cloud1", "Cloud2"]
+    let imageNames = ["Cloud1", "Cloud2", "Cloud3", "Cloud4"]
     var randomSpeed: CGFloat!
     
     override init(image: UIImage?) {
@@ -27,7 +27,8 @@ class CloudView: UIImageView {
     }
     
     func setSize() {
-        let height = Int(arc4random_uniform(40)) + 40
+        var height = CGFloat(arc4random_uniform(40)) + 40
+        height = UIDevice.current.userInterfaceIdiom == .pad ? height * 1.5 : height
         self.frame.size = CGSize(width: height*2, height: height)
     }
     

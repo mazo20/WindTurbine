@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -21,46 +21,46 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dd1-Hh-q4I">
-                        <rect key="frame" x="20" y="11.5" width="694" height="169.5"/>
+                        <rect key="frame" x="20" y="10" width="694" height="174"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Pick your scratch card!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJd-fE-Gh4">
-                                <rect key="frame" x="0.0" y="0.0" width="694" height="20.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="694" height="31.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FSk-Ne-uPZ">
-                                <rect key="frame" x="0.0" y="30.5" width="694" height="112"/>
+                                <rect key="frame" x="0.0" y="41.5" width="694" height="105.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsK-3j-tXw">
-                                        <rect key="frame" x="0.0" y="0.0" width="225" height="112"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="211.5" height="105.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="nsK-3j-tXw" secondAttribute="height" multiplier="2:1" id="6Wl-0P-UOg"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="ScratchCard1"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3w4-vM-Cax">
-                                        <rect key="frame" x="235" y="0.0" width="224" height="112"/>
+                                        <rect key="frame" x="241.5" y="0.0" width="211" height="105.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="3w4-vM-Cax" secondAttribute="height" multiplier="2:1" id="bOR-c3-6oi"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="ScratchCard2"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDG-th-CGH">
-                                        <rect key="frame" x="469" y="0.0" width="225" height="112"/>
+                                        <rect key="frame" x="482.5" y="0.0" width="211.5" height="105.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="PDG-th-CGH" secondAttribute="height" multiplier="2:1" id="LsI-iq-lpe"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="ScratchCard3"/>
                                     </button>
                                 </subviews>
-                                <variation key="heightClass=regular-widthClass=regular" spacing="20"/>
+                                <variation key="heightClass=regular-widthClass=regular" spacing="30"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cJf-NK-WvG">
-                                <rect key="frame" x="0.0" y="152.5" width="694" height="17"/>
+                                <rect key="frame" x="0.0" y="157" width="694" height="17"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoq-YD-R1A">
                                         <rect key="frame" x="0.0" y="0.0" width="224.5" height="17"/>
@@ -107,8 +107,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ScratchCard1" width="1200" height="600"/>
-        <image name="ScratchCard2" width="1200" height="600"/>
-        <image name="ScratchCard3" width="1200" height="600"/>
+        <image name="ScratchCard1" width="400" height="200"/>
+        <image name="ScratchCard2" width="400" height="200"/>
+        <image name="ScratchCard3" width="400" height="200"/>
     </resources>
 </document>

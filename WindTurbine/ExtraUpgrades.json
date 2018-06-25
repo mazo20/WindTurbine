@@ -1,0 +1,49 @@
+{
+  "extraUpgrades" : [
+                     {
+                     "priceType" : "date",
+                     "rewardType" : "card",
+                     "value" : 5,
+                     "price" : 1,
+                    },{
+                     "priceType" : "ad",
+                     "rewardType" : "card",
+                     "value" : 7,
+                     "price" : 1
+                     },{
+                     "priceType" : "lightning",
+                     "rewardType" : "card",
+                     "value" : 10,
+                     "price" : 3
+                     },{
+                     "priceType" : "lightning",
+                     "rewardType" : "card",
+                     "value" : 50,
+                     "price" : 10
+                     },{
+                     "priceType" : "lightning",
+                     "rewardType" : "card",
+                     "value" : 150,
+                     "price" : 25
+                     },{
+                     "priceType" : "lightning",
+                     "rewardType" : "income",
+                     "emoji" : "🤑",
+                     "value" : 2,
+                     "price" : 27
+                     },{
+                     "priceType" : "lightning",
+                     "rewardType" : "balance",
+                     "emoji" : "💵",
+                     "value" : 80000,
+                     "price" : 150
+                     },{
+                     "priceType" : "lightning",
+                     "rewardType" : "balance",
+                     "emoji" : "💰",
+                     "value" : 14000000,
+                     "price" : 810
+                     }
+                     
+  ]
+}

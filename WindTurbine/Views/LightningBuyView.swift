@@ -16,6 +16,7 @@ class LightningBuyView: UIView {
     @IBOutlet var buyButton: UIButton!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var valueLabel: UILabel!
+    @IBOutlet var freeValueLabel: UILabel!
     
     @IBAction func buyButtonPressed(_ sender: UIButton) {
         delegate?.buyLightnings(button: sender)

@@ -32,10 +32,15 @@ extension Double {
     
     func numberFormatter(ofType type: formatterType) -> String {
         var string = ""
+        let separator = Locale.current.decimalSeparator ?? ""
         switch (self, type) {
-        case (0..<1000, _):
+        case (0..<1, .balance):
             string = String(format: "%.2f", locale: Locale.current, self)
-        case (0..<10000, .balance):
+        case (0..<1, _):
+            string = String(format: "%.3f", locale: Locale.current, self)
+        case (1..<1000, _):
+            string = String(format: "%.2f", locale: Locale.current, self)
+        case (1..<10000, .balance):
             string = String(format: "%.2f", locale: Locale.current, self)
         case (1000..<1000000, _):
             string = String(format: "%.2fk", locale: Locale.current, self/1000)

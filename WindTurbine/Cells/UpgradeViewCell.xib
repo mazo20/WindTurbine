@@ -131,7 +131,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="buyButton" destination="FNf-Zk-XEz" id="9m3-gg-Rmy"/>
+                <outlet property="buyButton" destination="FNf-Zk-XEz" id="85u-XX-dYE"/>
                 <outlet property="detailLabel" destination="Abm-6K-r8f" id="5o3-vx-mtv"/>
                 <outlet property="emojiLabel" destination="wZM-3f-mrk" id="6f2-kl-jvb"/>
                 <outlet property="iconImageView" destination="rOg-nr-JWc" id="0if-f8-Bjq"/>

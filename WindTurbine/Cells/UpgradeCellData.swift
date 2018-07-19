@@ -17,15 +17,14 @@ struct UpgradeCellData {
     var buttonTitle: String?
     var buttonColor: UIColor?
     var iconImage: UIImage?
-    var hashValue: Int
+    var hashValue: Int?
     
     init(upgrade: Upgrade) {
         hashValue = upgrade.hashValue
         titleText = upgrade.name
         detailText = "+" + upgrade.value.valueFormatter(ofType: formatterType(rawValue: upgrade.type.rawValue)!)
         emoji = upgrade.emoji
-        level = "\(upgrade.level)"
-        buttonImage = nil
+        level = "\(upgrade.level-1)"
         buttonColor = #colorLiteral(red: 0.3137254902, green: 0.3176470588, blue: 0.3098039216, alpha: 1)
         buttonTitle = upgrade.cost.valueFormatter(ofType: .cost)
         if let imageName = upgrade.imageName {
@@ -33,6 +32,12 @@ struct UpgradeCellData {
         } else {
             iconImage = nil
         }
+    }
+    
+    init() {
+        titleText = "*****************"
+        emoji = "❓"
+        buttonTitle = "?"
     }
     
     init(upgrade: ExtraUpgrade) {
@@ -51,6 +56,8 @@ struct UpgradeCellData {
             let date = UserDefaults.standard.value(forKey: "freeCardsDate") as? Date ?? Date(timeIntervalSinceNow: -1)
             let time = date.timeIntervalSinceNow
             buttonTitle = time < 0 ? "Collect" : "\(Int(time/60))min"
+        case .balance:
+            buttonTitle = Double(upgrade.price).valueFormatter(ofType: .cost)
         default:
             print("Price type: \(upgrade.priceType) not handled")
         }
@@ -65,6 +72,8 @@ struct UpgradeCellData {
         case .balance:
             let income = upgrade.income ?? 1.0
             titleText = "\((Double(upgrade.rewardValue) * income).valueFormatter(ofType: .income)) instantly"
+        case .restart:
+            titleText = "Move to a new planet"
         default:
             print("Reward type: \(upgrade.rewardValue) not handled")
         }

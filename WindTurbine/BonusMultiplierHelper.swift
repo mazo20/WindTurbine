@@ -20,7 +20,7 @@ struct BonusMultiplierHelper {
         let random = Int(arc4random_uniform(100))
         switch random {
         case 0..<5:
-            return 5
+            return 3
         case 5..<15:
             return 4
         case 15..<40:
@@ -37,13 +37,13 @@ struct BonusMultiplierHelper {
         let random = Int(arc4random_uniform(100))
         switch random {
         case 0..<5:
-            return 240
-        case 5..<15:
-            return 180
-        case 15..<40:
             return 120
-        case 40..<100:
+        case 5..<15:
+            return 90
+        case 15..<40:
             return 60
+        case 40..<100:
+            return 30
         default:
             print("Random value too big")
             return 0

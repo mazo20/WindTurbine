@@ -20,11 +20,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="453" height="173.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Battery75" translatesAutoresizingMaskIntoConstraints="NO" id="W0n-6S-bhE">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Battery0" translatesAutoresizingMaskIntoConstraints="NO" id="W0n-6S-bhE">
                         <rect key="frame" x="20" y="16" width="141.5" height="141.5"/>
                         <color key="tintColor" red="0.31372549020000001" green="0.31764705879999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="W0n-6S-bhE" secondAttribute="height" multiplier="1:1" id="a6o-4p-roC"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BatteryFill25" translatesAutoresizingMaskIntoConstraints="NO" id="nIq-CT-XTx" userLabel="BatteryFillView">
+                        <rect key="frame" x="20" y="16" width="141.5" height="141.5"/>
+                        <color key="tintColor" red="0.31372549020000001" green="0.31764705879999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="nIq-CT-XTx" secondAttribute="height" multiplier="1:1" id="CWx-nC-oYZ"/>
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="0Wr-Ol-j4U">
@@ -96,11 +103,17 @@
                     <constraint firstItem="W0n-6S-bhE" firstAttribute="leading" secondItem="zA8-Q0-R9O" secondAttribute="leadingMargin" id="Ifm-vJ-9vO">
                         <variation key="heightClass=regular-widthClass=regular" constant="8"/>
                     </constraint>
+                    <constraint firstItem="nIq-CT-XTx" firstAttribute="width" secondItem="nIq-CT-XTx" secondAttribute="height" multiplier="1:1" id="JcI-3Z-oae"/>
+                    <constraint firstItem="nIq-CT-XTx" firstAttribute="centerX" secondItem="W0n-6S-bhE" secondAttribute="centerX" id="Jko-Xt-uki"/>
+                    <constraint firstItem="nIq-CT-XTx" firstAttribute="width" secondItem="W0n-6S-bhE" secondAttribute="width" id="P2W-cg-pfF"/>
                     <constraint firstItem="W0n-6S-bhE" firstAttribute="centerY" secondItem="zA8-Q0-R9O" secondAttribute="centerY" id="RsP-9i-MxI"/>
                     <constraint firstAttribute="bottom" secondItem="W0n-6S-bhE" secondAttribute="bottom" constant="16" id="coX-2c-xSe"/>
+                    <constraint firstItem="nIq-CT-XTx" firstAttribute="height" secondItem="W0n-6S-bhE" secondAttribute="height" id="hx3-zN-Rj8"/>
+                    <constraint firstItem="nIq-CT-XTx" firstAttribute="centerY" secondItem="W0n-6S-bhE" secondAttribute="centerY" id="plI-Z2-IW3"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="batteryFillImageView" destination="nIq-CT-XTx" id="M8h-Pm-UVA"/>
                 <outlet property="batteryImageView" destination="W0n-6S-bhE" id="CvJ-7u-nUH"/>
                 <outlet property="capacityLabel" destination="Xqk-mv-6YR" id="SGB-Wj-mh1"/>
                 <outlet property="chargeLabel" destination="Jx6-Vb-W8T" id="WP5-1d-3Ci"/>
@@ -110,6 +123,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Battery75" width="198" height="377"/>
+        <image name="Battery0" width="198" height="376"/>
+        <image name="BatteryFill25" width="198" height="377"/>
     </resources>
 </document>

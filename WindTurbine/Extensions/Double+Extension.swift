@@ -32,7 +32,7 @@ extension Double {
     
     func numberFormatter(ofType type: formatterType) -> String {
         var string = ""
-        let separator = Locale.current.decimalSeparator ?? ""
+        var endingLetter: String?
         switch (self, type) {
         case (0..<1, .balance):
             string = String(format: "%.2f", locale: Locale.current, self)
@@ -44,20 +44,30 @@ extension Double {
             string = String(format: "%.2f", locale: Locale.current, self)
         case (1000..<1000000, _):
             string = String(format: "%.2fk", locale: Locale.current, self/1000)
+            endingLetter = "k"
         case (1000000..<1000000000, _):
             string = String(format: "%.2fM", locale: Locale.current, self/1000000)
+            endingLetter = "M"
         case (1000000000..<1000000000000, .power):
             string = String(format: "%.2fG", locale: Locale.current, self/1000000000)
+            endingLetter = "G"
         case (1000000000..<1000000000000, _):
             string = String(format: "%.2fB", locale: Locale.current, self/1000000000)
-        default:
+            endingLetter = "B"
+        case (1000000000000..<1000000000000000, _):
             string = String(format: "%.2fT", locale: Locale.current, self/1000000000000)
+            endingLetter = "T"
+        default:
+            string = String(format: "%.2fkT", locale: Locale.current, self/1000000000000000)
+            endingLetter = "kT"
+        }
+        if type == .balance { return string }
+        if let separator = Locale.current.decimalSeparator, let letter = endingLetter {
+            string = string.replacingOccurrences(of: "0\(letter)", with: letter).replacingOccurrences(of: "0\(letter)", with: letter).replacingOccurrences(of: "0\(letter)", with: letter).replacingOccurrences(of: "\(separator)\(letter)", with: letter)
         }
         if let separator = Locale.current.decimalSeparator {
             for _ in 1...4 {
-                if string.contains(separator) &&
-                    (string.last == "0" || string.last == Character(separator)) &&
-                    type != .balance {
+                if string.contains(separator) && (string.last == "0" || string.last == separator.first) {
                     string = String(string.dropLast())
                 }
             }

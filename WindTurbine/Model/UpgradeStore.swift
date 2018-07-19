@@ -54,6 +54,10 @@ class UpgradeStore: NSObject, NSCoding {
         return extraUpgrades.filter({$0.rewardType == .income || $0.rewardType == .balance})
     }
     
+    func areUpgradesUnlocked() -> Bool {
+        return upgradeLevels.reduce(true, {$0 && $1.value > 1})
+    }
+    
     
     
     override init() {
@@ -68,6 +72,7 @@ class UpgradeStore: NSObject, NSCoding {
         //TODO: change json files to contain types of upgrades and parse it correctly
         
         for name in filenames {
+            let gameLevelMult = GameLevel.planetMult
             if let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename: name),
                 let upgrades = dictionary[Key.upgrades.rawValue] as? [Dictionary<String, Any>] {
                 for (j, upgrade) in upgrades.enumerated() {
@@ -79,11 +84,11 @@ class UpgradeStore: NSObject, NSCoding {
                         let valueMult = upgrade[Key.valueMult.rawValue] as? Double,
                         let type = upgrade[Key.type.rawValue] as? String,
                         let upgradeType = upgradeType(rawValue: type){
-                        let u = Upgrade(emoji: emoji, name: name, baseCost: baseCost, baseValue: baseValue, costMult: costMult, valueMult: valueMult, type: upgradeType, level: upgradeLevels["\(type)\(j)"] ?? 1)
+                        
+                        let u = Upgrade(emoji: emoji, name: name, baseCost: baseCost*gameLevelMult, baseValue: baseValue*gameLevelMult, costMult: costMult, valueMult: valueMult, type: upgradeType, level: upgradeLevels["\(type)\(j)"] ?? 1)
                         u.delegate = self
                         self.upgrades.append(u)
                     }
-                    
                     if let imageName = upgrade[Key.imageName.rawValue] as? String,
                         let name = upgrade[Key.name.rawValue] as? String,
                         let baseCost = upgrade[Key.baseCost.rawValue] as? Double,
@@ -92,7 +97,7 @@ class UpgradeStore: NSObject, NSCoding {
                         let valueMult = upgrade[Key.valueMult.rawValue] as? Double,
                         let type = upgrade[Key.type.rawValue] as? String,
                         let upgradeType = upgradeType(rawValue: type){
-                        let u = Upgrade(imageName: imageName, name: name, baseCost: baseCost, baseValue: baseValue, costMult: costMult, valueMult: valueMult, type: upgradeType, level: upgradeLevels["\(type)\(0)"] ?? 1)
+                        let u = Upgrade(imageName: imageName, name: name, baseCost: baseCost*gameLevelMult, baseValue: baseValue*gameLevelMult, costMult: costMult, valueMult: valueMult, type: upgradeType, level: upgradeLevels["\(type)\(0)"] ?? 1)
                         u.delegate = self
                         self.upgrades.append(u)
                     }

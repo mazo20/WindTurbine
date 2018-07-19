@@ -11,6 +11,7 @@ import UIKit
 extension GameViewController {
     
     func initCloudView(_ view: UIView) {
+        
         //Add cloud and animate it
         var cloud = addCloud(to: view)
         animateCloud(cloud, in: view)

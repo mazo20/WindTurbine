@@ -24,6 +24,7 @@ extension GameViewController: GADRewardBasedVideoAdDelegate {
             collectLevelUpReward(withMultiplier: 2)
         case .addCards:
             cardStore.addCards(5)
+            Analytics.logEvent("add_cards_for_ad", parameters: ["cards": cardStore.cards])
         case .bonusAd:
             hidePopUp()
             guard let bonus = bonusMultiplier else { return }

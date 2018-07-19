@@ -37,15 +37,15 @@ extension GameViewController: PopUpViewDelegate {
     }
     
     func showLevelUpView() {
-        levelUpPrize = model.levelGoal * Double.random(min: 0.06, max: 0.08)
+        levelUpPrize = model.levelGoal * Double.random(min: 0.2, max: 0.3)
         guard let view = initPopUpView() else { return }
         view.type = .levelUp
         view.titleLabel.text = "Level up bonus!"
         view.descriptionLabel.text = levelUpPrize.valueFormatter(ofType: .cost)
-        view.greyButton.setTitle("Collect", for: .normal)
-        view.yellowButton.setTitle("Collect x2", for: .normal)
+        view.normalButton.setTitle("Collect", for: .normal)
+        view.adButton.setTitle("Collect x2", for: .normal)
         if !isRewardVideoAdReady() {
-            view.yellowButton.removeFromSuperview()
+            view.adButton.removeFromSuperview()
         }
     }
     
@@ -54,8 +54,8 @@ extension GameViewController: PopUpViewDelegate {
         view.type = .restartGame
         view.titleLabel.text = "Start from beggining"
         view.descriptionLabel.text = "Your income will be increased by 20%, but all current progress will be lost"
-        view.greyButton.setTitle("Restart", for: .normal)
-        view.yellowButton.setTitle("Keep playing", for: .normal)
+        view.normalButton.setTitle("Restart", for: .normal)
+        view.adButton.setTitle("Keep playing", for: .normal)
     }
     
     @objc func showBonusAdView() {
@@ -63,9 +63,9 @@ extension GameViewController: PopUpViewDelegate {
         bonusMultiplier = bonusMultiplier ?? BonusMultiplierHelper.getRandomMultiplier()
         view.type = .bonusAd
         view.titleLabel.text = "Get reward!"
-        view.descriptionLabel.text = "Increase your income by \(Int(bonusMultiplier!.multiplier))x for \(Int(bonusMultiplier!.duration))s"
-        view.greyButton.setTitle("No thanks", for: .normal)
-        view.yellowButton.setTitle("Watch video!", for: .normal)
+        view.descriptionLabel.text = "Increase your income by \(Int((bonusMultiplier!.multiplier-1)*100))% for \(Int(bonusMultiplier!.duration))s"
+        view.normalButton.setTitle("No thanks", for: .normal)
+        view.adButton.setTitle("Watch video!", for: .normal)
     }
     
     func showOnboardingViewFor(type: OnboardingType) {
@@ -80,14 +80,14 @@ extension GameViewController: PopUpViewDelegate {
         popUpView.delegate = self
         popUpView.titleLabel?.text = text.title
         popUpView.descriptionLabel?.text = text.description
-        popUpView.greyButton.removeFromSuperview()
+        popUpView.normalButton.removeFromSuperview()
         switch type {
         case .main1, .main2:
-            popUpView.yellowButton.setTitle("Next", for: .normal)
+            popUpView.adButton.setTitle("Next", for: .normal)
         case .main3:
-            popUpView.yellowButton.setTitle("Start playing", for: .normal)
+            popUpView.adButton.setTitle("Start playing", for: .normal)
         default:
-            popUpView.yellowButton.setTitle("OK", for: .normal)
+            popUpView.adButton.setTitle("OK", for: .normal)
         }
         popUpView.type = .onboarding
         self.popUpView = popUpView

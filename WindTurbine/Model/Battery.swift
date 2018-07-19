@@ -20,11 +20,7 @@ class Battery: NSObject, NSCoding {
     
     var delegate: BatteryDelegate?
     
-    var charge: Double {
-        let time = Date().timeIntervalSince(startTime)
-        let chargeAccordingToTime = time * chargingPower
-        return chargeAccordingToTime > capacity ? capacity : chargeAccordingToTime
-    }
+    var charge: Double
     var chargingPower: Double
     var capacity: Double
     var startTime: Date
@@ -34,28 +30,37 @@ class Battery: NSObject, NSCoding {
     }
     
     init(charge: Double = 10, chargingPower: Double, capacity: Double) {
+        self.charge = charge
         self.chargingPower = chargingPower
         self.capacity = capacity
         self.startTime = Date()
     }
     
+    func addCharge(value: Double) {
+        charge += value
+        if charge > capacity {
+            charge = capacity
+        }
+     }
+    
     func discharge() -> Double {
-        delegate?.battery(self, willDischarge: charge)
-        startTime = Date()
+        let charge = self.charge
+        self.charge = 0
+        delegate?.battery(self, willDischarge: self.charge)
         return charge
     }
     
     func encode(with aCoder: NSCoder) {
-        //aCoder.encode(charge, forKey: Key.charge.rawValue)
+        aCoder.encode(charge, forKey: Key.charge.rawValue)
         aCoder.encode(chargingPower, forKey: Key.chargingPower.rawValue)
         aCoder.encode(capacity, forKey: Key.capacity.rawValue)
         aCoder.encode(startTime, forKey: Key.startTime.rawValue)
     }
     
     required init?(coder aDecoder: NSCoder) {
+        charge = aDecoder.decodeDouble(forKey: Key.charge.rawValue)
         chargingPower = aDecoder.decodeDouble(forKey: Key.chargingPower.rawValue)
         capacity = aDecoder.decodeDouble(forKey: Key.capacity.rawValue)
         startTime = aDecoder.decodeObject(forKey: Key.startTime.rawValue) as! Date
-        
     }
 }

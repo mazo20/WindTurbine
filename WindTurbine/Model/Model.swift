@@ -7,19 +7,20 @@
 //
 
 import Foundation
+import FirebaseAnalytics
 
 class Model: NSObject, NSCoding {
     
     enum Key: String {
-        case nominalWindSpeed, money, powerPrice, powerConversion, level, levelProgress, lightnings, incomeMult, numberOfRestarts, maxLevel, battery, cardStore, upgradeStore, totalMoney, freeCardsDate
+        case nominalWindSpeed, money, powerPrice, powerConversion, level, levelProgress, lightnings, incomeMult, numberOfRestarts, maxLevel, battery, cardStore, upgradeStore, totalMoney, freeCardsDate, planetTotalMoney
     }
     
     var nominalWindSpeed: Double
     var money: Double
     var powerPrice: Double
+    var powerConversion: Double
     
     var levelProgress: Double
-    var powerConversion: Double
     var lightnings: Int
     var battery: Battery
     var cardStore: ScratchCardStore
@@ -29,6 +30,8 @@ class Model: NSObject, NSCoding {
     private var numberOfRestarts: Int
     var maxLevel: Int
     var totalMoney: Double
+    var planetTotalMoney: [Int: Double]
+    
     var bonusIncomeMultiplier: Double = 1
     var freeCardsDate: Date
     
@@ -50,7 +53,7 @@ class Model: NSObject, NSCoding {
     }
     
     var levelGoal: Double {
-        return 5 * pow(7, Double(level-1))
+        return 5 * pow(7, Double(level-1)) * GameLevel.planetMult
     }
     
     var level: Int {
@@ -68,10 +71,24 @@ class Model: NSObject, NSCoding {
     func addMoney(amount: Double) {
         money += amount
         totalMoney += amount
+        var planetMoney = planetTotalMoney[GameLevel.getPlanet().rawValue] ?? 0
+        planetMoney += amount
+        planetTotalMoney[GameLevel.getPlanet().rawValue] = planetMoney
     }
     
     func subtractMoney(amount: Double) {
         money -= amount
+    }
+    
+    func levelUp() {
+        level += 1
+        levelProgress = 0
+        lightnings += 1
+    }
+    
+    func spendLightnings(amount: Int) {
+        lightnings -= amount
+        Analytics.logEvent(AnalyticsEventSpendVirtualCurrency, parameters: [AnalyticsParameterValue: amount])
     }
     
     func multiplyIncome(by multiplier: Double, duration: TimeInterval) {
@@ -100,6 +117,7 @@ class Model: NSObject, NSCoding {
         battery = Battery(chargingPower: 0.01, capacity: 108)
         cardStore = ScratchCardStore(cards: [3, 2, 1])
         upgradeStore = UpgradeStore()
+        planetTotalMoney = [Int: Double]()
     }
     
     func reset() {
@@ -112,6 +130,20 @@ class Model: NSObject, NSCoding {
         levelProgress = 0
         battery = Battery(chargingPower: 0.01, capacity: 108)
         upgradeStore = UpgradeStore()
+        Analytics.logEvent("restart_game", parameters: ["number_of_restarts": numberOfRestarts])
+    }
+    
+    func newPlanet() {
+        let mult = GameLevel.planetMult
+        money = 0
+        level = 1
+        levelProgress = 0
+        nominalWindSpeed = 0.05 * mult
+        powerConversion = 0.05 * mult
+        powerPrice = 0.05 * mult
+        battery = Battery(chargingPower: 0.01 * mult, capacity: 108 * mult)
+        upgradeStore = UpgradeStore()
+        Analytics.logEvent("newPlanet", parameters: ["planet_level": GameLevel.getPlanet().rawValue+1])
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -121,7 +153,8 @@ class Model: NSObject, NSCoding {
         powerConversion = aDecoder.decodeDouble(forKey: Key.powerConversion.rawValue)
         level = aDecoder.decodeInteger(forKey: Key.level.rawValue)
         levelProgress = aDecoder.decodeDouble(forKey: Key.levelProgress.rawValue)
-        lightnings = aDecoder.decodeInteger(forKey: Key.lightnings.rawValue)
+        //lightnings = aDecoder.decodeInteger(forKey: Key.lightnings.rawValue)
+        lightnings = 1800
         incomeMult = aDecoder.containsValue(forKey: Key.incomeMult.rawValue) ? aDecoder.decodeDouble(forKey: Key.incomeMult.rawValue) : 1
         numberOfRestarts = aDecoder.containsValue(forKey: Key.numberOfRestarts.rawValue) ? aDecoder.decodeInteger(forKey: Key.numberOfRestarts.rawValue) : 0
         maxLevel = aDecoder.containsValue(forKey: Key.maxLevel.rawValue) ? aDecoder.decodeInteger(forKey: Key.maxLevel.rawValue) : 1
@@ -130,6 +163,8 @@ class Model: NSObject, NSCoding {
         battery = aDecoder.decodeObject(forKey: Key.battery.rawValue) as! Battery
         cardStore = aDecoder.decodeObject(forKey: Key.cardStore.rawValue) as! ScratchCardStore
         upgradeStore = aDecoder.decodeObject(forKey: Key.upgradeStore.rawValue) as? UpgradeStore ?? UpgradeStore()
+        let dict = [0: totalMoney]
+        planetTotalMoney = aDecoder.decodeObject(forKey: Key.upgradeStore.rawValue) as? [Int: Double] ?? dict
         super.init()
         upgradeStore.income = moneyPerSec
     }
@@ -150,6 +185,7 @@ class Model: NSObject, NSCoding {
         aCoder.encode(maxLevel, forKey: Key.maxLevel.rawValue)
         aCoder.encode(totalMoney, forKey: Key.totalMoney.rawValue)
         aCoder.encode(upgradeStore, forKey: Key.upgradeStore.rawValue)
+        aCoder.encode(planetTotalMoney, forKey: Key.planetTotalMoney.rawValue)
     }
     
     
@@ -157,6 +193,9 @@ class Model: NSObject, NSCoding {
         decayWindSpeed()
         addMoney(amount: moneyPerSec/10)
         levelProgress += moneyPerSec/10
+        let time = Date().timeIntervalSince(battery.startTime)
+        battery.startTime = Date()
+        battery.addCharge(value: battery.chargingPower*time)
     }
     
     func decayWindSpeed() {
@@ -167,7 +206,7 @@ class Model: NSObject, NSCoding {
     }
     
     func tapped() {
-        windMultiplier += 1
+        windMultiplier += 0.95
     }
     
 }

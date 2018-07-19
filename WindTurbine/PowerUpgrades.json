@@ -19,65 +19,65 @@
                 },{
                 "emoji" : "💽",
                 "name" : "Update software",
-                "baseCost" : 125,
-                "baseValue" : 0.36,
+                "baseCost" : 135,
+                "baseValue" : 0.35,
                 "costMult" : 1.3,
                 "valueMult" : 2,
                 "type" : "power"
                 },{
                 "emoji" : "🛠️",
                 "name" : "Repair turbine",
-                "baseCost" : 1020,
-                "baseValue" : 2.16,
+                "baseCost" : 1220,
+                "baseValue" : 2.06,
                 "costMult" : 1.3,
                 "valueMult" : 2,
                 "type" : "power"
                 },{
                 "emoji" : "🌡️",
                 "name" : "Increase cooling",
-                "baseCost" : 8100,
-                "baseValue" : 13,
+                "baseCost" : 8600,
+                "baseValue" : 12,
                 "costMult" : 1.3,
                 "valueMult" : 2,
                 "type" : "power"
                 },{
                 "emoji" : "⚙️",
                 "name" : "Oil the gears",
-                "baseCost" : 65500,
-                "baseValue" : 77,
+                "baseCost" : 69500,
+                "baseValue" : 75,
                 "costMult" : 1.3,
                 "valueMult" : 2,
                 "type" : "power"
                 },{
                 "emoji" : "📐",
                 "name" : "Modify the blades",
-                "baseCost" : 525150,
-                "baseValue" : 460,
+                "baseCost" : 575150,
+                "baseValue" : 450,
                 "costMult" : 1.3,
                 "valueMult" : 2,
                 "type" : "power"
                 },{
                 "emoji" : "⏫",
                 "name" : "Increase hight",
-                "baseCost" : 4220000,
-                "baseValue" : 2800,
+                "baseCost" : 5220000,
+                "baseValue" : 2700,
                 "costMult" : 1.3,
                 "valueMult" : 2,
                 "type" : "power"
                 },{
                 "emoji" : "⚖️",
                 "name" : "Use lighter material",
-                "baseCost" : 34350000,
-                "baseValue" : 16800,
-                "costMult" : 1.3,
+                "baseCost" : 44350000,
+                "baseValue" : 15800,
+                "costMult" : 1.4,
                 "valueMult" : 2,
                 "type" : "power"
                 },{
                 "emoji" : "🔌",
                 "name" : "Upgrade power lines",
-                "baseCost" : 271250000,
+                "baseCost" : 351250000,
                 "baseValue" : 100000,
-                "costMult" : 1.3,
+                "costMult" : 1.5,
                 "valueMult" : 2,
                 "type" : "power"
                 }

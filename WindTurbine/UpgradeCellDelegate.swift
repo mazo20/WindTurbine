@@ -26,7 +26,7 @@ class UpgradeCellDelegate: NSObject, UpgradeViewCellDelegate {
     func buyButtonPressed(cell: UpgradeViewCell) {
         guard let model = model else { return }
         StoreReviewHelper.checkAndAskForReview()
-        if let data = cell.data, let upgrade = model.upgradeStore.upgradesHashDict[data.hashValue],
+        if let data = cell.data, let hashValue = data.hashValue, let upgrade = model.upgradeStore.upgradesHashDict[hashValue],
             upgrade.cost < model.money {
             model.subtractMoney(amount: upgrade.cost)
             switch upgrade.type {
@@ -42,7 +42,7 @@ class UpgradeCellDelegate: NSObject, UpgradeViewCellDelegate {
                 model.battery.capacity += upgrade.value * 3600
             }
             upgrade.level += 1
-        } else if let data = cell.data, let purchase = model.upgradeStore.extraUpgradesHashDict[data.hashValue]{
+        } else if let data = cell.data, let hashValue = data.hashValue, let purchase = model.upgradeStore.extraUpgradesHashDict[hashValue]{
             switch (purchase.priceType, purchase.rewardType) {
             case (.lightning, _):
                 guard purchase.price < model.lightnings else {

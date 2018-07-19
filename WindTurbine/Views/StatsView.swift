@@ -30,6 +30,17 @@ class StatsView: UIView {
         Bundle.main.loadNibNamed("StatsView", owner: self, options: nil)
         self.addSubview(contentView)
         contentView.frame = self.bounds
+        //balanceLabel.backgroundColor = ColorScheme.labelColor
+        //moneyPerSecLabel.backgroundColor = ColorScheme.labelColor
+        //powerLabel.backgroundColor = ColorScheme.labelColor
+        //windSpeedLabel.backgroundColor = ColorScheme.labelColor
+    }
+    
+    override func tintColorDidChange() {
+        balanceLabel.backgroundColor = tintColor
+        moneyPerSecLabel.backgroundColor = tintColor
+        powerLabel.backgroundColor = tintColor
+        windSpeedLabel.backgroundColor = tintColor
     }
     
     override func layoutSubviews() {

@@ -13,6 +13,7 @@ import StoreKit
 class GameViewController: UIViewController {
     
     @IBOutlet var statsView: StatsView!
+    @IBOutlet var topBarView: UIView!
     @IBOutlet var lightningCountView: UIView!
     @IBOutlet var levelView: UIView!
     @IBOutlet var levelLabel: UILabel!
@@ -33,11 +34,14 @@ class GameViewController: UIViewController {
     @IBOutlet var tabButton3: UIButton!
     @IBOutlet var tabButton4: UIButton!
     
+    var tabButtons = [UIButton]()
+    
     var bonusAdButton: ExtraButton?
     var gameCenterButton: ExtraButton?
     
     var storeView: LightningStoreView?
     var popUpView: PopUpView?
+    var turbineView: TurbineView?
     var darkBackgroundView: UIView?
     
     var purchaseIndex: Int?
@@ -50,6 +54,7 @@ class GameViewController: UIViewController {
     var currentRewardAd = RewardAd.none
     var currentOnboardingScene = OnboardingType.unknown
     var bonusAdDate = Date()
+    var sessionStartTime = Date()
     
     var gcEnabled = false // Stores if the user has Game Center enabled
     
@@ -64,18 +69,31 @@ class GameViewController: UIViewController {
     
     @IBAction func upgradeViewButton(_ sender: UIButton) {
         segmentedControlView.isHidden = sender.tag == 0 ? false : true
-        let title = ["Buy upgrades to earn more", "Battery charges when you aren't playing", "Test your luck with scratch cards", "Menu"]
+        let title = ["Buy upgrades to earn more", "Battery charges when you aren't playing", "Test your luck with scratch cards", "Menu - extra upgrades"]
         tableTitle.text = title[sender.tag]
         tableView.tag = sender.tag
         
         tableView.reloadDataWithAutoSizingCellWorkAround()
         upgradeView.show()
         
+        //Set sender button to theme color and other to white
         setTabButtonsWhite()
-        sender.setImage(UIImage(imageLiteralResourceName: "TabButton\(sender.tag+1)Yellow"), for: .normal)
+        sender.tintColor = ColorScheme.buttonColor
         
         if [0, 1, 2].contains(sender.tag) {
            shouldShowOnboardingViewFor(value: sender.tag)
+        }
+        switch sender.tag {
+        case 0:
+            Analytics.logEvent("upgrades_view", parameters: nil)
+        case 1:
+            Analytics.logEvent("battery_view", parameters: nil)
+        case 2:
+            Analytics.logEvent("cards_view", parameters: nil)
+        case 3:
+            Analytics.logEvent("menu_view", parameters: nil)
+        default:
+            print("Error: button tag too big")
         }
     }
     
@@ -87,11 +105,7 @@ class GameViewController: UIViewController {
     }
     
     func setTabButtonsWhite() {
-        tabButton1.setImage(UIImage(imageLiteralResourceName: "TabButton1White"), for: .normal)
-        tabButton2.setImage(UIImage(imageLiteralResourceName: "TabButton2White"), for: .normal)
-        tabButton3.setImage(UIImage(imageLiteralResourceName: "TabButton3White"), for: .normal)
-        tabButton4.setImage(UIImage(imageLiteralResourceName: "TabButton4White"), for: .normal)
-        
+        tabButtons.forEach { $0.tintColor = .white }
     }
     
     @IBAction func changeUpgradeView(_ sender: UISegmentedControl) {
@@ -104,7 +118,6 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func levelUpButton(_ sender: Any) {
-        levelUp()
         showLevelUpView()
     }
     
@@ -135,13 +148,16 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //TESTING GITHUB FOR WOJTEK
+        print("blablaalba")
+        
         let nibNames = ["UpgradeViewCell", "BatteryLevelCell", "ButtonCell", "ScratchCardCell", "ScratchCardsMenuCell", "ScratchCardBuyCell"]
         for nibName in nibNames {
             let nib = UINib(nibName: nibName, bundle: nil)
             tableView.register(nib, forCellReuseIdentifier: nibName)
         }
         
-        //nibNames.map { tableView.register(UINib(nibName: $0, bundle: nil), forCellReuseIdentifier: $0)}
+        setUpViewsColor()
         
         let updateModelTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(update), userInfo: nil, repeats: true)
         let updateTablesTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(updateTables), userInfo: nil, repeats: true)
@@ -156,6 +172,7 @@ class GameViewController: UIViewController {
             if type == .purchased {
                 if let index = strongSelf.purchaseIndex {
                     strongSelf.model.lightnings += IAPHandler.shared.PURCHASE_VALUES[index]
+                    Analytics.logEvent("in-app-purchase", parameters: ["purchase_index": index+1])
                 }
                 
                 let alertView = UIAlertController(title: "", message: type.message(), preferredStyle: .alert)
@@ -164,6 +181,7 @@ class GameViewController: UIViewController {
                 })
                 alertView.addAction(action)
                 strongSelf.present(alertView, animated: true, completion: nil)
+                
                 
             }
             strongSelf.purchaseIndex = nil
@@ -174,18 +192,38 @@ class GameViewController: UIViewController {
         GADRewardBasedVideoAd.sharedInstance().delegate = self
         loadRewardVideoAd()
         upgradeView.hide()
+        
+        print(model.levelGoal)
+    }
+    
+    func setUpViewsColor() {
+        tabButtons = [tabButton1, tabButton2, tabButton3, tabButton4]
+        setTabButtonsWhite()
+        levelUpButton.setTitleColor(ColorScheme.buttonColor, for: .normal)
+        levelProgressView.progressTintColor = ColorScheme.buttonColor
+        segmentedUpgradeControl.tintColor = ColorScheme.buttonColor
+        closeUpgradeViewButton.tintColor = ColorScheme.buttonColor
+        statsView.backgroundColor = ColorScheme.backgroundColor
+        topBarView.backgroundColor = ColorScheme.backgroundColor
+        turbineView?.backHill?.tintColor = ColorScheme.backHillColor
+        turbineView?.frontHill?.tintColor = ColorScheme.frontHillColor
+        cloudView.backgroundColor = ColorScheme.backgroundColor
+        statsView.tintColor = ColorScheme.labelColor
     }
     
     override func viewDidLayoutSubviews() {
         lightningCountView.roundCorners(.bottomLeft, radius: 8)
         levelView.roundCorners(.bottomRight, radius: 8)
         levelUpButton.roundCorners(.allCorners, radius: 8)
+        levelProgressView.roundCorners(.allCorners, radius: 2)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if !didAddBackground {
+            turbineView = TurbineView(frame: windTurbineView.frame)
+            turbineView!.model = model
+            windTurbineView.addSubview(turbineView!)
             initCloudView(cloudView)
-            initTurbineView()
             didAddBackground = true
             
             shouldShowOnboardingViewFor(value: 3) //main1 onboarding
@@ -223,7 +261,7 @@ class GameViewController: UIViewController {
     
     
     func updateProgressBar() {
-        levelProgressView.setProgress(Float(model.levelProgress/model.levelGoal), animated: true)
+        levelProgressView.setProgress(Float(model.levelProgress/model.levelGoal), animated: false)
         if levelProgressView.progress == 1 {
             levelProgressView.hide()
             levelUpButton.show()
@@ -238,21 +276,33 @@ class GameViewController: UIViewController {
     }
     
     func levelUp() {
-        model.level += 1
-        model.levelProgress = 0
-        model.lightnings += 1
+        model.levelUp()
         levelUpButton.hide()
         levelProgressView.show()
         StoreReviewHelper.incrementLevelUpCount()
     }
     
     func dischargeBattery(withMultiplier x: Double) {
-        model.addMoney(amount: battery.discharge() * model.powerPrice * x)
+        let percent = battery.chargePercentage
+        let money = battery.discharge() * sqrt(model.powerPrice) * x
+        print(money)
+        model.addMoney(amount: money)
+        let timeSinceSessionStart = Date().timeIntervalSince(sessionStartTime)
+        Analytics.logEvent("discharge_battery", parameters: ["time_since_start": "\(timeSinceSessionStart/60)m",
+                                                             "doubled_by_ad": x == 2 ? "yes" : "no",
+                                                             "battery_percentage": percent,
+                                                             "discharge_value": "$\(Int(money))",
+                                                             "level": model.level])
         tableView.reloadSections([0], with: .none)
     }
     
     func collectLevelUpReward(withMultiplier x: Double) {
         model.addMoney(amount: levelUpPrize * x)
+        Analytics.logEvent("level_up", parameters: ["level": model.level,
+                                                    "doubled_by_ad": x == 2 ? "yes" : "no",
+                                                    "income": model.moneyPerSec,
+                                                    "income_multiplier" : model.incomeMult])
+        levelUp()
         hidePopUp()
     }
     

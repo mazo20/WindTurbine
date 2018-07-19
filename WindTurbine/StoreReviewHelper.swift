@@ -27,7 +27,7 @@ struct StoreReviewHelper {
         
         
         switch (levelUpCount, appOpenCount) {
-        case (10, _) where appOpenCount > 10:
+        case (8, _) where appOpenCount > 10:
             StoreReviewHelper().requestReview()
             incrementLevelUpCount()//This way it won't show the request again until next milestone
         case _ where levelUpCount%20 == 0 || appOpenCount%100 == 0:

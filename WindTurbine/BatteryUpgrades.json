@@ -5,8 +5,8 @@
                 "name" : "Charging power",
                 "baseCost" : 10,
                 "baseValue" : 0.02,
-                "costMult" : 3.3,
-                "valueMult" : 1.9,
+                "costMult" : 3.4,
+                "valueMult" : 1.85,
                 "type" : "charging"
                 },
                 {
@@ -14,8 +14,8 @@
                 "name" : "Capacity",
                 "baseCost" : 10,
                 "baseValue" : 0.04,
-                "costMult" : 3.4,
-                "valueMult" : 2.1,
+                "costMult" : 3.5,
+                "valueMult" : 2.07,
                 "type" : "capacity"
                 }
   ]

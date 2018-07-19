@@ -3,12 +3,12 @@
                      {
                      "priceType" : "date",
                      "rewardType" : "card",
-                     "value" : 5,
+                     "value" : 7,
                      "price" : 1,
                     },{
                      "priceType" : "ad",
                      "rewardType" : "card",
-                     "value" : 7,
+                     "value" : 5,
                      "price" : 1
                      },{
                      "priceType" : "lightning",
@@ -30,19 +30,37 @@
                      "rewardType" : "income",
                      "emoji" : "🤑",
                      "value" : 2,
-                     "price" : 27
+                     "price" : 33
                      },{
                      "priceType" : "lightning",
                      "rewardType" : "balance",
                      "emoji" : "💵",
-                     "value" : 80000,
+                     "value" : 70000,
                      "price" : 150
                      },{
                      "priceType" : "lightning",
                      "rewardType" : "balance",
                      "emoji" : "💰",
-                     "value" : 14000000,
+                     "value" : 12000000,
                      "price" : 810
+                     },{
+                     "priceType" : "balance",
+                     "rewardType" : "restart",
+                     "emoji" : "🌍",
+                     "value" : 0,
+                     "price" : 1000000000
+                     },{
+                     "priceType" : "balance",
+                     "rewardType" : "restart",
+                     "emoji" : "🌍",
+                     "value" : 0,
+                     "price" : 50000000000
+                     },{
+                     "priceType" : "balance",
+                     "rewardType" : "restart",
+                     "emoji" : "🌍",
+                     "value" : 0,
+                     "price" : 10000
                      }
                      
   ]

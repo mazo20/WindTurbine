@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,17 +16,17 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="WindTurbine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qsU-g4-46g">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mLl-eB-EhK">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIj-cg-L6j">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="UTc-MB-Ckn">
                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
@@ -51,7 +51,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="hGi-EP-IFt">
-                                                        <rect key="frame" x="315" y="0.0" width="60" height="40"/>
+                                                        <rect key="frame" x="260" y="0.0" width="60" height="40"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKz-Xh-nMR">
                                                                 <rect key="frame" x="11" y="10" width="38" height="20"/>
@@ -117,7 +117,7 @@
                                                                 <color key="trackTintColor" white="0.9016559168144509" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                        <real key="value" value="4"/>
+                                                                        <real key="value" value="0.0"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </progressView>
@@ -136,7 +136,7 @@
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.39607843139999999" green="0.81568627449999997" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="IWh-CY-jEW" firstAttribute="top" secondItem="Puh-fG-S46" secondAttribute="top" id="LON-sz-RVO"/>
                                                             <constraint firstAttribute="trailing" secondItem="uvN-4D-JdK" secondAttribute="trailing" id="Pbf-hd-Uhe"/>
@@ -179,7 +179,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqq-zg-tG0" customClass="StatsView" customModule="WindTurbine" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="40" width="375" height="100"/>
+                                                <rect key="frame" x="0.0" y="40" width="320" height="100"/>
                                                 <color key="backgroundColor" red="0.39607843139999999" green="0.81568627449999997" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="oQQ-yF-skS">
@@ -190,10 +190,10 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="uVD-TY-UGT">
-                                        <rect key="frame" x="0.0" y="140" width="375" height="457"/>
+                                        <rect key="frame" x="0.0" y="140" width="320" height="358"/>
                                         <subviews>
                                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n3M-IE-T8c">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="457"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="358"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <gestureRecognizers/>
                                                 <connections>
@@ -201,16 +201,16 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpI-3Q-nlX">
-                                                <rect key="frame" x="0.0" y="8" width="375" height="449"/>
+                                                <rect key="frame" x="0.0" y="8" width="320" height="350"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Lgg-qv-JQ8">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="449"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1R-U0-Q8s">
-                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cyd-aN-2Em">
-                                                                        <rect key="frame" x="331" y="0.0" width="44" height="44"/>
+                                                                        <rect key="frame" x="276" y="0.0" width="44" height="44"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="Cyd-aN-2Em" secondAttribute="height" multiplier="1:1" id="TRx-vk-Coc"/>
                                                                         </constraints>
@@ -221,7 +221,7 @@
                                                                             <action selector="closeUpgradeView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wxf-fl-x9y"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Buy upgrades to earn more" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdQ-Fd-Q5P">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Buy upgrades to earn more" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QdQ-Fd-Q5P">
                                                                         <rect key="frame" x="16" y="0.0" width="208" height="44"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -246,10 +246,10 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4dY-dP-doT">
-                                                                <rect key="frame" x="0.0" y="46" width="375" height="32"/>
+                                                                <rect key="frame" x="0.0" y="46" width="320" height="32"/>
                                                                 <subviews>
                                                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QC3-GZ-tJm">
-                                                                        <rect key="frame" x="8" y="0.0" width="359" height="29"/>
+                                                                        <rect key="frame" x="8" y="0.0" width="304" height="29"/>
                                                                         <segments>
                                                                             <segment title="Wind"/>
                                                                             <segment title="Power"/>
@@ -274,7 +274,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="bMb-sV-qYL">
-                                                                <rect key="frame" x="0.0" y="80" width="375" height="369"/>
+                                                                <rect key="frame" x="0.0" y="80" width="320" height="270"/>
                                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                                 <connections>
                                                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="ZoG-Zw-Xmw"/>
@@ -306,13 +306,13 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ISq-gI-VsG">
-                                        <rect key="frame" x="0.0" y="597" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="498" width="320" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kGc-gN-ygP">
-                                                <rect key="frame" x="0.0" y="0.0" width="94" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="upgradeBar0" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4d-I6-pgm">
-                                                        <rect key="frame" x="27" y="5" width="40" height="40"/>
+                                                        <rect key="frame" x="20" y="5" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="RvU-TX-XAp">
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="60"/>
@@ -332,13 +332,14 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jjp-9W-eUf">
-                                                <rect key="frame" x="94" y="0.0" width="93.5" height="50"/>
+                                                <rect key="frame" x="80" y="0.0" width="80" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" restorationIdentifier="upgradeBar1" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuK-tZ-uFP">
-                                                        <rect key="frame" x="26.5" y="5" width="40" height="40"/>
+                                                        <rect key="frame" x="20" y="5" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="fuK-tZ-uFP" secondAttribute="height" multiplier="1:1" id="rap-UL-7fn"/>
                                                         </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button" image="TabButton2White"/>
                                                         <connections>
                                                             <action selector="upgradeViewButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hOG-dG-tOQ"/>
@@ -352,13 +353,14 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eum-D2-Pps">
-                                                <rect key="frame" x="187.5" y="0.0" width="94" height="50"/>
+                                                <rect key="frame" x="160" y="0.0" width="80" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" restorationIdentifier="upgradeBar2" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c13-uL-QLz">
-                                                        <rect key="frame" x="27" y="5" width="40" height="40"/>
+                                                        <rect key="frame" x="20" y="5" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="c13-uL-QLz" secondAttribute="height" multiplier="1:1" id="1aX-Qd-Ivq"/>
                                                         </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button" image="TabButton3White"/>
                                                         <connections>
                                                             <action selector="upgradeViewButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nrs-SU-XUe"/>
@@ -372,10 +374,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RXL-yG-4fU">
-                                                <rect key="frame" x="281.5" y="0.0" width="93.5" height="50"/>
+                                                <rect key="frame" x="240" y="0.0" width="80" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" restorationIdentifier="upgradeBar3" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Gd-wA-uU2">
-                                                        <rect key="frame" x="26.5" y="5" width="40" height="40"/>
+                                                        <rect key="frame" x="20" y="5" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="8Gd-wA-uU2" secondAttribute="height" multiplier="1:1" id="7Pv-34-DRv"/>
                                                         </constraints>
@@ -431,6 +433,7 @@
                         <outlet property="tabButton4" destination="8Gd-wA-uU2" id="IlP-uQ-DhM"/>
                         <outlet property="tableTitle" destination="QdQ-Fd-Q5P" id="HiH-D9-f8j"/>
                         <outlet property="tableView" destination="bMb-sV-qYL" id="hLt-MK-bgH"/>
+                        <outlet property="topBarView" destination="zIj-cg-L6j" id="eia-fZ-csY"/>
                         <outlet property="upgradeView" destination="cpI-3Q-nlX" id="hG6-Z9-LLK"/>
                         <outlet property="windTurbineView" destination="n3M-IE-T8c" id="70D-Am-FfJ"/>
                     </connections>

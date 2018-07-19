@@ -23,6 +23,7 @@ class ExtraButton: UIButton {
         
         self.roundCorners(.allCorners, radius: frame.size.height/4)
         self.backgroundColor = #colorLiteral(red: 0.3137254902, green: 0.3176470588, blue: 0.3098039216, alpha: 1)
+        self.tintColor = .white
         clipsToBounds = true
         let inset = frame.size.height/8
         imageEdgeInsets = UIEdgeInsetsMake(inset, inset, inset, inset)

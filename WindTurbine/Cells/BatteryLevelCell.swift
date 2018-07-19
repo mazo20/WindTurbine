@@ -11,6 +11,7 @@ import UIKit
 class BatteryLevelCell: UITableViewCell {
     
     @IBOutlet var batteryImageView: UIImageView!
+    @IBOutlet var batteryFillImageView: UIImageView!
     @IBOutlet var chargeLabel: UILabel!
     @IBOutlet var chargingPowerLabel: UILabel!
     @IBOutlet var capacityLabel: UILabel!
@@ -34,16 +35,18 @@ class BatteryLevelCell: UITableViewCell {
         chargeLabel.text = "\(battery.chargePercentage)% ($\(currentAmount.numberFormatter(ofType: .balance)))"
         chargingPowerLabel.text = battery.chargingPower.valueFormatter(ofType: .power)
         capacityLabel.text = (battery.capacity/3600).valueFormatter(ofType: .capacity) + " (\(maxAmount.valueFormatter(ofType: .balance)))"
+        batteryImageView.image = #imageLiteral(resourceName: "Battery0")
+        batteryFillImageView.tintColor = ColorScheme.labelColor
         if battery.chargePercentage < 20 {
-            batteryImageView.image = #imageLiteral(resourceName: "Battery0")
+            batteryFillImageView.image = nil
         } else if battery.chargePercentage < 40 {
-            batteryImageView.image = #imageLiteral(resourceName: "Battery25")
+            batteryFillImageView.image = #imageLiteral(resourceName: "BatteryFill25")
         } else if battery.chargePercentage < 60 {
-            batteryImageView.image = #imageLiteral(resourceName: "Battery50")
+            batteryFillImageView.image = #imageLiteral(resourceName: "BatteryFill50")
         } else if battery.chargePercentage < 80 {
-            batteryImageView.image = #imageLiteral(resourceName: "Battery75")
+            batteryFillImageView.image = #imageLiteral(resourceName: "BatteryFill75")
         } else {
-            batteryImageView.image = #imageLiteral(resourceName: "Battery100")
+            batteryFillImageView.image = #imageLiteral(resourceName: "BatteryFill100")
         }
     }
     

@@ -16,7 +16,7 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
         switch tableView.tag {
         case 0: return 1
         case 1, 2: return 2
-        case 3: return model.shouldAvailableRestart() ? 3 : 2
+        case 3: return 3
         default: return 0
         }
     }
@@ -33,9 +33,15 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
             let rows = [2, model.upgradeStore.purchaseCards.count]
             return rows[section]
         default:
-            let rows = [model.upgradeStore.menuUpgrades.count, 1, 1]
-            return rows[section]
-            
+            if section == 0 { return model.upgradeStore.menuUpgrades.count }
+            else if section == 1 {
+                var rows = 0
+                if model.shouldAvailableRestart() { rows += 1}
+                if GameLevel.canMoveToNewPlanet() { rows += 1}
+                return rows
+            } else {
+                return 1
+            }
         }
     }
     
@@ -62,7 +68,10 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if model.shouldAvailableRestart() && tableView.tag == 3 && indexPath.section == 1 {
+        if model.shouldAvailableRestart() && tableView.tag == 3 && indexPath.section == 1 && indexPath.row == 1 {
+            showRestartGameView()
+        }
+        if model.shouldAvailableRestart() && tableView.tag == 3 && indexPath.section == 1 && indexPath.row == 0 && !GameLevel.canMoveToNewPlanet() {
             showRestartGameView()
         }
     }
@@ -75,6 +84,12 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.delegate = self
         cell.data = UpgradeCellData(upgrade: upgrade)
+        if indexPath.row > 0 {
+            let previousUpgrade = model.upgradeStore.upgradesWithType(type[tag])[indexPath.row-1]
+            if previousUpgrade.level == 1 {
+                cell.data = UpgradeCellData()
+            }
+        }
         cell.buyButton.tag = indexPath.row
         cell.buyButton.backgroundColor = model.money > upgrade.cost ? #colorLiteral(red: 0.1457930078, green: 0.764910063, blue: 0.2355007071, alpha: 1) : #colorLiteral(red: 0.3137254902, green: 0.3176470588, blue: 0.3098039216, alpha: 1)
         return cell
@@ -127,38 +142,46 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UpgradeViewCell", for: indexPath) as! UpgradeViewCell
         cell.data = UpgradeCellData(upgrade: model.upgradeStore.purchaseCards[indexPath.row])
         cell.buyButton.tag = indexPath.row
-        cell.buyButton.backgroundColor = #colorLiteral(red: 0.3137254902, green: 0.3176470588, blue: 0.3098039216, alpha: 1)
+        cell.buyButton.backgroundColor = ColorScheme.menuColor
         cell.delegate = self
         return cell
     }
     
     func setupSettingsView(indexPath: IndexPath) -> UITableViewCell {
-        switch (indexPath.section, indexPath.row, model.shouldAvailableRestart()) {
-        case (0, _, _):
+        switch (indexPath.section, indexPath.row) {
+        case (0, _):
             let cell = tableView.dequeueReusableCell(withIdentifier: "UpgradeViewCell", for: indexPath) as! UpgradeViewCell
             cell.data = UpgradeCellData(upgrade: model.upgradeStore.menuUpgrades[indexPath.row])
-            cell.buyButton.tag = indexPath.row
-            cell.buyButton.backgroundColor = #colorLiteral(red: 0.3137254902, green: 0.3176470588, blue: 0.3098039216, alpha: 1)
+            cell.selectionStyle = .none
+            cell.buyButton.backgroundColor = ColorScheme.menuColor
             cell.delegate = self
             return cell
-        case (1, _, false), (2, _, true):
-            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-            cell.textLabel?.text = "Developed by Maciej Kowalski"
-            cell.detailTextLabel?.text = "Contact at maciej.kowalski.developer@gmail.com"
+        case (1, 0):
+            if !GameLevel.canMoveToNewPlanet() { fallthrough }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "UpgradeViewCell", for: indexPath) as! UpgradeViewCell
             cell.selectionStyle = .none
+            let upgrades = model.upgradeStore.extraUpgrades.filter {$0.rewardType == .restart}
+            let upgrade = upgrades[GameLevel.getPlanet().rawValue]
+            cell.data = UpgradeCellData(upgrade: upgrade)
+            cell.buyButton.backgroundColor = ColorScheme.menuColor
+            cell.delegate = self
             return cell
-        case (1,_, true):
+        case (1, 1):
             let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
             cell.textLabel?.text = "Increase your income for free"
             cell.detailTextLabel?.text = "You have to sacrifice some things, however"
             cell.accessoryType = .disclosureIndicator
             cell.selectionStyle = .none
             return cell
+        case (2, 0):
+            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+            cell.textLabel?.text = "Developed by Maciej Kowalski"
+            cell.detailTextLabel?.text = "Contact at maciej.kowalski.developer@gmail.com"
+            cell.selectionStyle = .none
+            return cell
         default:
             return UITableViewCell()
         }
-        
-        
     }
     
     @objc func dischargeBatteryButton(sender: UIButton) {
@@ -204,7 +227,7 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
 extension GameViewController: UpgradeViewCellDelegate {
     func buyButtonPressed(cell: UpgradeViewCell) {
         StoreReviewHelper.checkAndAskForReview()
-        if let data = cell.data, let upgrade = model.upgradeStore.upgradesHashDict[data.hashValue],
+        if let data = cell.data, let hashValue = data.hashValue, let upgrade = model.upgradeStore.upgradesHashDict[hashValue],
             upgrade.cost < model.money {
             model.subtractMoney(amount: upgrade.cost)
             switch upgrade.type {
@@ -220,20 +243,20 @@ extension GameViewController: UpgradeViewCellDelegate {
                 battery.capacity += upgrade.value * 3600
             }
             upgrade.level += 1
-        } else if let data = cell.data, let purchase = model.upgradeStore.extraUpgradesHashDict[data.hashValue]{
+        } else if let data = cell.data, let hashValue = data.hashValue, let purchase = model.upgradeStore.extraUpgradesHashDict[hashValue]{
             switch (purchase.priceType, purchase.rewardType) {
             case (.lightning, .card):
                 guard purchase.price < model.lightnings else { showStoreView(); break }
-                model.lightnings -= purchase.price
+                model.spendLightnings(amount: purchase.price)
                 cardStore.addCards(purchase.rewardValue)
             case (.lightning, .balance):
                 guard purchase.price < model.lightnings else { showStoreView(); break }
-                model.lightnings -= purchase.price
+                model.spendLightnings(amount: purchase.price)
                 let income = purchase.income ?? 1
                 model.addMoney(amount: Double(purchase.rewardValue) * income)
             case (.lightning, .income):
                 guard purchase.price < model.lightnings else { showStoreView(); break }
-                model.lightnings -= purchase.price
+                model.spendLightnings(amount: purchase.price)
                 model.incomeMult *= Double(purchase.rewardValue)
             case (.date, .card):
                 let date = UserDefaults.standard.value(forKey: "freeCardsDate") as? Date ?? Date()
@@ -249,6 +272,14 @@ extension GameViewController: UpgradeViewCellDelegate {
                     presentRewardVideoAd(for: .addCards)
                 } else {
                     cell.buyButton.shake()
+                }
+            case (.balance, .restart):
+                guard Double(purchase.price) < model.money else { cell.buyButton.shake() ; return }
+                model.subtractMoney(amount: Double(purchase.price))
+                if GameLevel.moveToNewPlanet() {
+                    model.newPlanet()
+                    setUpViewsColor()
+                    closeUpgradeView(cell.buyButton)
                 }
             default:
                 print("Unknown purchase")

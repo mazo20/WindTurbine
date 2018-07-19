@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,11 +8,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopUpView" customModule="WindTurbine" customModuleProvider="target">
             <connections>
+                <outlet property="adButton" destination="I4s-S5-10D" id="V2k-Vg-Q5a"/>
                 <outlet property="contentView" destination="Aax-6S-2i3" id="bFU-xZ-Z4j"/>
                 <outlet property="descriptionLabel" destination="vXg-zW-Zsy" id="xTe-CI-xId"/>
-                <outlet property="greyButton" destination="8cc-vA-iRf" id="2HY-Ze-1FP"/>
+                <outlet property="normalButton" destination="8cc-vA-iRf" id="2HY-Ze-1FP"/>
                 <outlet property="titleLabel" destination="CQN-g0-U9Z" id="uN0-JJ-FY8"/>
-                <outlet property="yellowButton" destination="I4s-S5-10D" id="V2k-Vg-Q5a"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

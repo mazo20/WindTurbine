@@ -23,8 +23,8 @@ class PopUpView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
-    @IBOutlet var greyButton: UIButton!
-    @IBOutlet var yellowButton: UIButton!
+    @IBOutlet var normalButton: UIButton!
+    @IBOutlet var adButton: UIButton!
     
     var type: PopUpViewType = .none
     
@@ -47,8 +47,12 @@ class PopUpView: UIView {
         self.addSubview(contentView)
         contentView.frame = self.bounds
         contentView.layoutSubviews()
-        greyButton.tag = 1
-        yellowButton.tag = 2
+        normalButton.tag = 1
+        normalButton.backgroundColor = ColorScheme.menuColor
+        normalButton.setTitleColor(.white, for: .normal)
+        adButton.tag = 2
+        adButton.backgroundColor = ColorScheme.buttonColor
+        adButton.setTitleColor(.black, for: .normal)
     }
     
 }

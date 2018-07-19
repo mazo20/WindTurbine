@@ -9,11 +9,11 @@
 import UIKit
 
 enum UpgradePriceType: String {
-    case ad, lightning, date, unknown
+    case ad, lightning, date, balance, unknown
 }
 
 enum RewardType: String {
-    case card, income, wind, balance
+    case card, income, wind, balance, restart
 }
 
 class ExtraUpgrade: NSObject {
